@@ -1,0 +1,198 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/Add-schedule.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    
+    <body>
+        <%- include('header',{Profile:ProfileName,mobile:ProfileMobile,pic:dp}) %>
+        <section id="container">
+          
+            <div id="dashboard">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li><a href="/user_profile">
+                        <div>
+                            <i class="fas fa-hospital"></i>Profile
+                        </div>
+                    </a></li>
+                    <li><a href="/Appointment">
+                        <div>
+                            <i class="fas fa-user-md"></i>Appointments
+                        </div>
+                    </a></li>
+                    <li><a href="/schedule">
+                        <div>
+                            <i class="fas fa-user-md"></i>Edit Schedules
+                        </div>
+                    </a></li>
+                    <li><a href="/report">
+                        <div>
+                            <i class="fas fa-file-word"></i>Medical Reports
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="account">
+                 <div id="user-schedule">
+                    <form action="/Add_schedule" method="POST" id="schedule">
+                       <div id="day">
+                           <h2><%= dayselected %></h2>
+                       </div>
+                       <div id="timer">
+                              <label for=""><%= hospital %></label>
+                              <p><%= starttime%>-<%= endtime %></p>
+                       </div>
+                       <div id="buttons">
+                        <button type="submit" zz onclick="myalert(this)" id="alert1"><a href="#">Edit slots</a></button>
+                        <button type="submit"><a href="/schedule">Remove Slots</a></button>
+                        <button> <a href="/Add_schedule?viewslot=56">View details</a> </button>
+                        <input type="checkbox" onchange="colourchange(this)">
+                       </div>
+                                <div id="aler">
+                                    <div id="cancel">
+                                        <div id="icon"><i class="fas fa-times" onclick="hide(this)"></i></div>
+                                        <input type="time" id="input1" oninput="check(this)">
+                                        <input type="time" id="input2" oninput="check(this)">
+                                        <input type="number" placeholder="Minutes" id="minutes" oninput="intervalcheck(this)">
+                                        <input type="text">
+                                        <button id="add-schedule" onclick="display(this)" disabled>Edit Time</button>
+                                    </div>
+                                </div>
+                    </form>
+                    <div id="details">
+                      <% if(interval!=0){%>
+                        <% for(let i of timearray){%>
+                            <div id="details-slot">
+                                <p><%= i %></p>
+                                <input type="checkbox" onchange="colourchange1(this)">
+                            </div>
+                            <%}%>
+                      <%}%>  
+                      
+                    </div>
+                    
+                 </div>
+                 <div id="dd"></div>
+            </div>
+           
+        </section>
+        <script>
+            function colourchange(x){
+                if(x.checked){
+                    document.getElementById("schedule").style.backgroundColor= "grey";
+                }
+                else{
+                    document.getElementById("schedule").style.backgroundColor= "#eeeded";
+                }
+            }
+            function colourchange1(x){
+                if(x.checked){
+                    document.getElementById("details-slot").style.backgroundColor= "yellow";
+                }
+                else{
+                    document.getElementById("details-slot").style.backgroundColor= "white";
+                }
+            }
+        </script>
+         <script>
+            function myalert(z){
+                document.getElementById("aler").style.display = "flex";
+            }
+        </script>
+        <script>
+            function hide(x){
+                document.getElementById("aler").style.display= 'none';
+            }
+        </script>
+        <script>
+        function intervalcheck(x)
+        {
+            var interval = parseInt(x.value);
+
+            if(interval<15)
+            {
+                document.getElementById("minutes").style.border="1px solid red";
+                document.getElementById("add-schedule").style.cursor = "not-allowed";
+                document.getElementById("add-schedule").disabled = true;
+            }
+            else{
+                document.getElementById("minutes").style.border="1px solid black";
+                console.log(document.getElementById("add-schedule").style.cursor);
+                document.getElementById("add-schedule").disabled = false;
+                document.getElementById("add-schedule").style.cursor = "pointer";
+            }
+        }
+        function check(x){
+            var value1 = document.getElementById("input1").value;
+            var value2 = document.getElementById("input2").value;
+            var starthr=value1[0]+value1[1];
+                starthr=parseInt(starthr);
+                console.log(starthr);
+
+                var endhr= value2[0]+value2[1];
+                endhr= parseInt(endhr);
+                console.log(endhr);
+                var startmin=value1[3]+value1[4];
+                startmin=parseInt(startmin);
+                console.log(startmin);
+                var endmin= value2[3]+value2[4];
+                endmin= parseInt(endmin);
+                console.log(endmin);
+                if(endhr<starthr || endhr==starthr){
+                    document.getElementById("input2").style.border="1px solid red";
+                    document.getElementById("input1").style.border="1px solid red";
+                    document.getElementById("add-schedule").style.cursor = "not-allowed";
+                    document.getElementById("add-schedule").disabled = true;
+                }
+                else{
+                    document.getElementById("input2").style.border="1px solid black";
+                    document.getElementById("input1").style.border="1px solid black";
+                    document.getElementById("add-schedule").style.cursor = "pointer";
+                    document.getElementById("add-schedule").disabled = false;
+                }
+                if((endmin-startmin)<15 && starthe==endhr){
+                    document.getElementById("input2").style.border="1px solid red";
+                    document.getElementById("input1").style.border="1px solid red";
+                    document.getElementById("add-schedule").style.cursor = "not-allowed";
+                    document.getElementById("add-schedule").disabled = true;
+                }
+                else{
+                    document.getElementById("input2").style.border="1px solid black";
+                    document.getElementById("input1").style.border="1px solid black";
+                    document.getElementById("add-schedule").style.cursor = "pointer";
+                    document.getElementById("add-schedule").disabled = false;
+                }
+            }
+    </script>
+     <script>
+        function display(x){
+           document.getElementById("form").style.display="flex";
+           document.getElementById("createschedule").style.display="none";
+           console.log(document.getElementById("input1").value);
+           console.log(document.getElementById("input2").value);
+           console.log(document.getElementById("minutes").value);
+          
+        }
+    </script>
+      <script>
+        function myloader(){
+            setTimeout(function() {
+                var preloader=document.getElementById("loading");
+                preloader.style.display="none";
+            }, 5000);
+        }
+    </script>
+    </body>
+</html>

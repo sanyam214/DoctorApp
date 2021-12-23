@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>
+            Treatment Page
+        </title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/Theme.css">
+        <link rel="stylesheet" href="../css/Dentistry.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+
+        <div id="Hero-dentistry">
+            <div id="Hero-div">
+                <div id="info-div">
+             <h2>Dentistry</h2>
+             <h3>Home/Dentistry</h3>
+            </div>
+            </div>
+        </div>
+
+        <div id="Hero-container">
+        <div id="container">
+            <h1>Vaccination</h1>
+            <div id="vaccination-container"></div>
+            <div id="dentist-info">
+                <h3>About Dentist Department</h3>
+                <p>The vaccination of dentists against various vaccine-preventable infections is the most important 
+                    measure of primary prevention against such diseases which would otherwise prove fatal for 
+                    both dentist and their patients.</p>
+                <ul>
+                    <li>CF-related diabetes(monthly)</li>
+                    <li>Gastrointestinal(monthly)</li>
+                    <li>CF-related liver disease(monthly)</li>
+                    <li>sweat testing(three-times/month)</li>
+                </ul>    
+            </div>
+
+        </div>
+        
+
+        <div id="diseases-info">
+            <div id="info-div2">
+                <ul>
+                    <li>
+                      <div id="icons"><i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Central Nervous System</h3>
+                    <p>Open visitation with only two visitors in a room at any time. NO under 12 years of age may.</p>
+                    </li>
+
+                    <li>
+                        <div id="icons"><i class="fas fa-tablets"></i>
+                      </div>
+                      <h3>Alergic Disorders</h3>
+                      <p>Open visitation with only two visitors in a room at any time. NO under 12 years of age may.</p>
+                      </li>
+
+                      <li>
+                        <div id="icons"><i class="fas fa-heartbeat"></i>
+                      </div>
+                      <h3>Neoplastic Disorders</h3>
+                      <p>Open visitation with only two visitors in a room at any time. NO under 12 years of age may.</p>
+                      </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="details">
+          <div id="details-info">
+             <h3>---Service Details</h3>
+             <ul>
+                 <li><h4>Price</h4><h5>from $340</h5></li>
+                 <li><h4>Duration</h4><h5>10 minutes</h5></li>
+                 <li><h4>Office</h4><h5>#46</h5></li>
+                 <li><h4>Doctor</h4><h5>Dr.Elizabeth</h5></li>
+                 <li><h4>Categories</h4><h5>Family Medicine</h5></li>
+             </ul>
+          </div>
+        </div>
+
+        <div id="details2">
+            <div id="details-info2">
+               <h3>---Schedule</h3>
+               <ul>
+                   <li><h4>Tuesday</h4><h5>10:00am - 1:00pm</h5></li>
+                   <li><h4>Friday</h4><h5>7:00am - 10:00pm</h5></li>
+               </ul>
+            </div>
+          </div>
+        </div>
+
+          <div id="More-services">
+              <h2>More Services</h2>
+              <div id="left-right">
+                <i class="fas fa-chevron-circle-left"></i>
+                <i class="fas fa-chevron-circle-right"></i>
+              </div>
+              <ul>
+                  <li>
+                      <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg">
+                      <h3>---Ortheopedic Surgery</h3>
+                  </li>
+                  <li>
+                      <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--010.jpg">
+                      <h3>---Cancer</h3>
+                  </li>
+                  <li>
+                      <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--011.jpg" >
+                      <h3>---Cardiology</h3>
+                  </li>
+              </ul>
+          </div>
+
+          <%- include('footer') %>
+          <script>
+            function myloader(){
+                setTimeout(function() {
+                    var preloader=document.getElementById("loading");
+                    preloader.style.display="none";
+                }, 5000);
+            }
+        </script>
+    
+        </body>
+        
+    
+    </html>

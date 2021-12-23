@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/profile_doctor.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    <body>
+        <div id="container">
+            <nav class="mobilenav">
+                <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="Logo Tvastra">
+                
+                <ul id="header-ul">
+                    <li><a href="/Doctorlist">Doctors</a></li>
+                    <li><a href="/Doctorlist">Treatments</a></li>
+                    <li><a href="/Hospitallist">Hospitals </a></li>
+                    <li><a href="/FAQ">FAQ's</a> </li>
+                </ul>
+                   <button style="background-color:#021433;"><a href="/Logout">Get A Quote</a></button>
+                
+                <i class="fas fa-bars" id="nav-i"></i>
+    
+              </nav>
+              <section class="background-section">
+                 <div id="background">
+                     <div id="doctor_basic">
+                        <h2>Congratulations</h2>
+                        <h3>You're only one step away from being a part of one of the best medical portal.</h3>
+                        <img src="data:image/jpeg;base64,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" alt="">
+                    </div>
+                    <form  action="/doctordetails" method="POST" enctype="multipart/form-data">
+                            <textarea  name="textarea" placeholder="Write about Yourself" id="textarea" cols="30" rows="10"></textarea>
+                        <div id="grid">
+                           <div id="within-grid">
+                             <h3>Speciality</h3>
+                            <input type="text" name="basic" id="speciality" value="speciality" required>
+                            <h3>Speciality</h3>
+                            <input type="text" name="basic1" id="Education" value="Education" required>
+                            <h3>Speciality</h3>
+                            <input type="text" name="basic2" id="Treatment" value="Treatment" required>
+                            <h3>Speciality</h3>
+                            <input type="text" name="basic3"  id="Location" value="Location" required>
+                            <h3>Speciality</h3>
+                            <input type="text" name="basic4"  id="Hospital" value="Hospital"  required>
+                            <h3>Speciality</h3>
+                            <input type="text" name="basic5"  id="Achievements" value="Achievements" required>
+                            <input type="text" name="basic6"  data-role="tagsinput" id="Awards" value="Awards" required>
+                            <input type="text"  name="Experience"   id="Experience" value="" required>
+                            <input type="text"  name="AvgFees"  value="" id="Fees" required>
+                           </div>
+                        </div> 
+                        <input type="file" name="avatar">
+                        <button type="submit" style="color: white;">Add Fields</button>
+                    </form>
+                 </div>
+              </section>
+        </div>
+
+        <script>
+            var input = document.querySelector('input[name=basic]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic1]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic2]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic3]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic4]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic5]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic6]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+       <script>
+           var x = $('#speciality').tagsinput('items').itemsArray;
+           console.log(x);
+           document.getElementById('speciality').value=$('#speciality');
+           console.log(document.getElementById('speciality').value[0].itemsArray);
+           document.getElementById("Location").value =  $('#Location').tagsinput('items').itemsArray;
+           document.getElementById("Experience").value = $('#Experience').tagsinput('items').itemsArray;
+           document.getElementById("Fees").value = $('#Fees').tagsinput('items').itemsArray;
+           document.getElementById("Awards").value = $('#Awards').tagsinput('items').itemsArray;
+           document.getElementById("Education").value = $('#Education').tagsinput('items').itemsArray;
+           
+           document.getElementById("Hospital").value = $('#Hospital').tagsinput('items').itemsArray;
+           document.getElementById("Treatment").value = $('#Treatment').tagsinput('items').itemsArray;
+
+       </script>
+          <script>
+            function myloader(){
+                setTimeout(function() {
+                    var preloader=document.getElementById("loading");
+                    preloader.style.display="none";
+                }, 5000);
+            }
+        </script>
+          </body>
+          </html>

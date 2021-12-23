@@ -1,0 +1,297 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+/* #btn1{grid-area: list5;} */
+#heading-image {
+  width: 100%;
+  height: 20rem;
+  background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/contactUs.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#heading-image div {
+  width: 50%;
+  height: 40%;
+  position: absolute;
+}
+
+h1 {
+  color: white;
+  font-family: nexa-bold;
+}
+
+h3 {
+  color: white;
+  font-family: nexa-light;
+  text-align: center;
+}
+
+#map {
+  width: 99%;
+  height: 15rem;
+}
+
+#info {
+  width: 99%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 1rem;
+}
+
+#info ul {
+  width: 80%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+
+#info ul li {
+  width: 100%;
+  height: 24%;
+  margin: 1rem 0rem;
+}
+
+#info ul li i {
+  color: #0173b2;
+  font-size: 20px;
+}
+
+#info ul li h2 {
+  margin: 0px;
+  font-size: 15px;
+  display: inline-block;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+  color: black;
+  font-family: nexa-bold;
+}
+
+#info ul li h3 {
+  font-size: 12px;
+  margin: 0px;
+  margin-left: 2.2rem;
+  color: black;
+  font-family: nexa-light;
+  text-align: left;
+}
+
+#form-div {
+  width: 100%;
+  height: 17rem;
+  margin-top: 1rem;
+  background-color: #9cbfda;
+  padding-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#form-div button {
+  float: right;
+  background-color: #0173b2;
+  color: white;
+  width: 50%;
+  border-style: none;
+  margin-top: 0rem;
+  cursor: pointer;
+}
+
+form {
+  width: 80%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+input {
+  font-family: nexa-bold;
+  color: lightgrey;
+  width: 100%;
+  padding: 0.5rem 0rem;
+  border: 2px solid lightgrey;
+  padding-left: 1rem;
+}
+
+textarea {
+  font-family: nexa-bold;
+  color: lightgrey;
+  width: 100%;
+  height: 2.3rem;
+  padding: 0.5rem 0rem;
+  border: 2px solid lightgrey;
+  padding-left: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  #info ul li {
+    width: 30%;
+  }
+  #info ul li h2 {
+    font-size: 12px;
+  }
+  input {
+    width: 50%;
+  }
+  textarea {
+    width: 45%;
+    height: 60%;
+  }
+  #item-1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: list1;
+    width: 100%;
+    height: 100%;
+  }
+  #item-2 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: list2;
+    width: 100%;
+    height: 100%;
+  }
+  #item-3 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: list3;
+    width: 100%;
+    height: 100%;
+  }
+  #item-4 {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    -ms-grid-column: 2;
+    grid-area: list4;
+    width: 100%;
+    height: 100%;
+  }
+  form {
+    display: -ms-grid;
+    display: grid;
+        grid-template-areas: 'list1 list4' 'list2 list4' 'list3 list4';
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    grid-gap: 1rem;
+  }
+  #btn1 {
+    float: right;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .mobilenav {
+    padding: 0rem 2rem;
+    padding-right: 3rem;
+    width: -webkit-fill-available;
+  }
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #info {
+    width: 20%;
+  }
+  #info ul {
+    width: 100%;
+  }
+  #info ul li {
+    width: 100%;
+  }
+  #form-div {
+    width: 70%;
+  }
+  form {
+    width: 95%;
+  }
+  #map {
+    padding: 0rem 3rem;
+  }
+  #heading-image {
+    text-align: left;
+  }
+  #heading-image div {
+    width: 100%;
+  }
+  #heading-image h3 {
+    text-align: left;
+    padding-left: 3rem;
+  }
+  #heading-image h1 {
+    padding-left: 3rem;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  #map {
+    margin-top: 2rem;
+  }
+  #form-div {
+    margin-top: 4rem;
+  }
+}
+/*# sourceMappingURL=ContactUs.css.map */

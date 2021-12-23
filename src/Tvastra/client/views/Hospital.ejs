@@ -1,0 +1,487 @@
+<html>
+    <head>
+        <title>
+            HospitalList
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/Hospitalstyle.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <section id="heading">
+            <div id="gradient">
+             <h1>Hospitals in <u>Delhi</u></h1>
+            </div>
+        </section>
+
+        <section class="Hero">
+          <h3>Home/Hospitals List</h3>
+          <select name="Sort By" id="Sort By">
+              <option value="Sort By"> Sort By</option>
+              <option value="Doctors"> Hospitals</option>
+              <option value="Treatment">Department</option>
+              <option value="Experience">Experience</option>
+          </select>
+        </section>
+
+        
+
+        <main>
+
+            <div id="aside">
+                <div id="aside-button">Filter By</div>
+
+                <ul>
+                    <li>
+                        <div id="icon-div">
+                        <h3>Location</h3>
+                        <i class="fas fa-search" id="icon" style="margin-left:4rem;color: #7dbff7;"></i>
+                        <i class="far fa-window-minimize" id="icon" "></i>
+                        
+                        </div>
+                        <ul id="ul-in-li">
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>DLF City</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Dwarka</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Rohini</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Budh Vihar</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Pitampura</h4></div>
+                            </li>
+                            
+                        </ul>
+                        <h2>+ Show More</h2>
+                    </li>
+                     <!--**********************************************************************--> 
+
+                    <li>
+                        <div id="icon-div">
+                            <h3>Treatment</h3>
+                            <i class="fas fa-search" id="icon" style="margin-left:4rem;color: #7dbff7;"></i>
+                            <i class="far fa-window-minimize" id="icon" ></i>
+                            
+                            </div>
+                        <ul id="ul-in-li">
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4> Transplant</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Surgery</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Infertility</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>dentistry</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Cardiology</h4></div>
+                            </li>
+                            
+                        </ul>
+                        <h2>+ Show More</h2>
+                    </li>
+                     <!--**********************************************************************-->
+
+                     <li>
+                        <div id="icon-div">
+                            <h3>Hospitals</h3>
+                            <i class="fas fa-search" id="icon" style="margin-left:4rem;color: #7dbff7;"></i>
+                            <i class="far fa-window-minimize" id="icon" ></i>
+                            
+                            </div>
+                        <ul id="ul-in-li">
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Apollo</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Fortis</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Max</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>Medanta</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>NorthStar</h4></div>
+                            </li>
+                            
+                        </ul>
+                        <h2>+ Show More</h2>
+                    </li>
+                     <!--**********************************************************************-->
+
+                     <li>
+                        <div id="icon-div">
+                            <h3>Years of Experience</h3>
+                            <i class="fas fa-search" id="icon" style="margin-left:4rem;color: #7dbff7;"></i>
+                            <i class="far fa-window-minimize" id="icon" ></i>
+                            
+                            </div>
+                        <ul id="ul-in-li">
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>30+</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>25+</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>20+</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>15+</h4></div>
+                            </li>
+                            <li id="li-in-li">
+                                <div id="icons"> <i class="fas fa-stop" class="font" id="box-icon"></i><h4>10+</h4></div>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                     <!--**********************************************************************-->
+                </ul>
+            </div>
+           
+             <!--**********************************************************************-->   
+              <ul id="Doctors-ul">
+                 <% for( let i of hospitals){%>
+                     
+                    <li>
+                        <div id="Doctorinfo">
+                            <header>
+                                <h2 style="text-align: left;;margin-bottom:1rem;"><%= i.HospitalName %></h2>
+                            </header>
+                             <ul>
+                                <li>
+                                    <i class="fas fa-certificate"> <h4><%= i.Noofbeds %></h4></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-certificate"> <h4><%= i.Location %></h4> </i>
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"><h4><%= i.Speciality %></h4></i>
+                                </li>
+                             </ul>
+                               <div id="treatment">
+                                   <% for( let j of i.Treatment){%>
+                                    <div id="treatment-div"><%= j %></div>
+                                    <%}%>
+                                    
+                               </div>
+                            <button >Call Now</button>
+                        </div>
+                        <div id="Doctorsimg">
+                            <img src="../../uploads/hospitals/avatars/<%= i.avatar %>">
+                            
+                        </div>
+                
+                <%}%>
+                 
+                  </li>
+                  <!-- <li> -->
+                    <!-- <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; ;margin-bottom:1rem;">Fortis Hospital</h2>
+                        </header>
+                         <ul>
+                            <li>
+                                <i class="fas fa-certificate"><h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4></i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                            
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button >Call Now</button>
+                    </div>
+                    <div id="Doctorsimg">
+                        <img src="https://d3frl090092vlr.cloudfront.net/Fortis-Hospital-la-shalimar-bagh.jpg">
+                    
+                    </div>
+                  </li>
+                  <li>
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left;margin-bottom:1rem;">Rockland Hospital</h2>
+                        </header>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4> </i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                            
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button>Call Now</button>
+                    </div>
+                    
+                    <div id="Doctorsimg">
+                        <img src="https://assets.lybrate.com/img/documents/clinic/logo/371678c1a4554eac01cd12c92fc57bf2/Aarvy-Hospital-Cosmetic-Plastic-Surgeon-Gurgaon-e9400c" >
+                    
+                    </div>
+                  </li>
+                  <li>
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; ;margin-bottom:1rem;">Primus Hospital </h2>
+                        </header>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4> </i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                           
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button >Call Now</button>
+                    </div>
+                    <div id="Doctorsimg">
+                        <img src="data:image/jpeg;base64,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">
+                    
+                    </div>
+                  </li>
+
+                  <li>
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; ;margin-bottom:1rem;">Sanjeevni Hospital </h2>
+                        </header>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4> </i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                           
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button >Call Now</button>
+                    </div>
+                    <div id="Doctorsimg">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.vFz_Do8N_efO2w2iWMyNBQHaEs&pid=Api&P=0&w=266&h=169">
+                    
+                    </div>
+                  </li>
+
+                  <li>
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; ;margin-bottom:1rem;">PGI Hospital </h2>
+                        </header>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4> </i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                           
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button >Call Now</button>
+                    </div>
+                    <div id="Doctorsimg">
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.mxj1SPa0fkcyIDsTjE4LCgHaE8&pid=Api&P=0&w=260&h=174">
+                    
+                    </div>
+                  </li> -->
+<!-- 
+                  <li>
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; ;margin-bottom:1rem;">HealthCare+ Hospital </h2>
+                        </header>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4> </i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                           
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button >Call Now</button>
+                    </div>
+                    <div id="Doctorsimg">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP.dnSxL9ZaWx3HS3v1gJTf6gHaFj&pid=Api&P=0&w=254&h=191">
+                    
+                    </div>
+                  </li>
+
+                  <li>
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; ;margin-bottom:1rem;">E-max Hospital </h2>
+                        </header>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4> </i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                           
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button >Call Now</button>
+                    </div>
+                    <div id="Doctorsimg">
+                        <img src="https://tse4.mm.bing.net/th?id=OIP.cnUFhDjaOXhiK8pX31c16AHaE8&pid=Api&P=0&w=241&h=161">
+                    
+                    </div>
+                  </li>
+
+                  <li>
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; ;margin-bottom:1rem;">Medanta Hospital </h2>
+                        </header>
+                        <ul>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>Mbbs</h4></i>
+                            </li>
+                            <li>
+                                <i class="fas fa-certificate"> <h4>K</h4> </i>
+                            </li>
+                            <li>
+                                <i class="far fa-clock"><h4>K</h4></i>
+                            </li>
+                           
+                         </ul>
+                         <div id="treatment">
+                            <div id="treatment-div">Multi Organ Transplant</div>
+                            <div id="treatment-div">Ortheopedic surgery</div>
+                            <div id="treatment-div">Infertility treatment</div>
+                            <div id="treatment-div2">Dentistry</div>
+                            <div id="treatment-div2">Cariology</div>
+                            <div id="treatment-div2">Cancer</div>
+                            <div id="treatment-div2">+40 More</div>
+                           </div>
+                         <button >Call Now</button>
+                    </div>
+                    <div id="Doctorsimg">
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.hinHRer7HfuIoBJSF1gKpQHaEK&pid=Api&P=0&w=294&h=166">
+                    
+                    </div>
+                  </li> -->
+
+                  
+              </ul>
+        </main>
+
+        
+        <section class="NeedHelp">
+            <h2>Need Help?</h2>
+            <p >Just Let us Know .We will be happy to assist you.</p>
+            <button><a href="/submitquery" style="color: white;">Submit your Query</a></button>
+        </section>
+
+        <%- include('footer') %>
+        <script>
+            function myloader(){
+                setTimeout(function() {
+                    var preloader=document.getElementById("loading");
+                    preloader.style.display="none";
+                }, 5000);
+            }
+        </script>
+
+    </body>
+    
+
+</html>

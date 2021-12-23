@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>
+           Contact Page
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/ContactUs.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+          <div id="heading-image">
+            <div>
+                <h1>Contact Us</h1>
+                <h3>Home/Contact Us</h3>
+            </div>
+          </div>
+           
+          <div id="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224368.39371590238!2d77.25804244618053!3d28.51698340373813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce5a43173357b%3A0x37ffce30c87cc03f!2sNoida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1593854637578!5m2!1sen!2sin" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+          <div id="info">
+              <ul>
+                  <li><i class="fas fa-home"></i><h2>Noida,India</h2><h3>Sector 45</h3></li>
+                  <li><i class="fas fa-phone-volume" ></i><h2 style="margin-left: 1.3rem;">00 (440) 98567432</h2><h3>Mon to Fri 9am to 6pm</h3></li>
+                  <li><i class="fas fa-home"></i><h2>support@tvastra.com</h2><h3 >Submit your query.</h3></li>
+              </ul>
+          </div>
+
+          <div id="form-div">
+     <form action="POST">
+         <input type="text" value="Enter your Name" id="item-1" placeholder="Enter your Name">
+         <input type="email" value="Enter your Email" id="item-2" placeholder="Enter your Email">
+         <input type="text" value="Enter Subject" id="item-3" placeholder="Enter Subject">
+         <textarea name="text-area" id="item-4">Enter message</textarea>
+         <button id="btn1">Send message</button>
+     </form>
+    
+          </div>
+
+          <%- include('footer') %>
+          <script>
+            function myloader(){
+                setTimeout(function() {
+                    var preloader=document.getElementById("loading");
+                    preloader.style.display="none";
+                }, 5000);
+            }
+        </script>
+    
+        </body>
+        
+    
+    </html>

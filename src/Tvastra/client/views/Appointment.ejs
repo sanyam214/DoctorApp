@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/Appointment.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <body>
+       
+        <%- include('header',{Profile:ProfileName,mobile:ProfileMobile,pic:dp}) %>
+
+        <% if(givetoast=="true"){%>
+            <div class="alert">
+                <span class="fas fa-check-circle"></span>
+                <span class="msg">Successfully Rescheduled</span>
+                <span class="close-btn" >
+                <span  class="fas fa-times"></span>
+                </span>
+            </div>
+            <%}%>
+            <% if(givetoast=="cancel"){%>
+                <div class="alert">
+                    <span class="fas fa-check-circle" style="color: red;"></span>
+                    <span class="msg" style="color: red;">Appointment cancelled</span>
+                    <span class="close-btn" style="color: red;">
+                    <span  class="fas fa-times" ></span>
+                    </span>
+                </div>
+                <%}%>    
+        <section id="container">
+          
+            <div id="dashboard">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li><a href="/user_profile">
+                        <div>
+                            <i class="fas fa-hospital"></i>Profile
+                        </div>
+                    </a></li>
+                    <li><a href="#">
+                        <div>
+                            <i class="fas fa-user-md"></i>Appointments
+                        </div>
+                    </a></li>
+                    <li id="edit"><a href="/schedule">
+                        <div>
+                            <i class="fas fa-user-md"></i>Edit Schedules
+                        </div>
+                    </a></li>
+                    <li><a href="/report">
+                        <div>
+                            <i class="fas fa-file-word"></i>Medical Reports
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="account">
+                <h2>Upcoming Appointments</h2>
+                <h3 id="hides">No Upcomming Appointments</h3>
+
+                <form action="/upcomingapp" method="POST" style="overflow-y: scroll;height:15rem;">
+                 <% if(isdoctor=="true"){%>
+                    <% for(let i of results){%>
+                        <% if(i.Confirmed=="true"){%>
+                            <div id="parent">
+                                <div id="book">
+                                    <div id="day" style="font-size: 1rem;"><%= i.createdon %></div>
+                                    <div id="time">
+                                        <h2><%= i.Patientname %></h2>
+                                        <h2><%= i.Timeslot %></h2>
+                                        <h2>Apollo</h2>
+                                        <h2 id="confirmed">Confirmed</h2>
+                                    </div>
+                                    <div id="button">
+                                        <button><a href="/Appointment?id=<%= i._id %>&givetoast=true">Cancel</a></button>
+                                        <div id="confirm" style="color: white;"><a href="/rescheduleappointment?Patient=<%= i.Patientname %>&timeslot=<%= i.timeslot %>&Date=<%= i.createdon %>&Doctor=<%= i.Doctortobook %>" style="color: white;">Reschedule</a></div>
+                                    </div>
+                                </div>
+                                </div>
+                        <%}%>
+                       
+                    <%}%>
+                <%}%>
+                <% if(isdoctor!="true"){%>
+                    <% for(let i of results){%>
+                        <% if(i.Confirmed=="true"){%>
+                            <div id="parent">
+                                <div id="book">
+                                    <div id="day" style="font-size: 1rem;"><%= i.createdon %></div>
+                                    <div id="time">
+                                        <h2>Dr.<%= i.Doctortobook %></h2>
+                                        <h2><%= i.Timeslot %></h2>
+                                        <h2>Apollo</h2>
+                                        <h2 id="confirmed">Confirmed</h2>
+                                    </div>
+                                    <div id="button">
+                                        <button><a href="/Appointment?id=<%= i._id %>&givetoast=true">Cancel</a></button>
+                                        <div id="confirm" style="color: white;"><a href="/rescheduleappointment?Patient=<%= i.Patientname %>&timeslot=<%= i.Timeslot %>&Date=<%= i.createdon %>&Doctor=<%= i.Doctortobook %>" style="color: white;">Reschedule</a></div>
+                                    </div>
+                                </div>
+                                </div>
+                        <%}%>
+                        
+                    <%}%>
+                <%}%>
+                    
+                </form>
+
+                <h2>Completed Appointments</h2>
+                <h3 id="hides1">No Completed Appointments</h3>
+
+                <form action="/upcomingapp" method="POST" style="overflow-y: scroll;height:15rem;">
+                    <% if(isdoctor=="true"){%>
+                       <% for(let i of results){%>
+                          <% if(i.Confirmed=="false"){%>
+                            <div id="parent">
+                                <div id="book">
+                                    <div id="day" style="font-size: 1rem;"><%= i.createdon %></div>
+                                    <div id="time">
+                                        <h2><%= i.Patientname %></h2>
+                                        <h2><%= i.Timeslot %></h2>
+                                        <h2>Apollo</h2>
+                                        <h2 id="confirmed" style="color:red">Completed</h2>
+                                    </div>
+                                   
+                                </div>
+                                </div>
+                          <%}%>
+                          
+                       <%}%>
+                   <%}%>
+                   <% if(isdoctor!="true"){%>
+                       <% for(let i of results){%>
+                            <% if(i.Confirmed=="false"){%>
+                                <div id="parent">
+                                    <div id="book">
+                                        <div id="day" style="font-size: 1rem;"><%= i.createdon %></div>
+                                        <div id="time">
+                                            <h2>Dr.<%= i.Doctortobook %></h2>
+                                            <h2><%= i.Timeslot %></h2>
+                                            <h2><%= i.HospitalName %></h2>
+                                            <h2 id="confirmed" style="color:red">Completed</h2>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                            <%}%>
+                          
+                       <%}%>
+                   <%}%>
+                       
+                   </form>
+            </div>
+        </section>
+       
+        <% if(isdoctor=="true"){%>
+            <script>
+                console.log("Hello world");
+                 document.getElementById("edit").style.display="flex";
+            </script>
+        <%}%>
+         <% if(isdoctor!="true"){%>
+            <script>
+
+                 document.getElementById("edit").style.display="none";
+            </script>
+        <%}%>
+        <% if(results.length>0){%>
+            <script>
+                document.getElementById("hides").style.display="none";
+                document.getElementById("hides1").style.display="none";
+            </script>
+            <%} %>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script>
+                $('.close-btn').click(function(){
+                        $(".alert").addClass("hide");
+                        $(".alert").removeClass("show");
+                });
+                        $(".alert").removeClass("hide");
+                        $(".alert").addClass("show");
+
+                        setTimeout(function(){
+                            $(".alert").addClass("hide");
+                            $(".alert").removeClass("show");
+                        },5000);   
+
+                  </script>
+                   
+        
+    </body>
+</html>

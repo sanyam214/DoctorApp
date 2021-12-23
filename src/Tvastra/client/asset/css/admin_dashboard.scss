@@ -1,0 +1,181 @@
+@import "colors";
+@font-face {
+	font-family: nexa-bold;
+	src: url("../fonts/Nexa-Bold.otf");
+}
+@font-face {
+	font-family: nexa-light;
+	src: url("../fonts/Nexa-Light.otf");
+}
+.mobilenav{
+    padding:0rem 6rem;
+    height:6rem;
+    box-shadow: 0 4px 8px 0 $shadow;
+    ul{
+        display: none;
+    }
+    .t-plus,.quote{
+        display: none;
+    }
+    img{
+        height:3rem;
+        width:13%;
+    }
+}
+.hero{
+    padding:0rem 6rem;
+    margin-top:2rem;
+    .container{
+        width:100%;
+        height:auto;
+        display: grid;
+        grid-template-columns: 20% 80%;
+        >div{
+            .Dashboardh2{
+                font-size:1.7rem;
+            }
+        }
+        .dashboard{
+            padding-top:1rem;
+            ul {
+                padding-top: 1rem;
+                font-family: Nexa;
+                font-size: 0.8rem;
+                color: $dark-gray;
+                list-style: none;
+                padding-left:0rem;
+                li {
+                    padding-bottom: 1rem;
+                    padding-top: 1rem;
+                    border: 1px solid $light;
+                    color: $dark-gray;
+                    transition: all ease-in 0.2s;
+                    font-family: nexa-bold;
+                    &:hover {
+                        animation: ease-in-out;
+                        background-color: $light;
+                        box-shadow: 0 4px 8px 0 $shadow;
+                    }
+                    i {
+                        padding-right: 1rem;
+                        color:$blue;
+                    }
+                    a {
+                        font-size: 0.8rem;
+                        font-family: nexa-light;
+                    }
+                }
+            }
+        }
+        .Survey{
+            .total-count{
+                 width:100%;
+                 height: 4rem;
+                 display: flex;
+                 flex-wrap:wrap;
+                 flex-direction: row;
+                 justify-content: space-between;
+                 align-items: center;
+                 >div{
+                     width:20%;
+                     height:100%;
+                     background-color: $light;
+                     border-radius: 5px;
+                     box-shadow: 12px 4px 8px 0 $shadow;
+                     display: grid;
+                     grid-template-columns: 30% 70%;
+                     .icon{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-around;
+                        i{
+                            font-size: 2rem;
+                            color:rgb(74, 74, 138);
+                        }
+                     }
+                     .info{
+                         display: flex;
+                         flex-direction: column;
+                         align-items: center;
+                         justify-content: space-around;
+                         h3{
+                             width:100%;
+                             margin: 0px;
+                             padding:0px;
+                             color:rgb(74, 74, 138);
+                         }
+                     }
+                 }
+            }
+            h3{
+                text-align: left;
+                font-family: nexa-bold;
+                margin:2rem 0rem;
+            }
+            .graph{
+                width:100%;
+                height:30rem;
+                background-image: url(../images/line-graph.png);
+                background-size: 100% 100%;
+            }
+            .pie-chart{
+                width:100%;
+                height:30rem;
+                background-image: url(../images/pie-chart.png);
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                margin-bottom:2rem;
+              }
+            tr:nth-child(even) {
+                background-color: #dddddd;
+              }
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                a{
+                    color: $blue;
+                }
+              }
+            th{
+                background-color: $blish-black;
+                color: white;
+            }
+        }
+        #pagination{
+            width: 100%;
+            height:3rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            margin-bottom:2rem;
+            >div{
+                width:2rem;
+                height:2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: nexa-bold;
+                border: 1px solid black;;
+                color:$blue;
+                text-align: center;
+                font-size: 1.3rem;
+                border-radius: 5px;
+                margin-right:1rem;
+            }
+            a{
+                font-family: nexa-bold;
+            }
+        }
+    }
+
+}

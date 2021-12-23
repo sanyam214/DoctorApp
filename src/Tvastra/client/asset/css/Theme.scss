@@ -1,0 +1,104 @@
+@font-face {
+	font-family: nexa-bold;
+	src: url('../fonts/Nexa-Bold.otf');
+}
+@font-face {
+	font-family: nexa-light;
+	src: url('../fonts/Nexa-Light.otf');
+}
+@import "footer";
+@import "NeedHelp";
+@import "Collapsable";
+@import "Hero";
+@import "loader";
+@import "profile";
+@import "colors";
+@mixin general{
+	text-transform: capitalize;
+	letter-spacing: 0.1rem;
+	font-weight:bold;
+	font-family:nexa-light;
+}
+h1 {
+	@include general;
+	line-height: 2rem;
+	color: #050508;
+	text-align: center;
+	font-size: 2rem;
+	margin-top: 1rem;
+	margin-bottom: 0rem;
+}
+h4 {
+	@include general;
+	line-height: 1rem;
+	padding: 0.2rem;
+	margin-left: 2rem;
+	margin-top: 0.2rem;
+	margin-bottom: 0rem;
+}
+h5 {
+	@include general;
+	line-height: 1rem;
+	padding: 0.2rem;
+	margin-left: 1.2rem;
+	margin-top: 0.2rem;
+	margin-bottom: 0rem;
+}
+h2 {
+	@include general;
+	line-height: 2rem;
+	font-family: nexa-bold;
+	text-align: center;
+	margin-top: 1rem;
+}
+a {
+	@include general;
+	line-height: 1rem;
+	color: $white;
+	text-decoration: none;
+}
+p {
+	letter-spacing: 0.3px;
+	line-height: 2rem;
+	font-size: 1.3rem;
+	width: auto;
+	height: auto;
+	margin-top: 1rem;
+	text-align: center;
+	font-family: naxa-light;
+	margin-bottom: 1.5rem;
+	color: rgb(85, 85, 87);
+}
+button {
+	width: 50%;
+	height: auto;
+	padding: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	background-color: rgb(1, 1, 19);
+	color: $white;
+}
+input {
+	width: 90%;
+	height: 15%;
+	border: 1px solid $light-grey;
+	font-family: nexa-light;
+	padding: 0rem 1rem;
+	outline: none;
+}
+ul {
+	width: 100%;
+}
+@media only screen and (min-width:600px) {
+	a {
+		color:$black;
+	}
+}
+@media only screen and (min-width:900px) {
+	h2 {
+		text-align: left;
+	}
+	h1 {
+		text-align: left;
+	}
+}

@@ -1,0 +1,202 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+#Hero-dentistry {
+  width: 100%;
+  height: 15rem;
+  background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/contactUs.png);
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#info-div {
+  width: 70%;
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#info-div h2 {
+  font-family: nexa-bold;
+  color: white;
+  margin: 0px;
+  font-size: 30px;
+  letter-spacing: 0.1rem;
+}
+
+#info-div h3 {
+  font-family: nexa-light;
+  margin: 0px;
+  font-size: 15px;
+  color: #c3cee5;
+  letter-spacing: 0.1rem;
+}
+
+#container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+#doctor-profile {
+  width: 80%;
+  border: 1px solid lightgrey;
+  padding: 1rem;
+}
+
+#doctor-profile ul {
+  width: 100%;
+}
+
+#doctor-profile ul li {
+  width: 100%;
+  margin-top: 0.5rem;
+  border-bottom: 2px dotted lightgrey;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#doctor-profile h3 {
+  margin: 0px;
+  color: #0173b2;
+  font-family: nexa-bold;
+  display: inline-block;
+  width: 80%;
+}
+
+#up {
+  color: #9cbfda;
+  float: right;
+}
+
+#para {
+  width: 100%;
+  background-color: #9cbfda;
+  padding: 1rem 0rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  text-align: left;
+  font-family: nexa-light;
+  line-height: 1.5rem;
+  font-size: 15px;
+  color: black;
+  margin: 0px;
+}
+
+@media only screen and (min-width: 600px) {
+  #Hero-dentistry {
+    background-position: left;
+  }
+  #doctor-profile {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem 4rem;
+    border: white;
+  }
+  #doctor-profile p {
+    text-align: left;
+  }
+  #doctor-profile ul li {
+    margin-bottom: 2rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #Hero-dentistry {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  #info-div {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding-left: 4rem;
+  }
+  #doctor-profile ul li {
+    margin-bottom: 2rem;
+  }
+  .content p {
+    letter-spacing: 0.1rem;
+    line-height: 1.5rem;
+    margin: 1rem 0rem;
+  }
+  .NeedHelp button {
+    margin-top: -6rem;
+  }
+  .NeedHelp p {
+    margin-top: -3rem;
+  }
+  .NeedHelp h2 {
+    margin-top: 1rem;
+  }
+  .mobilenav {
+    padding: 0rem 3rem;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  #doctor-profile ul li {
+    margin-bottom: 2rem;
+  }
+  .collapsible h3 {
+    font-size: 20px;
+  }
+}
+/*# sourceMappingURL=FAQ.css.map */

@@ -1,0 +1,352 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+.alert {
+  background: white;
+  padding: 20px 40px;
+  min-width: 300px;
+  height: 30px;
+  position: absolute;
+  right: 0px;
+  top: 14%;
+  overflow: hidden;
+  border-radius: 4px;
+  border-left: 8px solid green;
+}
+
+.alert .fa-check-circle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: green;
+  font-size: 30px;
+}
+
+.alert .close-btn {
+  color: green;
+  padding: 20px 18px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.msg {
+  padding: 0px 20px;
+  font-size: 20px;
+  color: green;
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-family: nexa-bold;
+  margin-bottom: 2rem;
+}
+
+.close-btn:hover {
+  color: lightgrey;
+}
+
+.close-btn .fa-times {
+  color: green;
+  line-height: 40px;
+  font-size: 22px;
+}
+
+.show {
+  -webkit-animation: show_slide 1s ease forwards;
+          animation: show_slide 1s ease forwards;
+}
+
+.hide {
+  display: none;
+}
+
+#container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 80%;
+      grid-template-columns: 20% 80%;
+  padding: 2rem 4rem;
+  height: 84vh;
+  background-color: #f0f6f8;
+  grid-gap: 0.5rem;
+}
+
+.mobilenav {
+  padding: 0rem 4em;
+  position: relative;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.mobilenav ul {
+  display: none;
+}
+
+.mobilenav .t-plus, .mobilenav .quote {
+  display: none;
+}
+
+#dashboard {
+  padding: 2rem 0rem;
+  background-color: white;
+}
+
+#dashboard h2 {
+  color: #2a2d3e;
+  padding-left: 1rem;
+}
+
+#dashboard ul {
+  font-family: Nexa;
+  font-size: 0.8rem;
+  color: darkgray;
+  list-style: none;
+}
+
+#dashboard ul li {
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  border: 1px solid #f0f6f8;
+  color: darkgray;
+  -webkit-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
+  font-family: nexa-bold;
+}
+
+#dashboard ul li:hover {
+  -webkit-animation: ease-in-out;
+          animation: ease-in-out;
+  background-color: #f0f6f8;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#dashboard ul li i {
+  padding-right: 1rem;
+}
+
+a {
+  color: darkgray;
+}
+
+a:hover {
+  color: #0173b2;
+}
+
+.fa-hospital:before {
+  content: "\f0f8";
+}
+
+#account {
+  background-color: white;
+  padding-top: 2rem;
+}
+
+#account h2 {
+  font-family: nexa-bold;
+  padding: 0rem 2rem;
+  font-size: 20px;
+}
+
+#account h3 {
+  font-family: nexa-bold;
+  padding: 0rem 2rem;
+  font-size: 15px;
+  color: silver;
+}
+
+#parent {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#book {
+  width: 95%;
+  height: 7rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 20% 50%;
+      grid-template-columns: 20% 20% 50%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #f0f6f8;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+#confirmed {
+  border-radius: 5px;
+  color: #05aa05;
+}
+
+#day {
+  width: 100%;
+  height: 80%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  align-items: center;
+  font-family: nexa-bold;
+  font-size: 1.5rem;
+}
+
+#time {
+  width: 100%;
+  height: 80%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#time h2 {
+  width: 100%;
+  height: 1rem;
+  margin: 0px;
+  padding: 0px;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  font-family: nexa-light;
+}
+
+#button {
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#button button {
+  background-color: #0173b2;
+  margin: 0px;
+  border-style: none;
+  cursor: pointer;
+  font-family: nexa-bold;
+  font-size: 1rem;
+  width: 30%;
+  height: 50%;
+}
+
+#button button:hover {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#button button a {
+  color: white;
+}
+
+#confirm {
+  background-color: #05aa05;
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-style: none;
+  cursor: pointer;
+  font-family: nexa-bold;
+  font-size: 1rem;
+  width: 30%;
+  height: 50%;
+  color: white;
+  margin-left: 1rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  #container {
+    padding: 0rem 1rem;
+  }
+  .mobilenav {
+    padding: 0rem 1rem;
+  }
+  .mobilenav img {
+    width: 10rem;
+  }
+  #info {
+    -ms-grid-columns: 40% 40%;
+        grid-template-columns: 40% 40%;
+  }
+  #dashboard h2 {
+    padding: 0px;
+    font-size: 1.5rem;
+    font-family: nexa-bold;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #container {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    padding: 0rem 1rem;
+    -ms-grid-rows: 50% 50%;
+        grid-template-rows: 50% 50%;
+  }
+  #dashboard {
+    overflow: scroll;
+  }
+  #dashboard h2 {
+    font-size: 2rem;
+  }
+  #info {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  #account h2 {
+    padding: 0rem;
+    font-size: 1rem;
+  }
+  #account h3 {
+    padding: 0rem;
+    font-size: 0.8rem;
+  }
+  #account button {
+    margin-bottom: 0px;
+  }
+}
+/*# sourceMappingURL=admin_appointments.css.map */

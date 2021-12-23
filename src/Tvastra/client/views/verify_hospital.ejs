@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>
+            Verification
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/verify_hospital.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <section class="hero">
+            <div class="container">
+                <div class="dashboard">
+                   <h2 class="Dashboardh2">
+                       Dashboard
+                   </h2>
+                   <ul>
+                    <li><a href="/admin_dashboard">
+                        <div>
+                            <i class="fas fa-hospital"></i>Dashboard
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_users">
+                        <div>
+                            <i class="fas fa-user-md"></i>Users
+                        </div>
+                    </a></li>
+                    <li id="edit"><a href="admin_doctors">
+                        <div>
+                            <i class="fas fa-user-md"></i>Doctors
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_hospitals">
+                        <div>
+                            <i class="fas fa-file-word"></i>Hospitals
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+                </div>
+               <form action="/postverify_hospital" method="POST" enctype="multipart/form-data">
+                      <h2>Verify/Edit Hospital</h2>
+                      <h3>Hospital Name</h3>
+                      <input type="text" name="hospital" value="<%= hospitalselect %>" required>
+                      <h3>Hospital Description</h3>
+                      <textarea name="desc" id="desc"></textarea>
+                      <h3>Speciality</h3>
+                      <input type="text" name="speciality" required>
+                      <h3>No of Beds</h3>
+                      <input type="text" name="beds" required>
+                      <h3>Address</h3>
+                      <input type="text" name="location" required>
+                      <h3>Profile pic</h3>
+                      <input type="file" name="avatar" required>
+                      <h3>Treatments</h3>
+                      <input type="text" name="treatment" required>
+                      <button>Submit</button>
+               </form>
+            </section>
+
+            <script>
+                var input = document.querySelector('input[name=speciality]');
+                var tagify = new Tagify(input);
+                $("#click").on("click", function() {
+                  var n = "ADD_IT_" + Math.random();
+                  var tags = [];
+                  tags.push(n);
+                  tagify.addTags(tags);
+                })
+              </script>
+              <script>
+                var input = document.querySelector('input[name=treatment]');
+                var tagify = new Tagify(input);
+                $("#click").on("click", function() {
+                  var n = "ADD_IT_" + Math.random();
+                  var tags = [];
+                  tags.push(n);
+                  tagify.addTags(tags);
+                })
+              </script>
+    </body>
+
+</html>

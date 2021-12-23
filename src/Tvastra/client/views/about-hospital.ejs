@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>
+            Hospital page
+        </title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/Theme.css">
+        <link rel="stylesheet" href="../css/about-hospital.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+      <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <div id="Hero-dentistry">
+                
+            <div id="info-div">
+         <h2>About Apollo Hospital</h2>
+         <h3>Home/Hospital profile</h3>
+       
+        </div>
+       </div>
+
+    <div id="container">
+        <div id="doctor-profile">
+           <div id="doctor-image">
+               <img src="https://images.jdmagicbox.com/comp/hyderabad/n8/040pxx40.xx40.140120164755.l4n8/catalogue/dr-prasad-s-v-s-s-apollo-hospitals--jubilee-hills-hyderabad-oncologists-hcz46.jpg?clr=#442d22">
+               <button>Call Now</button>
+           </div>
+           <div id="info-container">
+           <div id="info">
+               <h1>Apollo Hospital</h1>
+               <div id="hospital-info"><i class="fas fa-map-marker-alt" id="icons"></i>
+               <h3>Delhi Mathura Road,110039</h3>
+            </div>
+               <div id="hospital-info"><i class="fas fa-bed" id="icons"></i><h3>113 beds</h3></div>
+               <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                   repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.
+               </p>
+           </div>
+           <button class="collapsible"><i class="fas fa-certificate" id="icons"></i><h3>Specialization</h3></button>
+           <div class="content">
+            <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+              repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+             </div>
+
+              <button class="collapsible"><i class="fas fa-stethoscope" id="icons"></i><h3>List of Treatments</h3></button>
+              <div class="content">
+                 <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                   repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                  </div>
+               <button class="collapsible"><i class="fas fa-building" id="icons"></i><h3>Work Experience </h3></button>
+               <div class="content">
+                 <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                   repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                  </div>
+
+                  <button class="collapsible"><i class="fas fa-star" id="icons"></i>
+                    <h3>Qualification</h3></button>
+                  <div class="content">
+                    <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                      repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                     </div>
+
+                     <button class="collapsible"><i class="fas fa-trophy" id="icons"></i>
+                        <h3>Awards</h3></button>
+                     <div class="content">
+                       <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                         repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                        </div>
+
+                        <button class="collapsible"><i class="fas fa-map-marker-alt" id="icons"></i>
+                            <h3>Location</h3></button>
+                        <div class="content">
+                          <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                            repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                           </div>
+
+                           <button class="collapsible"><i class="fas fa-rupee-sign" id="icons"></i>
+                            <h3>Avg Fees</h3></button>
+                           <div class="content">
+                             <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                               repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                              </div>
+           </div>
+        </div>
+    </div>
+     
+    <section class="NeedHelp">
+      <h2>Need Help?</h2>
+      <p >Just Let us Know .We will be happy to assist you.</p>
+      <button><a href="/submitquery">Submit your Query</a></button>
+  </section>
+        
+                  <%- include('footer') %>
+       <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+        <script>
+          function myloader(){
+              setTimeout(function() {
+                  var preloader=document.getElementById("loading");
+                  preloader.style.display="none";
+              }, 5000);
+          }
+      </script>
+    </body>
+
+    </html>

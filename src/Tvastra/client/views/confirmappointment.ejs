@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/confirmappointment.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <body>
+        <%- include('header',{Profile:ProfileName,mobile:ProfileMobile,pic:dp}) %>
+
+        <% if(givetoast=="true"){%>
+            <div class="alert">
+                <span class="fas fa-check-circle"></span>
+                <span class="msg">Appointment Confirmed</span>
+                <span class="close-btn" >
+                <span  class="fas fa-times"></span>
+                </span>
+            </div>
+            <%}%>
+                   <section id="container">
+                    <div id="info">
+                        <h2>In clinic Appointment</h2>
+                        <div id="date">
+                            <p>
+                                <i class="fas fa-calendar-plus"></i>
+                                On
+                                <span><%= Date %></span>
+                            </p>
+                        </div>
+                        <div id="time">
+                            <p>
+                                <i class="fas fa-clock"></i>
+                                At
+                                <span><%= Timeselected %></span>
+                            </p>
+                        </div>
+                        <a href="/Doctorlist">Change date & time</a>
+                        <div id="doctor-details">
+                            <div id="photo"></div>
+                            <div id="name">
+                                <h3>Duke</h3>
+                                <p>abcd</p>
+                                <p>shgf</p>
+                                <p>aser</p>
+                            </div>
+                        </div>
+                        <div id="image">
+                            <div id="photo1"></div>
+                            <div id="name1">
+                                <h3>Apollo</h3>
+                                <p>NA</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div id="details">
+                        <div id="confirm">
+                            <i class="far fa-check-circle"></i>
+                        <h3>Appointment Confirmed</h3>
+                        </div>
+                        <h3 id="sms">
+                            We have sent you an SMS with the details
+                        </h3>
+                        <h4 id="info3">Patient's Name:</h4>
+                        <h3 id="info2"><%= Name %></h3>
+                        <h4 id="info3">Patient's Mobile:</h4>
+                        <h3 id="info2"><%= Mobile %></h3>
+                        <div id="btn-con">
+                            <button onclick="myalert(this)" id="alert1">Cancel Appointment</button>
+                        <button id="alert1"><a href="/rescheduleappointment?Patient=<%= Patientname %>&timeslot=<%= timeslot %>&Date=<%= Appointedday %>&Doctor=<%= Doctortobook %>">Reschedule Appointment</a></button>
+
+                        </div>
+                        <div id="aler">
+                            <div id="cancel">
+                                <h2>Cancel Appointment</h2>
+                                <p>Are you sure you want to cancel appointment?</p>
+                                <div id="yes-no">
+                                    <button><a href="/confirmappointment?remove=true&&patient=<%= Name %>&cancel=true">Yes</a></button>
+                                    <button id="no-button"><a href="/confirmappointment?givetoast=false">No</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                <!-- </form> -->
+            </section>
+            <script>
+                function myalert(z){
+                    document.getElementById("aler").style.display = "flex";
+                }
+            </script>
+             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+             <script>
+                             $('.close-btn').click(function(){
+                                     $(".alert").addClass("hide");
+                                     $(".alert").removeClass("show");
+                             });
+                                     $(".alert").removeClass("hide");
+                                     $(".alert").addClass("show");
+             
+                                     setTimeout(function(){
+                                         $(".alert").addClass("hide");
+                                         $(".alert").removeClass("show");
+                                     },5000);   
+             
+              </script>
+            </body>
+            </html>

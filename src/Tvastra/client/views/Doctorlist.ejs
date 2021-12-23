@@ -1,0 +1,1643 @@
+<html>
+    <head>
+        <title>
+            DoctorList
+        </title>
+        <link rel="stylesheet" href="../asset/css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../asset/css/Theme.css">
+        <link rel="stylesheet" href="../asset/css/Doctorstyle.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <section id="heading">
+          <div id="gradient">
+             <h1>Cardiac Surgeons in <u>Delhi</u></h1>
+            </div>
+        </section>
+        
+
+        <section class="Hero">
+          <h3>Home/Doctors List</h3>
+          <select name="Sort By" onchange="sortby(value)" id="Sort By" onc>
+              <option value="Sort By"> Sort By</option>
+              <option  value="DoctorName">DoctorName</option>
+              <option  value="AvgFees">AvgFees</option>
+              <option  value="Experience">Experience</option>
+              <option  value="Experience(desc)">Experience(desc)</option>
+              <option  value="AvgFees(desc)">AvgFees(desc)</option>
+              <option  value="DoctorName(desc)">DoctorName(desc)</option>
+          </select>
+        </section>
+        <main>
+            <div id="aside">
+                <form action="/doctorlist" method="GET">
+                <div id="aside-button">Filter By</div>
+                 <input type="hidden" id="howmuchselected" value="<%= selected.length %>">   
+                <div id="selected_items">
+                  
+                        <% for(let i=0;i<selected.length;i++){%>
+                            
+                            <div id="selected" ><%= selected[i] %><i id="<%= selected[i] %>" class="fas fa-times"  onclick="terminate(this)"></i></div>
+                        <%}%>
+                  
+                    
+                </div>
+                    <!-- <div id="divs">DLF CITY</div> -->
+                   
+                </form>
+                <ul>
+                     
+                    <form action="" method="GET" id="formwithcheck">
+                    <li>
+                        <input type="hidden" value="city">    
+                        <div id="icon-div">
+                            
+                        <h3>Location</h3>
+                        <i class="fas fa-search" id="icon" style="margin-left:4rem;"></i>
+                        <i class="far fa-window-minimize" id="icon" ></i>
+                        
+                        </div>
+                        <ul id="ul-in-li">
+                            <% for(let c=0; c<=4 ; c++){%>
+                                <li id="li-in-li">
+                                    <input type="checkbox" id="checkbox" onchange="filter(this,'<%= city.length %>')" value="checkbox"  name="City" <%= city[c].check %>>
+                                    <label for="checkbox" id="label" ><%= city[c].Doctorcity %></label>
+                                </li>
+                            <%}%>
+                        
+                            <div id="more">
+                                <ul id="ul-in-li">
+                                    <% for(let c=5; c<city.length; c++){%>
+                                        <li id="li-in-li">
+                                            <input type="checkbox" id="checkbox" onchange="filter(this,'<%= city.length %>')"  value="checkbox" name="City" <%= city[c].check %>>
+                                            <label for="checkbox" id="label"><%= city[c].Doctorcity %></label>
+                                        </li>
+                                    <%}%>
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </ul>
+                        <h2><span id="plus">+</span><a onclick="MyFunction()" id="mybtn" style="cursor: pointer;"> Show More</a></h2>
+                    </li>
+                     <!--**********************************************************************--> 
+
+                    <li>
+                        <input type="hidden" value="treatment">
+                        <div id="icon-div">
+                           
+                            <h3>Treatment</h3>
+                            <i class="fas fa-search" id="icon" style="margin-left:4rem;"></i>
+                            <i class="far fa-window-minimize" id="icon" ></i>
+                            
+                            </div>
+                        <ul id="ul-in-li">
+                            <% for(let t=0; t<=4; t++){%>
+                                <li id="li-in-li">
+                                    <input type="checkbox" id="checkbox" onchange="filter11(this,'<%= city.length %>')"  value="checkbox" name="treatment" <%= treatment[t].check %>>
+                                    <label for="checkbox" id="label"><%= treatment[t].Treatment %></label>
+                                </li>
+                            <%}%>
+                            
+                            
+                            <div id="more1">
+                                <ul id="ul-in-li">
+                                    <% for(let t=5; t<treatment.length; t++){%>
+                                        <li id="li-in-li">
+                                            <input type="checkbox" id="checkbox" onchange="filter11(this,'<%= city.length %>')"  value="checkbox" name="treatment" <%= treatment[t].check %>>
+                                            <label for="checkbox" id="label"><%= treatment[t].Treatment %></label>
+                                        </li>
+                                    <%}%>
+                                    
+                                    
+                                </ul>
+                            </div>
+                        </ul>
+                        <h2><span id="plus1">+</span><a onclick="MyFunction1()" id="mybtn1" style="cursor: pointer;"> Show More</a></h2>
+                    </li>
+                     <!--**********************************************************************-->
+
+                     <li>
+                        <input type="hidden" value="hospital" >
+                        <div id="icon-div">
+                           
+                            <h3>Hospitals</h3>
+                            <i class="fas fa-search" id="icon" style="margin-left:4rem;"></i>
+                            <i class="far fa-window-minimize" id="icon" ></i>
+                            
+                            </div>
+                        <ul id="ul-in-li">
+                            <% for(let h=0; h<=4; h++){%>
+                                <li id="li-in-li">
+                                    <input type="checkbox" id="checkbox" onchange="filter12(this,'<%= city.length %>')"  value="checkbox" name="hospital" <%= hospital[h].check %>>
+                                    <label for="checkbox" id="label"><%= hospital[h].Hospital %></label>
+                                </li>
+                            <%}%>
+                           
+                           
+                            
+                            <div id="more2">
+                                <ul id="ul-in-li">
+                                    <% for(let h=5; h<hospital.length; h++){%>
+                                        <li id="li-in-li">
+                                            <input type="checkbox" id="checkbox" onchange="filter12(this,'<%= city.length %>')"  value="checkbox" name="hospital" <%= hospital[h].check %>>
+                                            <label for="checkbox" id="label"><%= hospital[h].Hospital %></label>
+                                        </li>
+                                    <%}%>
+                                   
+                                   
+                                </ul>
+                            </div>
+                        </ul>
+                        <h2><span id="plus2">+</span><a onclick="MyFunction2()" id="mybtn2" style="cursor: pointer;"> Show More</a></h2>
+                    </li>
+                     <!--**********************************************************************-->
+
+                     <li>
+                        <div id="icon-div">
+                            <h3>Years of Experience</h3>
+                            <i class="fas fa-search" id="icon" style="margin-left:4rem;"></i>
+                            <i class="far fa-window-minimize" id="icon" ></i>
+                            
+                            </div>
+                        <ul id="ul-in-li">
+                            <li id="li-in-li">
+                                <input type="checkbox" id="checkbox" onchange="filter(this)"  value="checkbox" name="checkbox" <%= ckt %>>
+                                <label for="checkbox" id="label">30+</label>
+                            </li>
+                            <li id="li-in-li">
+                                <input type="checkbox" id="checkbox" onchange="filter(this)"  value="checkbox" name="checkbox" <%= cku %>>
+                                <label for="checkbox" id="label">25+</label>
+                            </li>
+                            <li id="li-in-li">
+                                <input type="checkbox" id="checkbox" onchange="filter(this)"  value="checkbox" name="checkbox" <%= ckv %>>
+                                <label for="checkbox" id="label">20+</label>
+                            </li>
+                            <li id="li-in-li">
+                                <input type="checkbox" id="checkbox" onchange="filter(this)"  value="checkbox" name="checkbox" <%= ckw %>>
+                                <label for="checkbox" id="label">15+</label>
+                            </li>
+                            <li id="li-in-li">
+                                <input type="checkbox" id="checkbox" onchange="filter(this)"  value="checkbox" name="checkbox" <%= cky %>>
+                                <label for="checkbox" id="label">10+</label>
+                            </li>
+                            <li id="li-in-li">
+                                <input type="checkbox" id="checkbox" value="checkbox" name="checkbox">
+                                <label for="checkbox" id="label">5+</label>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>
+                </form>
+                     
+                </ul>
+            </div>
+    
+        <ul id="Doctors-ul">
+           
+            <% for(let i=0 ; i<results.length; i++){%>
+                <% if(i>=0 && i<4 &&  pageno =="page1"){%>
+                    <li id="li-1" >
+                        <div id="Doctorinfo">
+                            <header>
+                                <h2 style="text-align: left; color:#3b7abd;margin-bottom:1rem;"><%= results[i].DoctorName %></h2>
+                            </header>
+                             <ul>
+                                <li>
+                                   <div id="grid-icons"><i class="fas fa-certificate"></i></div><div><input type="text" value="<%= results[i].Speciality %>" disabled></div>
+                                </li>
+                                <li>
+                                  <div id="grid-icons"><i class="fas fa-book-open"></i></div><div><input type="text" value="<%= results[i].Education %>" disabled></div>
+                                </li>
+                                <li>
+                                  <div id="grid-icons"><i class="fas fa-certificate"></i></div><div><input type="text"  value="<%= results[i].Treatment %>" disabled></div>
+                                </li>
+                                <li>
+                                  <div id="grid-icons"><i class="far fa-clock"></i></div><div><input type="text" value="<%= results[i].Experience %>+ years of experience" disabled></div>
+                                </li>
+                                <li>    
+                                  <div id="grid-icons"><i class="far fa-hospital"></i></div><div><input type="text" value="<%= results[i].HospitalList %>" disabled></div>
+                                </li>
+                                <li>    
+                                  <div id="grid-icons"><i class="fas fa-rupee-sign"></i></div><div><input type="text" value="<%= results[i].AvgFees %> /-" disabled></div>
+                                </li> 
+                             </ul>
+                            <button onclick="inevent(this)" value="false" id="book-apt">Book Appointment</button>
+                        </div>
+                        <div id="Doctorsimg" onclick="gotoprofile(this,'<%= results[i].DoctorName %>')">
+                            <img src="../../uploads/doctors/avatars/<%= results[i].avatar %>" alt="">
+                            
+                        </div>
+                        <div id="slots">
+                            <div id="go_back">
+                                <i  onclick="getprevdate(this)" class="fas fa-chevron-left"></i>
+                            </div>
+                            <div id="days">
+                                <input type="hidden" value="">
+                                <div id="value" class="c-day-heading c-day-heading--selected" onclick="getdiv(this,'<%= results[i].DoctorName %>','<%= results[i].HospitalName %>')" value="false"><h3 id="corusel1">Today</h3><h3 id="h3-h3">No slots available</h3></div>
+                                <div id="valuea" class="c-day-heading c-day-heading--selected" onclick="getdiva(this,'<%= results[i].DoctorName %>','<%= results[i].HospitalName %>')" value="false"><h3 id="corusel2">Tomorrow</h3><h3 id="h3-h3">No slots available</h3></div>
+                                <div id="valueb" class="c-day-heading c-day-heading--selected" onclick="getdivb(this,'<%= results[i].DoctorName %>','<%= results[i].HospitalName %>')" value="false"><h3 id="corusel3">After</h3><h3 id="h3-h3">No slots available</h3></div>
+                            </div>
+                            <div id="go_back1" >
+                                <i onclick="getnextdate(this,'<%= results[i].DoctorName %>')"  class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <div id="shifts">
+                            <div id="timing-slots">
+                              <input type="hidden" id="slotval" value="" >
+                                <div id="timing">
+                                    <p>
+                                        <input type="hidden" id="morningtime" value="">
+                                      <i class="fas fa-cloud"></i>
+                                         Morning
+                                    </p>
+                                    <p>
+                                        <i class="fas fa-sun"></i>
+                                        AftNoon
+                                    </p>
+                                    <p>
+                                      <i class="far fa-moon"></i>
+                                        Evening
+                                    </p>
+                                </div>
+                                <div id="timing2">
+                                 
+                                   <div class="timing_morning" id="timing_morning" style="border-bottom: 1px solid black;" value="">
+                                            
+                                   </div>
+                                   <div class="timing_afternoon" id="Afternoon" value="" style="border-bottom: 1px solid black;">
+                                      <script>
+                                          var u=document.getElementById("Afternoon").value;
+                                          
+                                      </script>
+                                      
+                                    </div>
+                                   <div class="timing_evening" style="border-bottom: 1px solid black;">
+                            
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                      </li>
+                <%}%>
+               <% if(i>=4  &&  pageno =="page2"){%>
+                <li id="li-1" >
+                    <div id="Doctorinfo">
+                        <header>
+                            <h2 style="text-align: left; color:#3b7abd;margin-bottom:1rem;"><%= results[i].DoctorName %></h2>
+                        </header>
+                         <ul>
+                            <li>
+                               <div id="grid-icons"><i class="fas fa-certificate"></i></div><div><input type="text" value="<%= results[i].Speciality %>" disabled></div>
+                            </li>
+                            <li>
+                              <div id="grid-icons"><i class="fas fa-book-open"></i></div><div><input type="text" value="<%= results[i].Education %>" disabled></div>
+                            </li>
+                            <li>
+                              <div id="grid-icons"><i class="fas fa-certificate"></i></div><div><input type="text"  value="<%= results[i].Treatment %>" disabled></div>
+                            </li>
+                            <li>
+                              <div id="grid-icons"><i class="far fa-clock"></i></div><div><input type="text" value="<%= results[i].Experience %>+ years of experience" disabled></div>
+                            </li>
+                            <li>    
+                              <div id="grid-icons"><i class="far fa-hospital"></i></div><div><input type="text" value="<%= results[i].HospitalList %>" disabled></div>
+                            </li>
+                            <li>    
+                              <div id="grid-icons"><i class="fas fa-rupee-sign"></i></div><div><input type="text" value="<%= results[i].AvgFees %> /-" disabled></div>
+                            </li> 
+                         </ul>
+                        <button onclick="inevent(this)" value="false" id="book-apt">Book Appointment</button>
+                    </div>
+                    <div id="Doctorsimg" onclick="gotoprofile(this,'<%= results[i].DoctorName %>')">
+                        <img src="../../uploads/doctors/avatars/<%= results[i].avatar %>" alt="">
+                        
+                    </div>
+                    <div id="slots">
+                        <div id="go_back">
+                            <i  onclick="getprevdate(this)" class="fas fa-chevron-left"></i>
+                        </div>
+                        <div id="days">
+                            <input type="hidden" value="">
+                            <div id="value" class="c-day-heading c-day-heading--selected" onclick="getdiv(this,'<%= results[i].DoctorName %>','<%= results[i].HospitalName %>')" value="false"><h3 id="corusel1">Today</h3><h3 id="h3-h3">No slots available</h3></div>
+                            <div id="valuea" class="c-day-heading c-day-heading--selected" onclick="getdiva(this,'<%= results[i].DoctorName %>','<%= results[i].HospitalName %>')" value="false"><h3 id="corusel2">Tomorrow</h3><h3 id="h3-h3">No slots available</h3></div>
+                            <div id="valueb" class="c-day-heading c-day-heading--selected" onclick="getdivb(this,'<%= results[i].DoctorName %>','<%= results[i].HospitalName %>')" value="false"><h3 id="corusel3">After</h3><h3 id="h3-h3">No slots available</h3></div>
+                        </div>
+                        <div id="go_back1" >
+                            <i onclick="getnextdate(this,'<%= results[i].DoctorName %>')"  class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div id="shifts">
+                        <div id="timing-slots">
+                          <input type="hidden" id="slotval" value="" >
+                            <div id="timing">
+                                <p>
+                                    <input type="hidden" id="morningtime" value="">
+                                  <i class="fas fa-cloud"></i>
+                                     Morning
+                                </p>
+                                <p>
+                                    <i class="fas fa-sun"></i>
+                                    AftNoon
+                                </p>
+                                <p>
+                                  <i class="far fa-moon"></i>
+                                    Evening
+                                </p>
+                            </div>
+                            <div id="timing2">
+                             
+                               <div class="timing_morning" id="timing_morning" style="border-bottom: 1px solid black;" value="">
+                                        
+                               </div>
+                               <div class="timing_afternoon" id="Afternoon" value="" style="border-bottom: 1px solid black;">
+                                  <script>
+                                      var u=document.getElementById("Afternoon").value;
+                                     
+                                  </script>
+                                 
+                                </div>
+                               <div class="timing_evening" style="border-bottom: 1px solid black;">
+                                  
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                  </li>
+                <%}%>
+            <%}%>
+               <div id="pagination">
+                <div id="page1"><a href="/Doctorlist/page1" id="page1-a">1</a></div>
+                <div id="page2"><a href="/Doctorlist/page2" id="page2-a" onclick="pagination(this)">2</a></div>
+               </div>
+              
+        </ul>
+         
+            <!-- <script>
+                function slotclicked(x,doctorname,hospitalname,dayselected){
+                    var timeslot1=x.innerText;
+                    timeslot=timeslot1.split('-');
+                    timeslot=timeslot[0];
+                    if(parseInt(timeslot[0]+timeslot[1])>=12){
+                            timeslot=timeslot+"PM";
+                        
+                    }
+                    else{
+                        timeslot=timeslot+"AM";
+                    }
+                     console.log("Time slot is",timeslot);
+                     var date=document.getElementById("slotval").value;
+                     var day=date.split(",");
+                     day=day[0];
+                     console.log("Date and Day is",days+"2020");
+                    // console.log("Date of slot",x.parentNode.parentNode.parentNode.parentNode.parentNode.children[2].children[1]);
+                     window.location.href="/bookappointment?ispatient="+"true"+"&time="+timeslot1+"&doctor="+doctorname+"&hospital="+hospitalname+"&day="+day+"&timeselect="+timeslot+"&Date="+date;
+                }
+            </script>        -->
+                 
+             </main>
+    
+        <section class="NeedHelp">
+            <h2>Need Help?</h2>
+            <p >Just Let us Know .We will be happy to assist you.</p>
+            <button><a href="/submitquery" style="color: white;">Submit your Query</a></button>
+        </section>
+
+
+        <%- include('footer') %>
+
+        <script>
+            function MyFunction(){
+                var more = document.getElementById("more");
+                var mybtn = document.getElementById("mybtn");
+                var plus = document.getElementById("plus");
+
+                if(plus.style.display === "none"){
+                    plus.style.display = "inline";
+                    mybtn.innerText = "Show More";
+                    more.style.display = "none";
+                }
+                    else{
+                        plus.style.display = "none";
+                        mybtn.innerText = "-Show Less";
+                        more.style.display = "flex";
+                    }
+            }
+        </script>
+        
+        <script>
+            function MyFunction1(){
+                var more1 = document.getElementById("more1");
+                var mybtn1 = document.getElementById("mybtn1");
+                var plus1 = document.getElementById("plus1");
+
+                if(plus1.style.display === "none"){
+                    plus1.style.display = "inline";
+                    mybtn1.innerText = "Show More";
+                    more1.style.display = "none";
+                    }
+                    else{
+                        plus1.style.display = "none";
+                        mybtn1.innerText = "-Show Less";
+                        more1.style.display = "flex";
+                    }
+                }
+        </script>
+        <script>
+            function MyFunction2(){
+                var more = document.getElementById("more2");
+                var mybtn = document.getElementById("mybtn2");
+                var plus = document.getElementById("plus2");
+
+                if(plus.style.display === "none"){
+                    plus.style.display = "inline";
+                    mybtn.innerText = "Show More";
+                    more.style.display = "none";
+                }
+                    else{
+                        plus.style.display = "none";
+                        mybtn.innerText = "-Show Less";
+                        more.style.display = "flex";
+                    }
+                }
+        </script>
+      
+       <script>
+           function inevent(x){
+           
+           if(x.parentNode.children[2].value == "false"){
+            x.parentNode.parentNode.children[2].style.display = "grid";
+            x.parentNode.children[2].value= "true";
+            console.log(x.parentNode.parentNode.children[2].children);
+           }
+           else{
+                x.parentNode.parentNode.children[2].style.display = "none";
+                x.parentNode.children[2].value = "false";
+            }
+           }
+       </script>
+       <script>
+        function inevent2(){
+        
+        if(document.getElementById("book-apt2").value == "false"){
+         document.getElementById("slots1").style.display = "grid";
+         document.getElementById("book-apt2").value = "true";
+        }
+            else{
+            document.getElementById("slots1").style.display = "none";
+            document.getElementById("book-apt2").value = "false";
+            }
+        }
+    </script>
+
+<script>
+    function filter1(x){
+        var y=document.getElementById("formwithcheck");
+
+              var obj={id:"",value:""};
+              let i;
+                    for( i=0; i<y.length; i++)
+                    {
+                        if(y[i].checked){
+                                checkedindex=i;
+                                obj.value=y[checkedindex].value;
+                                obj.id=y[checkedindex].id;
+                                obj.checked=y[checkedindex].checked;
+                                for(let i=checkedindex-1; i>=0; i--){
+                                y[i+1].id=y[i].id;
+                                console.log(y[i].id);
+                                y[i+1].parentNode.children[1].innerText=y[i].parentNode.children[1].innerText;
+                                y[i+1].checked=y[i].checked
+                                }
+                                y[0].id=obj.id;
+                                console.log(obj.id);
+                                y[0].parentNode.children[1].innerText=obj.value;
+                            
+                                y[0].checked=true;
+                        }
+                    }
+
+            var counter=0;
+            var arr1=[],arr2=[];
+            for( i=0; i<=9; i++){
+                if(y[i].checked){
+                    console.log("beautiful");
+                    counter++;
+                    arr1.push(i);
+                }
+                console.log(arr1);
+            }
+            for(let j=0; j<=9; j++){
+                if(y[i].checked){
+                    console.log("beautiful");
+                    counter++;
+                    arr2.push(j);
+                }
+                console.log(arr2);
+                i++;
+            }
+        if(counter>0){
+             window.location.href="/Doctorlist/page1?items1="+arr1+"&items2="+arr2+"&isselected=true&page2=true";
+        }
+        else{
+            window.location.href="/Doctorlist/page1";
+        }
+    }
+</script>
+
+
+    <script>
+        function inevent3(){
+        
+        if(document.getElementById("book-apt3").value == "false"){
+         document.getElementById("slots2").style.display = "grid";
+         document.getElementById("book-apt3").value = "true";
+        }
+        else{
+         document.getElementById("slots2").style.display = "none";
+         document.getElementById("book-apt3").value = "false";
+        }
+        }
+    </script>
+    <script>
+        function inevent4(){
+        
+        if(document.getElementById("book-apt4").value == "false"){
+         document.getElementById("slots3").style.display = "grid";
+         document.getElementById("book-apt4").value = "true";
+        }
+        else{
+         document.getElementById("slots3").style.display = "none";
+         document.getElementById("book-apt4").value = "false";
+        }
+        }
+    </script>
+    <script>
+        function inevent5(){
+        
+        if(document.getElementById("book-apt5").value == "false"){
+         document.getElementById("slots4").style.display = "grid";
+         document.getElementById("book-apt5").value = "true";
+        }
+        else{
+         document.getElementById("slots4").style.display = "none";
+         document.getElementById("book-apt5").value = "false";
+        }
+        }
+    </script>
+
+    <script>
+        function sortby(x){
+            console.log("Current Url is:",window.location.href);
+                console.log("Selected val is:",document.getElementById("howmuchselected").value);
+                if(document.getElementById("howmuchselected").value==0)
+                {
+                    window.location.href=window.location.href+"?sortby="+x;
+       
+                }
+                else{
+                    window.location.href=window.location.href+"&sortby="+x;
+                }
+               
+        }
+      
+    </script>
+    <script>
+        function inevent6(){
+        
+        if(document.getElementById("book-apt6").value == "false"){
+         document.getElementById("slots5").style.display = "grid";
+         document.getElementById("book-apt6").value = "true";
+        }
+        else{
+         document.getElementById("slots5").style.display = "none";
+         document.getElementById("book-apt6").value = "false";
+        }
+        }
+    </script>
+   <script>
+    var globaldata="Hello";
+ 
+    function myfoo(){
+       console.log("clicked clicked");
+          url="http://localhost:4000/doctors/getapi";
+
+          return fetch(url).then((response)=>{
+               return response.json();
+          }).then((data)=>{
+             
+            //   console.log("Doctorlist api is:",data);
+               globaldata=data;
+               
+              return data;                                       
+          })
+   }       
+   
+   function Noslotfun(globaldata,portion,option)
+   {         
+         if(option=="true")
+         {
+            portion.children[1].innerHTML=""; 
+            var btn1= document.createElement("button");
+            btn1.innerText="Go to next Availavle slot";
+            btn1.style.backgroundColor="blue";
+            portion.children[1].append(btn1);  
+         }
+        else{
+            portion.children[1].innerHTML="";  
+        }
+
+   }
+   
+   function getdiv(y,doctor,hospital){
+       console.log("Hello Honey Bunny",y.innerText);
+       var day=y.innerText;
+       var btn1;
+       day=day[0]+day[1]+day[2];
+       console.log("Day selected is and y.innertext is:",day,y.innerText);
+      
+       console.log(y.parentNode.parentNode.parentNode.children[2]);  
+       console.log(y.parentNode.parentNode.parentNode.children[3]);
+       if(y.value == "false")
+       {
+           var data=myfoo();
+               data.then(function(data)
+               {
+                   console.log("Global data and doctor and day is",globaldata,doctor,day);
+                   var portion=y.parentNode.parentNode.parentNode.children[3].children[0].children[2];
+                               // var portion= y.parentNode.parentNode                   
+                           console.log(portion.children[2].children[1]);
+                           portion.children[0].innerHTML=""; 
+                           portion.children[1].innerHTML="";
+                           portion.children[2].innerHTML="";
+                           
+                   for(let j=0; j<globaldata.length; j++)
+                   {
+                       portion.children[1].innerHTML="";  
+                       if( globaldata[j].Doctorname==doctor && globaldata[j].Day==day)
+                       {
+                           
+                            console.log("Abe toh,",j);
+                            console.log(globaldata[j].Allslots[0].subslots[0]);
+
+                           for(let i=0; i<globaldata[j].Allslots[0].subslots.length; i++)
+                           {
+                                 if(globaldata[j].Allslots[0].subslots[i].disable=="")
+                                 {
+                                   btn=document.createElement("button");
+                                   var timeslot1=globaldata[j].Allslots[0].subslots[i].subslot;
+                                   var t=globaldata[j].Allslots[0].subslots[i].subslot.split("-");
+                                    var verify=t[0].split(":");
+                                      if(parseInt(verify[0])<12){
+                                       btn.innerText=t[0]+"AM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                           
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var date=y.innerText;
+                                               date=date[1];
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;
+                                           };
+                                           console.log(this.id);
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[0].append(btn);
+                                      }
+                                       else if(parseInt(verify[0])>=12 && parseInt(verify[0])<18){
+                                        
+                                           btn.innerText=t[0]+"PM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                           
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;
+                                           };
+                                           console.log("Childern is",portion.children[1].children);
+                                           // document.getElementById("timing_morning").append(btn);
+                                           Noslotfun(globaldata,portion,"false");    
+                                           portion.children[1].append(btn);
+                                       } 
+                                      else{
+                                       btn.innerText=t[0]+"PM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                           
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;  
+                                       };
+                                           console.log(this.id);
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[2].append(btn);
+                                      }
+                                    
+                                 }
+                                
+                           }
+                                
+
+                       }
+                       else
+                       {
+                            // Noslotfun(globaldata,portion,"true");
+                           
+                            // btn1=document.createElement("button");
+                            // portion.children[1].append(btn1);
+                            // btn1.innerText="Go to next Availavle slot";
+                            // btn1.style.backgroundColor="blue";
+                            // btn1.style.display="initial";                 
+                       }
+                                  
+                      
+                     
+                   }
+                                 
+           
+                                
+               })
+              
+       console.log("Hi Beautiful",y.innerText);
+       var split=y.innerText.split('');
+       var s=split[0]+split[1]+split[2];
+       console.log(doctor,hospital);    
+       
+    y.parentNode.parentNode.parentNode.children[3].style.display = "grid";
+    y.value = "true";
+    console.log("Hi Miss",y.parentNode);
+    console.log("Beautiful",y.children[0].innerText);
+    document.getElementById("slotval").value=y.children[0].innerText;
+    console.log(document.getElementById("slotval"));
+    y.parentNode.parentNode.parentNode.children[3].style.animationName = "slidein";
+    y.parentNode.parentNode.parentNode.children[3].style.animationDuration = "0s";
+    y.style.borderBottomColor = "blue"; 
+    document.getElementById("hospital-names").style.display = "flex";
+    document.getElementById("Afternoon").value=s;
+   }
+       else
+       {
+           y.parentNode.parentNode.parentNode.children[3].style.display = "none";
+           y.value = "false";
+           y.style.borderBottomColor = "#cccc"; 
+           // document.getElementById("hospital-names").style.display = "none";
+       }
+   }
+
+   function getdiva(y,doctor,hospital){
+       console.log(y.parentNode.parentNode.parentNode.children[3]);
+       var day=y.innerText;
+       var btn1;
+       day=day[0]+day[1]+day[2];
+   if(y.value == "false"){
+       var data=myfoo();
+               data.then(function(data)
+               {
+                   console.log("Global data and doctor and day is",globaldata,doctor,day);
+                   var portion=y.parentNode.parentNode.parentNode.children[3].children[0].children[2];
+                               // var portion= y.parentNode.parentNode                   
+                           console.log(portion.children[2].children[1]);
+                           portion.children[0].innerHTML=""; 
+                           portion.children[1].innerHTML="";
+                           portion.children[2].innerHTML="";
+                   for(let j=0; j<globaldata.length; j++)
+                   {
+                       
+                       if( globaldata[j].Doctorname==doctor && globaldata[j].Day==day)
+                       {
+                            console.log("Abe toh,",j);
+                            console.log(globaldata[j].Allslots[0].subslots[0]);
+                            console.log("Hi the children is:",portion.children[1].children);
+                           for(let i=0; i<globaldata[j].Allslots[0].subslots.length; i++){
+                                  
+                                 if(globaldata[j].Allslots[0].subslots[i].disable==""){
+                                   btn=document.createElement("button");
+                                  
+                                   var t=globaldata[j].Allslots[0].subslots[i].subslot.split("-");
+                                    var verify=t[0].split(":");
+                                      if(parseInt(verify[0])<12){
+                                       btn.innerText=t[0]+"AM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                          
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;
+                                           };
+                                          
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[0].append(btn);
+                                      }
+                                       else if(parseInt(verify[0])>=12 && parseInt(verify[0])<18){
+                                           btn.innerText=t[0]+"PM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                          
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;
+                                       };
+                                          
+                                           
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[1].append(btn);
+                                           console.log("Hi the children is:",portion.children[1].children);
+                                       } 
+                                      else{
+                                       btn.innerText=t[0]+"PM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                           
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;
+                                           };
+                                           console.log(this.id);
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[2].append(btn);
+                                      }
+                                 }
+                                    
+                           }
+                                
+
+                       }
+                      
+                       else
+                       {
+                            // btn1=document.createElement("button");
+                            // portion.children[1].append(btn1);
+                            // btn1.innerText="Go to next Availavle slot";
+                            // btn1.style.backgroundColor="blue";
+                            // btn1.style.display="initial";                   
+                       }
+                   }
+                                 
+           
+                                
+               })
+    y.parentNode.parentNode.parentNode.children[3].style.display = "grid";
+    y.value = "clicked";
+    console.log("Hi Miss",x.value);
+    y.parentNode.parentNode.parentNode.children[3].style.animationName = "slidein";
+    y.parentNode.parentNode.parentNode.children[3].style.animationDuration = "0.5s";
+    y.style.borderBottomColor = "blue"; 
+    document.getElementById("slotval").value=x.children[0].innerText;
+    console.log(document.getElementById("slotval"));
+    document.getElementById("hospital-names").style.display = "flex";
+   
+   }
+   else{
+    y.parentNode.parentNode.parentNode.children[3].style.display = "none";
+    y.value = "false";
+    y.style.borderBottomColor = "#cccc"; 
+    document.getElementById("hospital-names").style.display = "none";
+    document.getElementById("gonext").style.display="none;"
+   }
+   }
+   function getdivb(y,doctor,hospital){
+       var day=y.innerText;
+       var btn1;
+       day=day[0]+day[1]+day[2];
+       if(y.value == "false"){
+           var data=myfoo();
+               data.then(function(data)
+               {
+                   console.log("Global data and doctor and day is",globaldata,doctor,day);
+                   var portion=y.parentNode.parentNode.parentNode.children[3].children[0].children[2];
+                               // var portion= y.parentNode.parentNode                   
+                           console.log(portion.children[2].children[1]);
+                           portion.children[0].innerHTML=""; 
+                           portion.children[1].innerHTML="";
+                           portion.children[2].innerHTML="";
+                   for(let j=0; j<globaldata.length; j++)
+                   {
+                       
+                       if( globaldata[j].Doctorname==doctor && globaldata[j].Day==day)
+                       {
+                            console.log("Abe toh,",j);
+                            console.log(globaldata[j].Allslots[0].subslots[0]);
+
+                           for(let i=0; i<globaldata[j].Allslots[0].subslots.length; i++){
+                                   
+                               if(globaldata[j].Allslots[0].subslots[i].disable==""){
+                                   btn=document.createElement("button");
+                                   var timeslot1=globaldata[j].Allslots[0].subslots[i].subslot;
+                                   var t=globaldata[j].Allslots[0].subslots[i].subslot.split("-");
+                                    var verify=t[0].split(":");
+                                      if(parseInt(verify[0])<12){
+                                       btn.innerText=t[0]+"AM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;  
+                                           };
+                                           console.log(this.id);
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[0].append(btn);
+                                      }
+                                       else if(parseInt(verify[0])>=12 && parseInt(verify[0])<18){
+                                           btn.innerText=t[0]+"PM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;
+                                           };
+                                           console.log(this.id);
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[1].append(btn);
+                                       } 
+                                      else{
+                                       btn.innerText=t[0]+"PM";
+                                        console.log("Button value is:",btn.innerText);
+                                           btn.style.width="100";
+                                           btn.style.backgroundColor="white";
+                                           btn.style.color="green";
+                                           btn.style.border="2px solid green";
+                                           btn.onclick=()=>{
+                                               var thecdate=new Date();
+                                               var curryear=thecdate.getUTCFullYear();
+                                           window.location.href="/bookappointment?ispatient="+"true"+"&time="+globaldata[j].Allslots[0].subslots[i].subslot+"&doctor="+doctor+"&hospital="+globaldata[j].HospitalName+"&day="+day+"&timeselect="+globaldata[j].Allslots[0].starttime+"&Date="+y.children[0].innerText+","+curryear;
+                                           };
+                                           console.log(this.id);
+                                           // document.getElementById("timing_morning").append(btn);
+                                           portion.children[2].append(btn);
+                                      }
+                                    
+                               }
+                           }
+                                
+
+                       }
+                       else
+                       {    
+                            // btn1=document.createElement("button");
+                            // portion.children[1].append(btn1);
+                            // btn1.innerText="Go to next Availavle slot";
+                            // btn1.style.backgroundColor="blue";
+                            // btn1.style.display="initial";                     
+                       }
+                     
+                   }
+                                 
+           
+                                
+               })
+    y.parentNode.parentNode.parentNode.children[3].style.display = "grid";
+    y.value = "true";
+    y.parentNode.parentNode.parentNode.children[3].style.animationName = "slidein";
+    y.parentNode.parentNode.parentNode.children[3].style.animationDuration = "0.5s";
+    y.style.borderBottomColor = "blue"; 
+    document.getElementById("slotval").value=z.children[0].innerText;
+    console.log(document.getElementById("slotval"));
+    document.getElementById("hospital-names").style.display = "flex";
+   }
+   else{
+    y.parentNode.parentNode.parentNode.children[3].style.display = "none";
+    y.value = "false";
+    y.style.borderBottomColor = "#cccc"; 
+    document.getElementById("hospital-names").style.display = "none";
+   }
+   }
+</script>
+
+     
+    <script>
+        function bookapp(x){
+            console.log(x);
+            var time= x.innerText;
+            console.log("Hi this beauty",time);
+            console.log("Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+            window.location.href = "/bookappointment?ispatient=true&&timeslot="+time;
+        }
+    </script>
+    <script>
+        function slider(){
+        document.getElementById("days").style.animation="slider 1s";
+        }
+    </script>
+      <script>
+           var globaldata="Hello";
+      
+            function myfoo(){
+                console.log("clicked clicked");
+                    url="http://localhost:4000/doctors/getapi";
+
+                    return fetch(url).then((response)=>{
+                        return response.json();
+                    }).then((data)=>{
+                    
+                        // console.log("Doctorlist api is:",data);
+                        globaldata=data;
+                        
+                        // console.log(globaldata);
+                                                              
+                    })
+            } 
+          function getprevdate(x){
+            var theDate = Date.now();
+            let arr=[];
+            let current;
+            x.parentNode.parentNode.children[1].children[1].children[1].innerHTML="No slots Available";
+            x.parentNode.parentNode.children[1].children[2].children[1].innerHTML="No slots Available";
+            x.parentNode.parentNode.children[1].children[3].children[1].innerHTML="No slots Available";
+            console.log(x.parentNode.parentNode.parentNode.children[3]);
+            x.parentNode.parentNode.parentNode.children[3].style.display="none";
+            arr.push(getTheDate(theDate));
+              for(let i=1; i<7; i++)
+              {
+                 theDate += 86400000;
+                 arr.push(getTheDate(theDate));
+              }
+            console.log(arr);
+            if(x.parentNode.parentNode.children[1].children[0].children[0].innerText=="Today"){
+                x.parentNode.parentNode.children[1].children[1].children[0].innerText=arr[4];
+                x.parentNode.parentNode.children[1].children[2].children[0].innerText=arr[5];
+                x.parentNode.parentNode.children[1].children[3].children[0].innerText=arr[6];
+
+            } 
+            else{
+                for(let i=0; i<=6; i++)
+                {
+                    if(arr[i]==x.parentNode.parentNode.children[1].children[1].children[0].innerText){
+                         current=i;
+                         break;
+                    }
+                }
+                let y;
+                y=current-3;
+                if(y>=0){
+                    x.parentNode.parentNode.children[1].children[1].children[0].innerText=arr[y];
+                   
+                }
+                else{
+                    let ans=y+1;
+                    ans=6+ans;
+                    x.parentNode.parentNode.children[1].children[1].children[0].innerText=arr[ans];
+                    
+                }
+                if((y+1)>=0){
+                    x.parentNode.parentNode.children[1].children[2].children[0].innerText=arr[y+1];
+                    
+                }
+                else{
+                    let ans=y+1;
+                    ans=6+ans+1;
+                    x.parentNode.parentNode.children[1].children[2].children[0].innerText=arr[ans];
+                    
+                }
+                if((y+2)>=0){
+                    x.parentNode.parentNode.children[1].children[3].children[0].innerText=arr[y+2];
+                  
+                }
+                else{
+                    let ans=y+1;
+                    ans=6+ans+2;
+                    x.parentNode.parentNode.children[1].children[3].children[0].innerText=arr[ans];
+                   
+                }
+            }
+           
+          }
+        function getnextdate(x,doctor){
+              var dayselected;
+              x.parentNode.parentNode.children[1].children[3].children[1].innerHTML="No slots Available";
+              x.parentNode.parentNode.children[1].children[2].children[1].innerHTML="No slots Available";
+              x.parentNode.parentNode.children[1].children[1].children[1].innerHTML="No slots Available";
+            //   dayselected=dayselected[0]+dayselected[1]+dayselected[2];
+              console.log(dayselected);
+              var portion=
+              x.parentNode.parentNode.parentNode.children[3].style.display="none";
+              x.parentNode.parentNode.children[1].children[1].style.borderBottom="2px solid silver";
+              x.parentNode.parentNode.children[1].children[2].style.borderBottom="2px solid silver";
+              x.parentNode.parentNode.children[1].children[3].style.borderBottom="2px solid silver";
+            var theDate = Date.now();
+            let arr=[];
+            let current=0;
+            arr.push(getTheDate(theDate));
+              for(let i=1; i<7; i++)
+              {
+                 theDate += 86400000;
+                 arr.push(getTheDate(theDate));
+              }
+            console.log(arr);
+            if(x.parentNode.parentNode.children[1].children[1].children[0].innerText=="Today"){
+                current=current+3;
+                x.parentNode.parentNode.children[1].children[1].children[0].innerText=arr[current];
+                x.parentNode.parentNode.children[1].children[2].children[0].innerText=arr[current+1];
+                x.parentNode.parentNode.children[1].children[3].children[0].innerText=arr[current+2];
+                
+                var d=arr[current][0]+arr[current][1]+arr[current][2];
+                            console.log("The d is :",d);
+                d=arr[current+1][0]+arr[current+1][1]+arr[current+1][2];
+                console.log("The d is :",d);
+                d=arr[current+2][0]+arr[current+2][1]+arr[current+2][2];
+                console.log("The d is :",d);
+                myfoo();
+                console.log("The change is here:",globaldata);
+            } 
+            else{
+                var cur;
+                   for(let i=0; i<=6; i++){
+                   
+                        if(arr[i]==x.parentNode.parentNode.children[1].children[1].children[0].innerText){
+                             cur=i;
+                             document.getElementById("days").style.animation="slider 1s";
+                             break;
+                        }   
+                   }
+                       var y=cur+3;
+                        if(y<=6){
+                            x.parentNode.parentNode.children[1].children[1].children[0].innerText=arr[y];
+                            x.parentNode.parentNode.children[1].children[1].style.animation = "animation 2s";
+                            x.parentNode.parentNode.children[1].children[2].style.animation = "animation 2s";
+                            x.parentNode.parentNode.children[1].children[3].style.animation = "animation 2s";
+                            myfoo();
+                            var d=arr[y][0]+arr[y][1]+arr[y][2];
+                            console.log("The d is :",d);
+                            var counter=0;
+                            for(z=0; z<globaldata.length; z++){
+                                if(globaldata[z].Doctorname==doctor && globaldata[z].Day==d){
+                                    console.log("Helllllos");
+                                    for(let r=0; r<globaldata[z].Allslots[0].subslots.length;r++){
+                                            if(globaldata[z].Allslots[0].subslots[r].disable==""){
+                                                counter++;
+                                                
+                                            }
+                                    }
+                                    x.parentNode.parentNode.children[1].children[1].children[1].innerText=counter+" "+"Slots Available"
+                                    console.log(counter); 
+                                }
+                            }
+                            // x.parentNode.parentNode.children[1].children[1].children[1].innerText=counter+"Slots Available"
+                            document.getElementById("days").style.animation="slider 1s";
+                        }
+                        else{
+                            var rem=(y%6)-1;
+                            x.parentNode.parentNode.children[1].children[1].children[0].innerText=arr[rem];
+                            x.parentNode.parentNode.children[1].children[1].style.animation = "animation 2s";
+                            x.parentNode.parentNode.children[1].children[2].style.animation = "animation 2s";
+                            x.parentNode.parentNode.children[1].children[3].style.animation = "animation 2s";
+                            document.getElementById("days").style.animation="slider 1s";
+                            myfoo();
+                            var d=arr[rem][0]+arr[rem][1]+arr[rem][2];
+                            console.log("The d is :",d);
+                            var counter=0;
+                            for(z=0; z<globaldata.length; z++){
+                                if(globaldata[z].Doctorname==doctor && globaldata[z].Day==d){
+                                    console.log("Helllllos");
+                                    for(let r=0; r<globaldata[z].Allslots[0].subslots.length;r++){
+                                            if(globaldata[z].Allslots[0].subslots[r].disable==""){
+                                                counter++;
+                                               
+                                            }
+                                    }
+                                    x.parentNode.parentNode.children[1].children[1].children[1].innerText=counter+" "+"Slots Available"
+                                    console.log(counter); 
+                                }
+                            }
+                            // x.parentNode.parentNode.children[1].children[1].children[1].innerText=counter+"Slots Available"
+                            console.log("The change is here:",globaldata);
+                        }
+                        if((y+1)<=6){
+                            x.parentNode.parentNode.children[1].children[2].children[0].innerText=arr[y+1];
+                            x.parentNode.parentNode.children[1].children[1].style.animation = "animation 2s";
+                            x.parentNode.parentNode.children[1].children[2].style.animation = "animation 2s";
+                            x.parentNode.parentNode.children[1].children[3].style.animation = "animation 2s";
+                            document.getElementById("days").style.animation="slider 1s";
+                            myfoo();
+                            var d=arr[y+1][0]+arr[y+1][1]+arr[y+1][2];
+                            console.log("The d is :",d);
+                            var counter=0;
+                            for(z=0; z<globaldata.length; z++){
+                                if(globaldata[z].Doctorname==doctor && globaldata[z].Day==d){
+                                    console.log("Helllllos");
+                                    for(let r=0; r<globaldata[z].Allslots[0].subslots.length;r++){
+                                            if(globaldata[z].Allslots[0].subslots[r].disable==""){
+                                                counter++;
+                                              
+                                            }
+                                    }
+                                    console.log(counter); 
+                                    x.parentNode.parentNode.children[1].children[2].children[1].innerText=counter+" "+"Slots Available"
+                                }
+                            }
+                            // x.parentNode.parentNode.children[1].children[1].children[1].innerText=counter+"Slots Available"
+                            console.log("The change is here:",globaldata);
+                        }
+                        else{
+                            var rem=((y+1) %6)-1;
+                            x.parentNode.parentNode.children[1].children[2].children[0].innerText=arr[rem];
+                            // x.parentNode.parentNode.children[1].children[1].style.animation = "animation 1s";
+                            // x.parentNode.parentNode.children[1].children[2].style.animation = "animation 1s";
+                            // x.parentNode.parentNode.children[1].children[3].style.animation = "animation 1s";
+                            // document.getElementById("days").style.animation="slider 1s";
+                            myfoo();
+                            var d=arr[rem][0]+arr[rem][1]+arr[rem][2];
+                            console.log("The d is :",d);
+                            var counter=0;
+                            for(z=0; z<globaldata.length; z++){
+                                if(globaldata[z].Doctorname==doctor && globaldata[z].Day==d){
+                                    console.log("Helllllos");
+                                    for(let r=0; r<globaldata[z].Allslots[0].subslots.length;r++){
+                                            if(globaldata[z].Allslots[0].subslots[r].disable==""){
+                                                counter++;
+                                                
+                                            }
+                                    }
+                                    console.log(counter);
+                                    x.parentNode.parentNode.children[1].children[2].children[1].innerText=counter+" "+"Slots Available"
+                                }
+                            }
+                            // x.parentNode.parentNode.children[1].children[1].children[1].innerText=counter+"Slots Available"
+                            console.log("The change is here:",globaldata);
+                        }
+                        if((y+2)<=6){
+                            x.parentNode.parentNode.children[1].children[3].children[0].innerText=arr[y+2];
+                            // x.parentNode.parentNode.children[1].children[1].style.animation = "animation 1s";
+                            // x.parentNode.parentNode.children[1].children[2].style.animation = "animation 1s";
+                            // x.parentNode.parentNode.children[1].children[3].style.animation = "animation 1s";
+                            // document.getElementById("days").style.animation="slider 1s";
+                            myfoo();
+                            var d=arr[y+2][0]+arr[y+2][1]+arr[y+2][2];
+                            console.log("The d is :",d);
+                            var counter=0;
+                            for(z=0; z<globaldata.length; z++){
+                                if(globaldata[z].Doctorname==doctor && globaldata[z].Day==d){
+                                    console.log("Helllllos");
+                                    for(let r=0; r<globaldata[z].Allslots[0].subslots.length;r++){
+                                            if(globaldata[z].Allslots[0].subslots[r].disable==""){
+                                                counter++;
+                                               
+                                            }
+                                    }
+                                    console.log(counter);
+                                    x.parentNode.parentNode.children[1].children[3].children[1].innerText=counter+" "+"Slots Available"
+                                }
+                            }
+                            // x.parentNode.parentNode.children[1].children[1].children[1].innerText=counter+"Slots Available"
+                            console.log("The change is here:",globaldata);
+                        }
+                        else{
+                            var rem=((y+2) %6)-1;
+                            x.parentNode.parentNode.children[1].children[3].children[0].innerText=arr[rem];
+                            // x.parentNode.parentNode.children[1].children[1].style.animation = "animation 1s";
+                            // x.parentNode.parentNode.children[1].children[2].style.animation = "animation 1s";
+                            // x.parentNode.parentNode.children[1].children[3].style.animation = "animation 1s";
+                            // document.getElementById("days").style.animation="slider 1s";
+                            myfoo();
+                            var d=arr[rem][0]+arr[rem][1]+arr[rem][2];
+                            console.log("The d is :",d);
+                            var counter=0;
+                            for(z=0; z<globaldata.length; z++){
+                                if(globaldata[z].Doctorname==doctor && globaldata[z].Day==d){
+                                    console.log("Helllllos");
+                                    for(let r=0; r<globaldata[z].Allslots[0].subslots.length;r++){
+                                            if(globaldata[z].Allslots[0].subslots[r].disable==""){
+                                                counter++;
+                                               
+                                            }
+                                    }
+                                    console.log(counter);  
+                                    x.parentNode.parentNode.children[1].children[3].children[1].innerText=counter+" "+"Slots Available"
+                                }
+                            }
+                            
+                            console.log("The change is here:",globaldata);
+                        }
+            }
+          }
+           
+
+
+          function getTheDate(theDate) {
+            var days = ["Sun", "Mon", "Tue",
+            "Wed", "Thu", "Fri", "Sat"
+            ];
+
+            var months = ["Jan", "Feb", "Mar",
+            "Apr", "May", "Jun", "Jul", "Aug",
+            "Sep", "Oct", "Nov", "Dec"
+            ];
+
+            var theCDate = new Date(theDate);
+            var temp1=new Date(2010, 11, 30);
+            var temp2=new Date(2009, 12, 31);
+            if(temp2>temp1){
+                console.log("Yes true");
+            }
+            else{
+                console.log("No false");
+            }
+            // console.log(temp);
+             console.log("The value od date is:",theCDate.getUTCFullYear());
+
+            return (days[theCDate.getDay()] + ', ' + theCDate.getDate() + ' ' + months[theCDate.getMonth()]);
+            }
+      </script>
+      <script>
+          var y=document.getElementById("formwithcheck");
+          console.log("shivam--",y[10].parentNode.children[1].innerText);
+      </script>
+      <script>
+        function terminate(t){
+            var arr1=[],arr2=[];
+            console.log(t.parentNode.innerText);
+            var y=document.getElementById("formwithcheck");
+            for(let i=1; i<=26; i++){
+                if(y[i].parentNode.children[1].innerText==t.parentNode.innerText){
+                    console.log("Hello");
+                    y[i].parentNode.children[0].checked='';
+                    t.parentNode.style.display="none";
+                    console.log(y[i].parentNode.children[0].checked);
+                    break;
+                }
+             }
+                for(let i=1; i<=5; i++){
+                    console.log(y[i].parentNode.children[1].innerText);
+                    console.log(y[i].parentNode.children[0].checked);
+                    arr1.push({Doctorcity:y[i].parentNode.children[1].innerText,check:y[i].parentNode.children[0].checked});
+                } 
+                for(let i=0; i<arr1.length; i++){
+                    if(arr1[i].check){
+                            arr2.push(arr1[i].Doctorcity+'$');
+                    }
+                 }
+                 for(let i=0; i<arr1.length; i++){
+                    if(!(arr1[i].check)){
+                            arr2.push(arr1[i].Doctorcity);
+                    }
+                 }
+                 console.log(arr2);
+                 window.location.href="/Doctorlist/page1?cityarray="+arr2;      
+        
+        }
+        function filter(x,length){
+        let i;   
+        var y=document.getElementById("formwithcheck");
+        var z=y;
+        var counter=0;
+                var arr1=[],arr2=[];
+                console.log("How can i take the value is:",x.parentNode.parentNode.parentNode.children[0].value); 
+                for(let i=1; i<=parseInt(length); i++){
+                    console.log(y[i].parentNode.children[1].innerText);
+                    console.log(y[i].parentNode.children[0].checked);
+                    arr1.push({Doctorcity:y[i].parentNode.children[1].innerText,check:y[i].parentNode.children[0].checked});
+                }
+               
+           var index;
+           var temp;
+           if(x.parentNode.children[0].checked)
+           {
+               
+                        for(let i=0; i<arr1.length; i++){
+                            
+                            if(arr1[i].Doctorcity==x.parentNode.children[1].innerText){
+                                index=i;
+                                temp=x.parentNode.children[1].innerText;
+                                break;
+                        }
+            
+                        }
+ 
+                            for(let j=index-1; j>=0;j--){
+                                arr1[j+1].Doctorcity=arr1[j].Doctorcity;
+                                arr1[j+1].check=arr1[j].check;
+
+                            }
+                            arr1[0].Doctorcity=temp;
+                            arr1[0].check="true";
+                            console.log("After arr1 is:",arr1);
+
+                            for(let i=0; i<arr1.length; i++){
+                                if(arr1[i].check){
+                                        arr2.push(arr1[i].Doctorcity+'$');
+                                }
+                                else{
+                                    arr2.push(arr1[i].Doctorcity);
+                                }
+                            }
+                  console.log("arr2 is:",arr2);                  
+                window.location.href="/Doctorlist/page1?cityarray="+arr2; 
+           }
+           else{
+            for(let i=0; i<arr1.length; i++){
+                    if(arr1[i].check){
+                            arr2.push(arr1[i].Doctorcity+'$');
+                    }
+                 }
+                 for(let i=0; i<arr1.length; i++){
+                    if(!(arr1[i].check)){
+                            arr2.push(arr1[i].Doctorcity);
+                    }
+                 }
+                window.location.href="/Doctorlist/page1?cityarray="+arr2; 
+           }
+    }
+ /************************************************************************************/
+ function filter11(x,length){
+        let i;   
+        var y=document.getElementById("formwithcheck");
+        var z=y;
+        var counter=0;
+                var arr1=[],arr2=[];
+                console.log("How can i take the value is:",x.parentNode.parentNode.parentNode.children[0].value); 
+                for(let i=7; i<=21; i++){
+                    console.log(y[i].parentNode.children[1].innerText);
+                    console.log(y[i].parentNode.children[0].checked);
+                    arr1.push({Treatment:y[i].parentNode.children[1].innerText,check:y[i].parentNode.children[0].checked});
+                }
+               
+           var index;
+           var temp;
+           if(x.parentNode.children[0].checked)
+           {
+               
+                        for(let i=0; i<arr1.length; i++){
+                            
+                            if(arr1[i].Treatment==x.parentNode.children[1].innerText){
+                                index=i;
+                                temp=x.parentNode.children[1].innerText;
+                                break;
+                        }
+            
+                        }
+ 
+                            for(let j=index-1; j>=0;j--){
+                                arr1[j+1].Treatment=arr1[j].Treatment;
+                                arr1[j+1].check=arr1[j].check;
+
+                            }
+                            arr1[0].Treatment=temp;
+                            arr1[0].check="true";
+                            console.log("After arr1 is:",arr1);
+
+                            for(let i=0; i<arr1.length; i++){
+                                if(arr1[i].check){
+                                        arr2.push(arr1[i].Treatment+'$');
+                                }
+                                else{
+                                    arr2.push(arr1[i].Treatment);
+                                }
+                            }
+                  console.log("arr2 is:",arr2);                  
+                window.location.href="/Doctorlist/page1?treatmentarray="+arr2; 
+           }
+           else{
+            for(let i=0; i<arr1.length; i++){
+                    if(arr1[i].check){
+                            arr2.push(arr1[i].Treatment+'$');
+                    }
+                 }
+                 for(let i=0; i<arr1.length; i++){
+                    if(!(arr1[i].check)){
+                            arr2.push(arr1[i].Treatment);
+                    }
+                 }
+                window.location.href="/Doctorlist/page1?treatmentarray="+arr2; 
+           }
+    }
+ /************************************************************************************/ 
+ function filter12(x,length){
+        let i;   
+        var y=document.getElementById("formwithcheck");
+        var z=y;
+        var counter=0;
+                var arr1=[],arr2=[];
+                console.log("How can i take the value is:",x.parentNode.parentNode.parentNode.children[0].value); 
+                for(let i=23; i<=31; i++){
+                    console.log(y[i].parentNode.children[1].innerText);
+                    console.log(y[i].parentNode.children[0].checked);
+                    arr1.push({Hospital:y[i].parentNode.children[1].innerText,check:y[i].parentNode.children[0].checked});
+                }
+               
+           var index;
+           var temp;
+           if(x.parentNode.children[0].checked)
+           {
+               
+                        for(let i=0; i<arr1.length; i++){
+                            
+                            if(arr1[i].Hospital==x.parentNode.children[1].innerText){
+                                index=i;
+                                temp=x.parentNode.children[1].innerText;
+                                break;
+                        }
+            
+                        }
+ 
+                            for(let j=index-1; j>=0;j--){
+                                arr1[j+1].Hospital=arr1[j].Hospital;
+                                arr1[j+1].check=arr1[j].check;
+
+                            }
+                            arr1[0].Hospital=temp;
+                            arr1[0].check="true";
+                            console.log("After arr1 is:",arr1);
+
+                            for(let i=0; i<arr1.length; i++){
+                                if(arr1[i].check){
+                                        arr2.push(arr1[i].Hospital+'$');
+                                }
+                                else{
+                                    arr2.push(arr1[i].Hospital);
+                                }
+                            }
+                  console.log("arr2 is:",arr2);                  
+                window.location.href="/Doctorlist/page1?hospitalarray="+arr2; 
+           }
+           else{
+            for(let i=0; i<arr1.length; i++){
+                    if(arr1[i].check){
+                            arr2.push(arr1[i].Hospital+'$');
+                    }
+                 }
+                 for(let i=0; i<arr1.length; i++){
+                    if(!(arr1[i].check)){
+                            arr2.push(arr1[i].Hospital);
+                    }
+                 }
+                window.location.href="/Doctorlist/page1?hospitalarray="+arr2; 
+           }
+    } 
+ /***********************************************************************************/
+</script>
+ <script>
+     function gotoprofile(x,name){
+         window.location.href="/doctor's-profile?nameofdoctor="+name;
+     }
+ </script>
+    
+  <!-- <script>
+      var randomStringsArr = Array.apply(null, Array(100)).map(function() {
+  return Array.apply(null, Array(~~(Math.random() * 10  + 3))).map(function() {
+    return String.fromCharCode(Math.random() * (123 - 97) + 97)
+  }).join('') + '@gmail.com'
+})
+
+var input = document.querySelector('.customLook'),
+    tagify = new Tagify(input, {
+      // email address validation (https://stackoverflow.com/a/46181/104380)
+      pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      whitelist: randomStringsArr,
+      callbacks: {
+        "invalid": onInvalidTag
+      },
+      dropdown : {
+        position: 'text',
+        enabled: 1 // show suggestions dropdown after 1 typed character
+      }
+    }),
+    button = input.nextElementSibling;  // "add new tag" action-button
+
+button.addEventListener("click", onAddButtonClick)
+
+function onAddButtonClick(){
+    tagify.addEmptyTag()
+}
+
+function onInvalidTag(e){
+  console.log("invalid", e.detail)
+}
+  </script> -->
+    </body>
+</html>

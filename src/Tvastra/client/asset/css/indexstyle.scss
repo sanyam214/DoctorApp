@@ -1,0 +1,815 @@
+@font-face {
+	font-family: nexa-bold;
+	src: url('../fonts/Nexa-Bold.otf');
+}
+@font-face {
+	font-family: nexa-light;
+	src: url('../fonts/Nexa-Light.otf');
+}
+@import "colors";
+p {
+	font-family: nexa-light;
+}
+#doctor_desc {
+	h4 {
+		&::before {
+			content: '\2015';
+			font-weight: bolder;
+		}
+	}
+}
+.alert {
+	background: $white;
+	padding: 20px 40px;
+	min-width: 300px;
+	height: 30px;
+	position: absolute;
+	right: 0px;
+	top: 14%;
+	overflow: hidden;
+	border-radius: 4px;
+	border-left: 8px solid $green;
+	.fa-check-circle {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $green;
+		font-size: 30px;
+	}
+	.close-btn {
+		color: $green;
+		padding: 20px 18px;
+		position: absolute;
+		right: 0px;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+}
+.msg {
+	padding: 0px 20px;
+	font-size: 20px;
+	color: $green;
+	line-height: 30px;
+	letter-spacing: 1px;
+	font-family: nexa-bold;
+	margin-bottom: 2rem;
+}
+.close-btn {
+	&:hover {
+		color: $light-grey;
+	}
+	.fa-times {
+		color: $green;
+		line-height: 40px;
+		font-size: 22px;
+	}
+}
+.show {
+	animation: show_slide 1s ease forwards;
+}
+.hide {
+	display: none;
+}
+.Hero {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	padding: 1rem;
+	background-color: rgba(150, 183, 248, 0.747);
+	position: initial;
+	form {
+		text-align: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: column;
+		flex-wrap: wrap;
+		width: 97%;
+		#LocationInput {
+			input {
+				padding: 1rem;
+				padding-left: 1.8rem;
+				width: 100%;
+				margin-bottom: 0.4rem;
+				border:0px solid $silver;
+				background-color: $white;
+			}
+			i{
+				color:rgba(131, 129, 129, 0.89);
+			}
+		}
+		#SearchInput {
+			input {
+				padding: 1rem;
+				width: 100%;
+				margin-bottom: 0.4rem;
+				border:0px solid $silver;
+				font-size: 12px;
+				background-color: $white;
+			}
+		}
+	}
+	p {
+		margin-top: 2rem;
+	}
+}
+#LocationInput {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	position: relative;
+	i {
+		position: absolute;
+		margin-top: 0.9rem;
+		margin-left: 3%;
+	}
+}
+#item7 {
+	margin-bottom: 2rem;
+}
+h4 {
+	width: auto;
+	display: inline-block;
+	margin-left: 0px;
+}
+#SearchInput {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.FixConsultation {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: $white;
+	font-size: larger;
+	images {
+		size: 1rem;
+	}
+}
+.FixConsultation {
+	button {
+		width: 100%;
+		background-color: $white;
+		color: $black;
+		text-align: left;
+		padding: 1.5rem;
+		border-radius: 0.5rem;
+		margin-bottom: 0.3rem;
+		font-size:20px;
+	}
+}
+#inputs {
+	display: flex;
+	flex-direction: column;
+	ul {
+		width:100%;
+		li {
+			button {
+				border: 2px solid $silver;
+				border-radius: 0px;
+				font-family: nexa-bold;
+				font-size: 17px;
+				letter-spacing: 0.1rem;
+				outline: $blue;
+				color: $silver;
+			}
+		}
+	}
+}
+.Doctor {
+	background-color: $blish-black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 2px solid $black;
+	padding: 1rem;
+}
+#cell {
+	img {
+		width: 100%;
+		background-image: contain;
+		height: 30rem;
+	}
+	width: 100%;
+	background-color: $white;
+	margin-bottom: 1rem;
+	padding-bottom: 1.3rem;
+}
+#main-corousel {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+#container-div {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 90%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+	>div {
+		width: 100%;
+		height: 20rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+	}
+	h4 {
+		display: block;
+	}
+}
+#id-1 {
+	background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--009.jpg);
+	position: relative;
+	background-size: 100% 100%;
+}
+#id-2 {
+	background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--010.jpg);
+	position: relative;
+	background-size: 100% 100%;
+}
+#id-3 {
+	background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--008.jpg);
+	position: relative;
+	background-size: 100% 100%;
+}
+#id-4 {
+	background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--011.jpg);
+	position: relative;
+	background-size: 100% 100%;
+}
+#id-5 {
+	background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--000.jpg);
+	position: relative;
+	background-size: 100% 100%;
+}
+#id-6 {
+	background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--006.jpg);
+	position: relative;
+	background-size: 100% 100%;
+}
+#gradient-2 {
+	width: 100%;
+	height: 8rem;
+	background-image: linear-gradient(transparent ,#13151d );
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	h3 {
+		color: $white;
+		font-family: nexa-bold;
+		margin: 0px;
+		margin-left: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	h5 {
+		color: $white;
+		font-family: nexa-light;
+		margin: 0px;
+		padding: 0px;
+		margin-left: 1rem;
+	}
+}
+#information {
+	width: 100%;
+	height: 80%;
+	position: relative;
+	margin-top: 50%;
+	color: $white;
+	h3 {
+		color: $white;
+		font-size: 30px;
+		margin-top: 20%;
+	}
+	h4 {
+		color: $white;
+		margin: 0px;
+		margin-left: 10px;
+	}
+}
+.MedicalTreatment {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	position: relative;
+	padding: 1rem;
+}
+.ExclusiveServices {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #f5f5f5;
+	padding: 1rem;
+	ul {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		align-items: center;
+		margin-bottom: 1rem;
+		li {
+			font-family: nexa-bold;
+			color: $silver;
+			width: 46%;
+			height: 20%;
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 10px;
+			background-color: $white;
+			padding-bottom: 1rem;
+			img {
+				margin-bottom: 1rem;
+			}
+		}
+	}
+}
+#image {
+	h2 {
+		font-size: 25px;
+		text-align: center;
+	}
+	p {
+		font-size: 15px;
+		text-align: center;
+	}
+	#displayimg{
+		width:100%;
+	}
+}
+.autocomplete {
+	height: 67%;
+	position: relative;
+	display: inline-block;
+}
+input {
+	border: 1px solid transparent;
+	background-color: #f1f1f1;
+	padding: 10px;
+	font-size: 16px;
+}
+input[type=text] {
+	background-color: #f1f1f1;
+	width: 100%;
+}
+input[type=submit] {
+	background-color: DodgerBlue;
+	color: #fff;
+	cursor: pointer;
+}
+.autocomplete-items {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	top: 100%;
+	left: 0;
+	right: 0;
+	div {
+		padding: 10px;
+		text-align: left;
+		cursor: pointer;
+		background-color: #fff;
+		border-bottom: 1px solid #d4d4d4;
+		&:hover {
+			background-color: #e9e9e9;
+		}
+	}
+}
+.autocomplete-active {
+	background-color: DodgerBlue !important;
+	color: #ffffff;
+}
+@media only screen and (min-width:600px) {
+	.Hero {
+		form {
+			#LocationInput {
+				input {
+					padding: 0.89rem;
+				}
+			}
+			flex-direction: row;
+		}
+	}
+	#container-div {
+		>div {
+			width: 48%;
+			height: 32%;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: flex-start;
+		}
+		height: 60rem;
+	}
+	#information {
+		margin-top: 65%;
+	}
+	#cell {
+		width: 47%;
+		img {
+			height: 20rem;
+		}
+	}
+	.ExclusiveServices {
+		ul {
+			li {
+				width: 30%;
+			}
+		}
+	}
+	#LocationInput {
+		width: 30%;
+		height:100%;
+	}
+	#SearchInput {
+		width: 50%;
+		height:100%;
+	}
+	#Hero-button {
+		width: 20%;
+		height: 3rem;
+		color:$white;
+		border-style: none;
+		margin-bottom: 20px;
+		font-family:nexa-light;
+		margin-top: 0.8rem;
+	}
+	nav {
+		img {
+			height: 90%;
+			width: 15%;
+		}
+	}
+	#item1 {
+		grid-area: list1;
+	}
+	#image {
+		grid-area: image1;
+		width: 100%;
+		height: 100%;
+		margin-top: 1rem;
+		img {
+			width: 100%;
+		}
+	}
+	#item2 {
+		grid-area: list2;
+	}
+	#item3 {
+		grid-area: list3;
+	}
+	#item4 {
+		grid-area: list4;
+	}
+	#item5 {
+		grid-area: list5;
+	}
+	#item6 {
+		grid-area: list6;
+	}
+	#item7 {
+		grid-area: list7;
+	}
+	#inputs {
+		ul {
+			display: grid;
+			grid-template-areas: 'list1 image1' 'list2 image1' 'list3 image1' 'list4 image1' 'list5 image1' 'list6 image1' 'list7 image1';
+			grid-gap: 10px;
+			width: 100%;
+			li {
+				width: 93%;
+				height: 100%;
+				button {
+					font-size: 15px;
+					h4 {
+						margin-right: 20px;
+						font-family: nexa-bold;
+						color: $silver;
+					}
+				}
+			}
+		}
+	}
+	#gradient-2 {
+		height: 30%;
+	}
+}
+@media only screen and (min-width:900px) {
+	#myInput{
+		height:59px;
+		padding:1rem;
+		border:1px solid $silver;
+		font-family: nexa-light;
+	}
+	#mysearch{
+		height:59px;
+		padding:1rem;
+		border:1px solid $silver;
+		font-family: nexa-light;
+	}
+	.Hero{
+		form{
+	      #LocationInput{
+		      input{
+			     border:1px solid $silver;
+			     padding:1rem;
+				   }
+			  i{
+                   margin-top:1.3rem;
+				}
+			}
+		  #Hero-button{
+			  height:59px;
+			  margin:0px;
+			  margin-bottom:0.4rem;
+		  }
+		#SearchInput{  
+			input{
+				border:1px solid $silver;
+			}
+	    }
+	    }
+    }
+	p {
+		margin-bottom: 2rem;
+		text-align: left;
+		letter-spacing: 0.1rem;
+	}
+	h2 {
+		font-family: nexa-bold;
+		font-size: 2.5rem;
+		text-align: left;
+		margin-bottom: 1rem;
+	}
+	#image {
+		width: 80%;
+		margin-left: 6rem;
+		margin-top: 4rem;
+		h2 {
+			font-size: 2.5rem;
+		}
+		p {
+			font-size: 20px;
+		}
+	}
+	.MedicalTreatment {
+		height: 60rem;
+		padding: 4rem;
+		p {
+			margin-top: 0rem;
+		}
+	}
+	#cell {
+		width: 24%;
+		height: 100%;
+		h4{
+			margin-top:1rem;
+			font-size: 20px;
+		}
+	}
+	.ExclusiveServices {
+		padding: 4rem;
+		display: flex;
+		justify-content: space-around;
+		ul {
+			li {
+				width: 12%;
+				height: 100%;
+				border-radius: 0px;
+				padding: 1rem;
+			}
+			height: 10rem;
+			justify-content: space-between;
+			border-radius: none;
+			margin-bottom: 3rem;
+		}
+	}
+	#main-corousel {
+		justify-content: space-between;
+	}
+	.Doctor {
+		padding: 4rem;
+	}
+	.FixConsultation {
+		padding: 4rem;
+		ul {
+			width: 100%;
+			margin-bottom: 3rem;
+		}
+	}
+	#inputs {
+		ul {
+			grid-template-columns: 50% 50%;
+			grid-template-columns: 45% 55%;
+			grid-template-rows: 130px 130px 130px 130px 130px 130px 130px;
+			li {
+				button {
+					height: 100%;
+					font-size: 30px;
+					font-family: nexa-bold;
+					color: $silver;
+					border: 2px solid $silver;
+					outline-color: #9cbfda;
+					font-size: 22px;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	.NeedHelp {
+		button {
+			margin-top: -6rem;
+			a{
+				height:1rem;
+			}
+		}
+		p {
+			margin-top: -3rem;
+		}
+		h2 {
+			margin-top: 1rem;
+		}
+	}
+	#id-1 {
+		grid-area: li-1;
+	}
+	#id-2 {
+		grid-area: li-2;
+	}
+	#id-3 {
+		grid-area: li-3;
+	}
+	#id-4 {
+		grid-area: li-4;
+	}
+	#id-5 {
+		grid-area: li-5;
+	}
+	#id-6 {
+		grid-area: li-6;
+	}
+	#container-div {
+		width: 100%;
+		height: 80%;
+		display: grid;
+		grid-template-areas: 'li-1 li-2 li-3' 'li-4 li-2 li-5' 'li-4 li-6 li-5';
+		grid-template-columns: 33% 33% 33%;
+		grid-template-rows: 35% 20% 40%;
+		grid-gap: 10px;
+		>div {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			align-items: flex-start;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	#information {
+		margin-top: 90%;
+	}
+	.Hero {
+		height: 20rem;
+		background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.jpg);
+		background-size: 100% 100%;
+		position: relative;
+		padding: 6rem 4rem;
+		h1 {
+			font-family: nexa-bold;
+			text-transform: capitalize;
+			letter-spacing: 0px;
+			line-height: 3rem;
+			font-size: 2.5rem;
+			text-align: left;
+		}
+		form {
+			width: 70%;
+			#LocationInput {
+				input {
+					padding: 1rem;
+					padding-bottom: 0.85rem;
+					padding-left: 1.5rem;
+				}
+			}
+		}
+		p {
+			width: 70%;
+		}
+	}
+	#LocationInput {
+		width: 30%;
+	}
+	#SearchInput {
+		width: 50%;
+	}
+	.selected{
+		#b1{
+			color:$black;
+		}
+		#pics1{
+			color:#76a1d2;
+		}
+	}
+	#gradient-2 {
+		width: 100%;
+		h3 {
+			color: $white;
+			font-family: nexa-bold;
+			margin: 0px;
+			margin-left: 1rem;
+			margin-bottom: 0.5rem;
+		}
+		h5 {
+			color: $white;
+			font-family: nexa-light;
+			margin: 0px;
+			padding: 0px;
+			margin-left: 1rem;
+		}
+	}
+	.mobilenav {
+		padding: 0rem 4rem;
+	}
+}
+@media only screen and (min-width:1300px) {
+	.Hero {
+		p {
+			width: 60%;
+		}
+		form {
+			#SearchInput {
+				input {
+					font-size: 15px;
+					letter-spacing: 0.1rem;
+				}
+			}
+			#LocationInput {
+				input {
+					padding-left: 2rem;
+					letter-spacing: 0.1rem;
+				}
+			}
+		}
+	}
+	.ExclusiveServices {
+		ul {
+			li {
+				width: 13%;
+				height: 100%;
+				border-radius: 0px;
+				width: 14%;
+			}
+		}
+	}
+	#inputs {
+		ul {
+			grid-template-columns: 40% 59%;
+			grid-template-rows: 130px 130px 130px 130px 130px 130px 130px;
+			li {
+				button {
+					font-size: 25px;
+				}
+			}
+		}
+	}
+	#loading {
+		position: fixed;
+		width: 100%;
+		height: 100vh;
+		background: #ffffff;
+		text-align: center;
+		justify-content: center;
+		background-repeat: no-repeat center;
+		background-size: 100% 100%;
+		z-index: 99999;
+	}
+	#cell {
+		width: 24%;
+	}
+}

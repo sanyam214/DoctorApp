@@ -1,0 +1,195 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+#container {
+  height: 100vh;
+  background-image: url(https://blog.prezi.com/wp-content/uploads/2019/04/02-light-blue-1024x768.jpg);
+  background-size: 100% 100%;
+}
+
+.background-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 87%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#background {
+  background-color: white;
+  width: 50%;
+  height: 90%;
+  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0rem 2rem;
+}
+
+#doctor_basic {
+  width: 100%;
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-bottom: 1px solid silver;
+}
+
+#doctor_basic h2 {
+  margin: 0px;
+  padding: 0px;
+  color: #2788c3;
+  padding-bottom: 1rem;
+  font-family: nexa-bold;
+  text-align: center;
+}
+
+#doctor_basic h3 {
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 1rem;
+  font-family: nexa-bold;
+  text-align: center;
+}
+
+#doctor_basic img {
+  height: 50%;
+  width: 20%;
+}
+
+form {
+  width: 100%;
+  height: 50%;
+  overflow: scroll;
+  overflow-x: hidden;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+form button {
+  width: 60%;
+  height: 4rem;
+  border-radius: 5px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+  font-family: nexa-bold;
+}
+
+textarea {
+  width: 80%;
+  height: 7rem;
+  margin: 1rem 1rem;
+}
+
+#grid {
+  width: 100%;
+  height: 70rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#inpFile {
+  width: 80%;
+  height: 4rem;
+  margin-top: 1rem;
+  text-align: center;
+  margin-left: 10%;
+}
+
+#within-grid {
+  width: 80%;
+  height: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  grid-gap: 2rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+#within-grid input {
+  width: 100%;
+  height: 1rem;
+  padding: 1rem;
+  color: silver;
+  font-family: nexa-bold;
+}
+
+@media only screen and (max-width: 600px) {
+  #background {
+    width: 100%;
+  }
+  img {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #background {
+    width: 80%;
+  }
+  .mobilenav {
+    padding: 3rem;
+  }
+}
+/*# sourceMappingURL=profile_doctor.css.map */

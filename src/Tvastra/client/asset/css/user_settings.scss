@@ -1,0 +1,239 @@
+@import "colors";
+
+@font-face {
+	font-family: nexa-bold;
+	src: url("../fonts/Nexa-Bold.otf");
+}
+@font-face {
+	font-family: nexa-light;
+	src: url("../fonts/Nexa-Light.otf");
+}
+.alert {
+	background: $white;
+	padding: 20px 40px;
+	min-width: 300px;
+	height: 30px;
+	position: absolute;
+	right: 0px;
+	top: 14%;
+	overflow: hidden;
+	border-radius: 4px;
+	border-left: 8px solid $green;
+	.fa-check-circle {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $green;
+		font-size: 30px;
+	}
+	.close-btn {
+		color: $green;
+		padding: 20px 18px;
+		position: absolute;
+		right: 0px;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+}
+.msg {
+	padding: 0px 20px;
+	font-size: 20px;
+	color: $green;
+	line-height: 30px;
+	letter-spacing: 1px;
+	font-family: nexa-bold;
+	margin-bottom: 2rem;
+}
+.close-btn {
+	&:hover {
+		color: lightgrey;
+	}
+	.fa-times {
+		color: $green;
+		line-height: 40px;
+		font-size: 22px;
+	}
+}
+.show {
+	animation: show_slide 1s ease forwards;
+}
+.hide {
+	display: none;
+}
+#container {
+	padding: 0rem 5rem;
+	display: grid;
+	grid-template-columns: 20% 80%;
+	padding: 2rem 4rem;
+	height: 84vh;
+	background-color: $light;
+	grid-gap: 0.5rem;
+}
+.mobilenav {
+	padding: 0rem 4em;
+	position: relative;
+	box-shadow: 0 4px 8px 0 $shadow;
+}
+#dashboard {
+	padding: 2rem 0rem;
+	background-color: $white;
+	h2 {
+		color: #2a2d3e;
+		padding-left: 1rem;
+	}
+	ul {
+		font-family: Nexa;
+		font-size: 0.8rem;
+		color: $darkgrey;
+		list-style: none;
+		li {
+			padding-bottom: 1rem;
+			padding-left: 1rem;
+			padding-top: 1rem;
+			border: 1px solid $light;
+			color: $darkgrey;
+			transition: all ease-in 0.2s;
+			font-family: nexa-bold;
+			&:hover {
+				animation: ease-in-out;
+				background-color: $light;
+				box-shadow: 0 4px 8px 0 $shadow;
+			}
+			i {
+				padding-right: 1rem;
+			}
+		}
+	}
+}
+a {
+	color: $darkgrey;
+	&:hover {
+		color: blue;
+	}
+}
+.fa-hospital {
+	&:before {
+		content: "\f0f8";
+	}
+}
+#account {
+	background-color: $white;
+	padding-top: 2rem;
+	h2 {
+		font-family: nexa-bold;
+		padding: 0rem 2rem;
+		font-size: 20px;
+	}
+}
+#heading {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0rem 2rem;
+	border-bottom: 1px solid $silver;
+	h2 {
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+	}
+	&:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		top: 5rem;
+		left: 0;
+	}
+	button {
+		font-family: nexa-bold;
+		width: 9rem;
+		height: 2rem;
+		border-radius: 5px;
+		font-size: 1rem;
+		letter-spacing: 0rem;
+		margin: 0px;
+		padding: 0px;
+		background-color: #0173b2;
+		color: $white;
+		border-style: none;
+		margin-bottom: 1rem;
+	}
+}
+#info {
+	display: grid;
+	grid-template-columns: 28% 28% 28%;
+	grid-gap: 5%;
+	grid-row-gap: 2rem;
+	padding: 3rem 2rem;
+	border-bottom: 0.5px solid #cccccc;
+	box-shadow: 0 4px 8px 0 $shadow;
+	>#input-value {
+		>label {
+			display: flex;
+			font-family: nexa-bold;
+			color: #2a2d3e;
+			justify-content: space-between;
+			padding-bottom: 1rem;
+		}
+		>input {
+			height: 2.5rem;
+			margin: 0.5rem;
+			padding: 0.5rem 0rem;
+			padding-left: 1rem;
+			margin-left: 0px;
+			width: 92%;
+			font-family: nexa-bold;
+			border: 1px solid $silver;
+		}
+	}
+}
+#input-value {
+	position: relative;
+}
+@media only screen and (max-width:900px) {
+	#container {
+		padding: 0rem 1rem;
+	}
+	.mobilenav {
+		padding: 0rem 1rem;
+		img {
+			width: 10rem;
+		}
+	}
+	#info {
+		grid-template-columns: 40% 40%;
+	}
+	#dashboard {
+		h2 {
+			padding: 0px;
+			font-size: 1.5rem;
+			font-family: nexa-bold;
+		}
+	}
+}
+@media only screen and (max-width:600px) {
+	#container {
+		grid-template-columns: 100%;
+		padding: 0rem 1rem;
+		grid-template-rows: 35% 55%;
+	}
+	#dashboard {
+		h2 {
+			font-size: 2rem;
+		}
+		overflow: scroll;
+	}
+	#info {
+		grid-template-columns: 100%;
+	}
+	#account {
+		h2 {
+			padding: 0rem;
+		}
+		button {
+			margin-bottom: 0px;
+		}
+	}
+}

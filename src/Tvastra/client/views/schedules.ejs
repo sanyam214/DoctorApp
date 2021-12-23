@@ -1,0 +1,278 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/schedule.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+   
+    <body>
+        <%- include('header',{Profile:ProfileName,mobile:ProfileMobile,pic:dp}) %>
+         
+        
+        <section id="container">
+          
+            <div id="dashboard">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li><a href="/user_profile">
+                        <div>
+                            <i class="fas fa-hospital"></i>Profile
+                        </div>
+                    </a></li>
+                    <li><a href="/Appointment">
+                        <div>
+                            <i class="fas fa-user-md"></i>Appointments
+                        </div>
+                    </a></li>
+                    <li><a href="/schedule">
+                        <div>
+                            <i class="fas fa-user-md"></i>Edit Schedules
+                        </div>
+                    </a></li>
+                    <li><a href="/report">
+                        <div>
+                            <i class="fas fa-file-word"></i>Medical Reports
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="account">
+                <% if(kschedules=="true"){%>
+                    <h1 id="createschedule" style="color: rgb(143, 202, 250); font-family: nexa-light;text-align: left; padding-left:2rem;font-size:2rem;">All Schedules</h1>
+           
+                <%}%>
+                <% if(kschedules=="false"){%>
+                    <h1 id="createschedule" style="color: rgb(143, 202, 250);">No Schedules yet.Click +Schedule to Create a new One.</h1>
+           
+                <%} %>
+                    <div id="sweet-alert">
+                    <form  action="/Add_schedule" method="POST" id="form1">
+                        <i class="fas fa-times" onclick="escapekey(this)"></i>
+                    <label>Choose Available Days</label>
+                    <select name="days[]" id="days" required multiple>
+                        <option value="Mon">Monday</option>
+                        <option value="Tue">Tuesday</option>
+                        <option value="Wed">Wednesday</option>
+                        <option value="Thu">Thursday</option>
+                        <option value="Fri">Friday</option>
+                        <option value="Sat">Saturday</option>
+                        <option value="Sun">Sunday</option>
+                    </select>
+                    <select name="hospital" id="hospital">
+                        <option value="select">Select hospital</option>
+                        <% for(let i of hospitals){%>
+                            <option><%= i %></option>
+                        <%}%>
+                    
+                    </select>
+                    <div id="time-slot">
+                        <div id="time" >
+                            <input name="starttime"  required id="input1" oninput="check(this)" type="time">
+                        </div>
+                        <div id="time">
+                            <input name="endtime"  required id="input2" oninput="check(this)" type="time">
+                        </div>
+                    </div>
+                    <input type="number" id="minutes" name="interval" oninput="intervalcheck(this)" placeholder="Enter Intervals in Minutes" required>
+                    <!-- <button type="submit" id="add-schedule"> </button> -->
+                    
+                    <button type="submit" id="add-schedule" disabled >Add Schedule</button> 
+                </form>
+                    </div>
+                <button type="submit" class="schedules" onclick="display(this)"><a href="#" style="color:white;">+Schedule</a></button>
+
+                    <div id="user-schedule">
+                        <% for(let i of nofschedules){%>
+                            <% for(let j of i.Allslots){%>
+                        <form action="/schedule" method="POST" id="schedulelist" >
+                           <div id="day">
+                               <h2 style="border:1px solid black;"><%= i.Day %></h2>
+                           </div>
+                           <div id="timer">
+                                  <label for=""><%= i.HospitalName %></label>
+                                  <p><%= j.starttime%>-<%= j.endtime %></p>
+                           </div>
+                           <div id="buttons">
+                            <button type="submit"  onclick="myalert(this,'<%= i.Day %>')" id="alert1" ><a href="#">Edit slots</a></button>
+                            <button type="submit"><a href="/schedule?day=<%= i.Day %>&hospital=<%= i.HospitalName %>" >Remove Slots</a></button>
+                            <button type="submit"><a href="/schedule?viewdetails=true&day=<%= i.Day %>&hospital=<%= i.HospitalName %>"> View details</a></button>
+                            <input type="checkbox"  onchange="colourchange(this,'<%= i.Day %>','<%= i.HospitalName %>')" >
+                           </div>
+                           
+
+                           <div id="lists-slot">
+                            <% if(viewslot=="true" && i.Day==day){%>
+                                 <% for(let b of j.subslots){%>
+                                     
+                                         <div id="details-slot" class="<%= j.Day %>">
+                                             <p><%= b.subslot %></p>
+                                             <input type="checkbox" class="check" value="<%= b.disable %>" onchange="foo(this,'<%= b.subslot %>','<%=i.Day %>','<%= i.HospitalName %>')" <%= b.disable %>>
+                                         </div>
+                                    
+                                   
+                                 <%}%>
+                                    
+                             <%}%>
+                            
+                        </div>
+
+                        </form>
+                        <script>
+                            function foo(x,slot,day,hospital){
+                             if(x.checked && x.value==""){
+                                console.log(x.value);
+                                   console.log(slot);
+                                   x.parentNode.style.border="2px solid red";
+                                   x.parentNode.children[0].style.color="red";
+                                   window.location.href="/schedule?day="+day+"&timedisabled="+slot+"&viewdetails=true&hospital="+hospital;
+                                   console.log(x.parentNode.children[0]);
+                               }
+                               else{
+                                x.parentNode.style.border="2px solid rgb(29, 221, 29)";
+                                x.parentNode.style.backgroundColor="white";
+                                x.parentNode.children[0].style.color="rgb(29, 221, 29";
+                                window.location.href="/schedule?day="+day+"&timedisabled="+slot+"&viewdetails=true&hospital="+hospital;
+                                console.log(x.parentNode.children[0]);
+                               }
+                            }
+                        </script>
+
+                        <div id="aler1">
+                            <form  action="/posteditschedule" method="POST" id="cancel1">
+                                <div id="icon"><i class="fas fa-times" onclick="hide(this)"></i></div>
+                                <input type="hidden" name="Day" id="Day" value="">
+                                <input type="time" id="input1" name="starttime" oninput="check(this)">
+                                <input type="time" id="input2" name="endtime" oninput="check(this)">
+                                <input type="number" placeholder="Minutes" id="minutes" name="interval" oninput="intervalcheck(this)">
+                                <input type="text" name="Hospital" id="hos-name">
+                                <button style="background-color: #0173b2;color:white;" id="add-schedule" type="submit">Edit Time</button>
+                            </form>
+                    </div>
+
+                        <script>
+                            function colourchange(x,day,hospital){
+                              if(x.checked){
+                                 
+                                x.parentNode.parentNode.style.backgroundColor="grey";
+                              }
+                              else{
+                                x.parentNode.parentNode.style.backgroundColor="white";
+                              }
+                            }
+                        </script>
+                        <%}%>
+
+                <%}%>
+                     </div>
+            
+            
+            </div>
+        </section>
+        <script>
+            
+            function intervalcheck(x)
+            {
+                var interval = parseInt(x.value);
+
+                if(interval<15)
+                {
+                    document.getElementById("minutes").style.border="1px solid red";
+                    document.getElementById("add-schedule").style.cursor = "not-allowed";
+                    document.getElementById("add-schedule").disabled = true;
+                }
+                else{
+                    document.getElementById("minutes").style.border="1px solid black";
+                    console.log(document.getElementById("add-schedule").style.cursor);
+                    document.getElementById("add-schedule").disabled = false;
+                    document.getElementById("add-schedule").style.cursor = "pointer";
+                }
+            }
+            function check(x){
+                var value1 = document.getElementById("input1").value;
+                var value2 = document.getElementById("input2").value;
+                var starthr=value1[0]+value1[1];
+                    starthr=parseInt(starthr);
+                    console.log(starthr);
+
+                    var endhr= value2[0]+value2[1];
+                    endhr= parseInt(endhr);
+                    console.log(endhr);
+                    var startmin=value1[3]+value1[4];
+                    startmin=parseInt(startmin);
+                    console.log(startmin);
+                    var endmin= value2[3]+value2[4];
+                    endmin= parseInt(endmin);
+                    console.log(endmin);
+                    if(endhr<starthr || endhr==starthr){
+                        document.getElementById("input2").style.border="1px solid red";
+                        document.getElementById("input1").style.border="1px solid red";
+                        document.getElementById("add-schedule").style.cursor = "not-allowed";
+                        document.getElementById("add-schedule").disabled = true;
+                    }
+                    else{
+                        document.getElementById("input2").style.border="1px solid black";
+                        document.getElementById("input1").style.border="1px solid black";
+                        document.getElementById("add-schedule").style.cursor = "pointer";
+                        document.getElementById("add-schedule").disabled = false;
+                    }
+                    if((endmin-startmin)<15 && starthe==endhr){
+                        document.getElementById("input2").style.border="1px solid red";
+                        document.getElementById("input1").style.border="1px solid red";
+                        document.getElementById("add-schedule").style.cursor = "not-allowed";
+                        document.getElementById("add-schedule").disabled = true;
+                    }
+                    else{
+                        document.getElementById("input2").style.border="1px solid black";
+                        document.getElementById("input1").style.border="1px solid black";
+                        document.getElementById("add-schedule").style.cursor = "pointer";
+                        document.getElementById("add-schedule").disabled = false;
+                    }
+                }
+        </script>
+         <script>
+            function display(x){
+               document.getElementById("form1").style.display="flex";
+               document.getElementById("createschedule").style.display="none";
+               document.getElementById("sweet-alert").style.display="flex";
+            }
+        </script>
+      
+        <script>
+            function myalert(x,y){
+                document.getElementById("aler1").style.display="flex";
+                console.log(y);
+                document.getElementById("Day").value=y;
+            }
+        </script>
+         <script>
+            function hide(x){
+                document.getElementById("aler1").style.display="none";
+            }
+        </script>
+          <script>
+            function myloader(){
+                setTimeout(function() {
+                    var preloader=document.getElementById("loading");
+                    preloader.style.display="none";
+                }, 5000);
+            }
+        </script>
+        <script>
+            function escapekey(x){
+               document.getElementById("sweet-alert").style.display="none";
+            }
+        </script>
+    </body>
+</html>
+       
+        

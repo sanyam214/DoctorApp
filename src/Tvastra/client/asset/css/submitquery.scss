@@ -1,0 +1,108 @@
+@import "colors";
+@font-face {
+	font-family: nexa-bold;
+	src: url("../fonts/Nexa-Bold.otf");
+}
+@font-face {
+	font-family: nexa-light;
+	src: url("../fonts/Nexa-Light.otf");
+}
+body {
+	background-color: #9abdd7;
+}
+#container {
+	height: 60rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+}
+form {
+	h1 {
+		height: 10%;
+		width: 100%;
+		text-align: center;
+		font-size: 1.5rem;
+		color: #1779b4;
+		letter-spacing: 0.1rem;
+		font-family: nexa-bold;
+		border-bottom: 1px solid $silver;
+	}
+	background-color: $white;
+	height: 50rem;
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
+	input {
+		height: 5%;
+		width: 90%;
+		border: 1px solid $silver;
+	}
+	button {
+		height: 8%;
+		width: 90%;
+		border-style: none;
+		font-family: nexa-bold;
+		font-size: 20px;
+		cursor: pointer;
+		i {
+			float: right;
+		}
+	}
+}
+textarea {
+	height: 40%;
+	width: 90%;
+	border: 1px solid $silver;
+}
+h4 {
+	font-family: nexa-bold;
+	color: $black;
+	letter-spacing: 0.1rem;
+}
+@media only screen and (min-width:600px) {
+	#container {
+		height: 90%;
+	}
+	form {
+		width: 60%;
+		height: 70%;
+		input {
+			height: 10%;
+		}
+		button {
+			height: 10%;
+		}
+	}
+	textarea {
+		height: 20%;
+	}
+	h1 {
+		font-size: 3rem;
+	}
+}
+@media only screen and (min-width:900px) {
+	#container {
+		height: 85%;
+	}
+	form {
+		width: 60%;
+		height: 85%;
+		input {
+			height: 10%;
+		}
+		button {
+			height: 10%;
+		}
+	}
+	textarea {
+		height: 20%;
+	}
+	.mobilenav {
+		padding: 0rem 3rem;
+	}
+}

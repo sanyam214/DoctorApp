@@ -1,0 +1,480 @@
+<html>
+    <head>
+        <title>
+            Tvastra.com
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/indexstyle.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    </head>
+    <body onload="myloader()">
+        <div id="loading">
+            <img src="https://loading.io/mod/spinner/flask/index.svg" alt=""style="margin-top:18%; width:5rem;height:5rem;">
+        </div>
+      <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+<!-- alert box-->
+       
+        <% if(bol==1){%>
+            <div class="alert  hide">
+                <span class="fas fa-check-circle"></span>
+                <span class="msg">Successfully Login!!</span>
+                <span class="close-btn" >
+                <span  class="fas fa-times"></span>
+                </span>
+            </div>
+
+        <%}%>
+
+        <% if(isdoctor=="true" && bol==1){%>
+            <div class="alert  hide">
+                <span class="fas fa-check-circle"></span>
+                <span class="msg">Welcome Doctor <%= Name %>!!</span>
+                <span class="close-btn" >
+                <span  class="fas fa-times"></span>
+                </span>
+            </div>
+
+        <%}%>
+       
+
+        <!--**********************************************************************************-->
+        <section class="Hero" style="position: initial;">
+            <h1><strong>Find Affordable Healthcare</strong></h1>
+            <p>Join the thousands of others who have exercised their right to quality healthcare at the price you can afford</p>
+            <form action="/search" autocomplete="off" method="POST">
+                <div id="LocationInput" class="autocomplete">
+                    <input name='location' id="myInput" type="text" placeholder="Ahmedabad">
+                    <i class="fas fa-map-marker-alt" style="color:rgba(131, 129, 129, 0.89);"></i>
+                  <i onclick="getlocation(this)" style="right: 1rem;color:rgba(192, 192, 192, 0.664);cursor: pointer;" class="fas fa-crosshairs"></i>     
+                </div>
+                <div id="SearchInput" class="autocomplete">
+                    <input  id="mysearch" name="searchtype" type="text" placeholder="Search for Doctors,Treatments and Hospitals ">
+                </div>
+            
+                <button type="submit" id="Hero-button" >Search</button>
+            </form>
+        </section>
+
+        <section class="FixConsultation">
+            <h2>How it Works</h2>
+            <p>Various facilities are provided here.But there is a practical which needs to be follow so that you get the service at its best.</p>
+
+            <div id="inputs">
+            <ul>
+                <li onclick="myfun1()" id="item1" class="selected">
+                    <button id="b1"><h4 id="pics1">01</h4> FixConsultation</button>
+                </li>
+
+               <div id="image">
+                <img id="displayimg" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.png" alt="Fix Consultation">
+                <h2 style="text-align: center;" id="pre-requisites">Fix Consultation</h2>
+                <p style="text-align: center;" >This depicts that the user has to fix the appointment when it selects a particular doctor</p>
+               </div>
+
+                <li onclick="myfun2()" id="item2">
+                    <button id="b2"><h4  id="pics2">02</h4> Upload Medical Reports</button>
+                </li>
+                <li onclick="myfun3()" id="item3">
+                    <button id="b3"><h4  id="pics3">03</h4> Consult with doctor</button>
+                </li>
+                <li onclick="myfun4()" id="item4">
+                    <button id="b4"><h4  id="pics4">04</h4> Fix Surgery</button>
+                </li>
+                <li onclick="myfun5()" id="item5">
+                    <button id="b5"><h4  id="pics5">05</h4> Hospoital sent estimates</button>
+                </li>
+                <li onclick="myfun6()" id="item6">
+                    <button id="b6"><h4  id="pics6">06</h4> Payment</button>
+                </li>
+                <li onclick="myfun7()" id="item7">
+                    <button id="b7"><h4  id="pics7">07</h4> Surgery Completed</button>
+                </li>
+            </ul>   
+            </div> 
+
+        </section>
+
+        <!--********************************************************************************-->
+
+        <section class="Doctor">
+            <h2 style="color: white;">World Class Expert Doctors!</h2>
+            <p style="color: white;">
+                The university of Texas Southeastern Medical center has been a long world renowned research Hospital . But untill the 80's,  you couldnt go there. Now, with the addition of Aston Center and Zale Lipshy Hospital UT SouthEastern is also a  Micca of patients
+           </p>
+            <div id="main-corousel">
+                <div id="cell">
+                    <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="">
+                     <div id="doctor_desc" style="height: 8rem;">
+                        <h4 style="text-align: left; color: skyblue;margin-bottom:1rem;">Duke Sanson</h4>
+                        <h5>Neuro Surgeon</h5>
+                        <h5>Chain Development </h5>
+                        <h5>Australia</h5>
+
+                    </div> 
+                </div>
+                <div id="cell">
+                    <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="">
+                    <div id="doctor_desc" style="height: 8rem;">
+                        <h4 style="text-align: left; color: skyblue;margin-bottom:1rem;">Georgea Peter</h4>
+                        <h5>Breast Cancer Surgeon</h5>
+                        <h5>Director , UT, SouthWest</h5>
+                        <h5>Australia</h5>
+
+                    </div> 
+                </div>
+
+                <div id="cell">
+                    <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg" alt="">
+                    <div id="doctor_desc" style="height: 8rem;">
+                        <h4 style="text-align: left; color: skyblue;margin-bottom:1rem;">Rose Moon</h4>
+                        <h5>Plastic Surgeon</h5>
+                        <h5>Depatment of Plastic </h5>
+                        <h5>Dubai</h5>
+                    </div>
+                    </div>
+                <div id="cell">
+                    <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--005.jpg" alt="">
+                    <div id="doctor_desc" style="height: 8rem;">
+                        <h4 style="text-align: left; color: skyblue;margin-bottom:1rem;">Georgea Peter</h4>
+                        <h5>Breast Cancer Surgeon</h5>
+                        <h5>Director , UT, SouthWest</h5>
+                        <h5>Australia</h5>
+                    </div>
+             </div>
+             
+            </div>
+
+        </section>
+
+        <!--********************************************************************************-->
+        <section class="MedicalTreatment">
+            <h2>Featured Medical treatment</h2>
+                <p>We want you to be comfortable and thus apart from threating you illness, we provide you with other services that you can see</p>
+                
+                <div id="container-div">
+                    <div id="id-1"><div id="gradient-2"><h3>Dentistry</h3><h5>50+ specialists</h5></div>
+                <!-- <div id="information" style="height:30%;width:100%;"><h4 style="font-family: nexa-bold;">Dentistry</h4><h4 style="font-family: nexa-light;">50+ specialists</h4></div></div> -->
+                </div>
+                    <div id="id-2"><div id="gradient-2" ><h3>Cancer</h3><h5>50+ specialists</h5></div></div>
+                    <div id="id-3"><div id="gradient-2" ><h3>Ortheopedics</h3><h5>50+ specialists</h5></div></div>
+                    <div id="id-4"><div id="gradient-2"><h3>Cardiology</h3><h5>50+ specialists</h5></div></div>
+                    <div id="id-5"><div id="gradient-2" ><h3>Multi-organ</h3><h5>50+ specialists</h5></div></div>
+                    <div id="id-6"><div id="gradient-2" ><h3>Infertility</h3><h5>50+ specialists</h5></div></div>
+                </div>
+        </section>
+        <section class="ExclusiveServices">
+            
+            <h2>Exclusive Services</h2>
+
+            <p style="color: black;">We want you to be comfortable and thus apart from threating you illness, we provide you with other services that you can see</p>
+            
+            <ul>
+                <li><img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-01.png" >TRAVEL</li>
+                <li><img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-02.png" >FOOD</li>
+                <li><img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-03.png" >ACCOMODATION</li>
+                <li><img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-07.png" >LABS</li>
+                <li><img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-10.png" >REPORTS</li>
+                <li><img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Icons-06.png" >AMBULANCE</li>
+            </ul>
+        </section>
+        
+        <section class="NeedHelp">
+            <h2>Need Help?</h2>
+            <p >Just Let us Know .We will be happy to assist you.</p>
+            <button><a href="/submitquery" style="color: white;">Submit your Query</a></button>
+        </section>
+        <%- include('footer') %>
+         <script>
+             function myfun1(){
+                 document.getElementById("displayimg").src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.png"
+                 document.getElementById("pre-requisites").innerText="Fix-Consultation";
+                 document.getElementById("pics1").style.color="#76a1d2";
+                 document.getElementById("pics2").style.color="silver";
+                 document.getElementById("pics3").style.color="silver";
+                 document.getElementById("pics4").style.color="silver";
+                 document.getElementById("pics5").style.color="silver";
+                 document.getElementById("pics6").style.color="silver";
+                 document.getElementById("pics7").style.color="silver";
+                 document.getElementById("b1").style.color="black";
+                 document.getElementById("b2").style.color="silver";
+                 document.getElementById("b3").style.color="silver";
+                 document.getElementById("b4").style.color="silver";
+                 document.getElementById("b5").style.color="silver";
+                 document.getElementById("b6").style.color="silver";
+                 document.getElementById("b7").style.color="silver";
+             }
+             function myfun2(){
+                 document.getElementById("displayimg").src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img2.png"
+                 document.getElementById("pre-requisites").innerText="Upload Medical Reports";
+                 document.getElementById("pics1").style.color="silver";
+                 document.getElementById("pics2").style.color="#76a1d2";
+                 document.getElementById("pics3").style.color="silver";
+                 document.getElementById("pics4").style.color="silver";
+                 document.getElementById("pics5").style.color="silver";
+                 document.getElementById("pics6").style.color="silver";
+                 document.getElementById("pics7").style.color="silver";
+                 document.getElementById("b1").style.color="silver";
+                 document.getElementById("b2").style.color="black";
+                 document.getElementById("b3").style.color="silver";
+                 document.getElementById("b4").style.color="silver";
+                 document.getElementById("b5").style.color="silver";
+                 document.getElementById("b6").style.color="silver";
+                 document.getElementById("b7").style.color="silver";
+
+                }
+             function myfun3(){
+                document.getElementById("displayimg").src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img3.jpeg"
+                document.getElementById("pre-requisites").innerText="Consult with doctor";
+                document.getElementById("pics1").style.color="silver";
+                 document.getElementById("pics2").style.color="silver";
+                 document.getElementById("pics3").style.color="#76a1d2";
+                 document.getElementById("pics4").style.color="silver";
+                 document.getElementById("pics5").style.color="silver";
+                 document.getElementById("pics6").style.color="silver";
+                 document.getElementById("pics7").style.color="silver";
+                 document.getElementById("b1").style.color="silver";
+                 document.getElementById("b2").style.color="silver";
+                 document.getElementById("b3").style.color="black";
+                 document.getElementById("b4").style.color="silver";
+                 document.getElementById("b5").style.color="silver";
+                 document.getElementById("b6").style.color="silver";
+                 document.getElementById("b7").style.color="silver";
+             }
+             function myfun4(){
+                document.getElementById("displayimg").src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img4.jpeg"
+                document.getElementById("pre-requisites").innerText="Fix Surgery";
+                document.getElementById("pics1").style.color="silver";
+                 document.getElementById("pics2").style.color="silver";
+                 document.getElementById("pics3").style.color="silver";
+                 document.getElementById("pics4").style.color="#76a1d2";
+                 document.getElementById("pics5").style.color="silver";
+                 document.getElementById("pics6").style.color="silver";
+                 document.getElementById("pics7").style.color="silver";
+                 document.getElementById("b1").style.color="silver";
+                 document.getElementById("b2").style.color="silver";
+                 document.getElementById("b3").style.color="silver";
+                 document.getElementById("b4").style.color="black";
+                 document.getElementById("b5").style.color="silver";
+                 document.getElementById("b6").style.color="silver";
+                 document.getElementById("b7").style.color="silver";
+             }
+             function myfun5(){
+                document.getElementById("displayimg").src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img5.jpg"
+                document.getElementById("pre-requisites").innerText="Hospital sent estimates";
+                document.getElementById("pics1").style.color="silver";
+                 document.getElementById("pics2").style.color="silver";
+                 document.getElementById("pics3").style.color="silver";
+                 document.getElementById("pics4").style.color="silver";
+                 document.getElementById("pics5").style.color="#76a1d2";
+                 document.getElementById("pics6").style.color="silver";
+                 document.getElementById("pics7").style.color="silver";
+                 document.getElementById("b1").style.color="silver";
+                 document.getElementById("b2").style.color="silver";
+                 document.getElementById("b3").style.color="silver";
+                 document.getElementById("b4").style.color="silver";
+                 document.getElementById("b5").style.color="black";
+                 document.getElementById("b6").style.color="silver";
+                 document.getElementById("b7").style.color="silver";
+             }
+             function myfun6(){
+                document.getElementById("displayimg").src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img6.jpg"
+                document.getElementById("pre-requisites").innerText="Payment";
+                document.getElementById("pics1").style.color="silver";
+                 document.getElementById("pics2").style.color="silver";
+                 document.getElementById("pics3").style.color="silver";
+                 document.getElementById("pics4").style.color="silver";
+                 document.getElementById("pics5").style.color="silver";
+                 document.getElementById("pics6").style.color="#76a1d2";
+                 document.getElementById("pics7").style.color="silver";
+                 document.getElementById("b1").style.color="silver";
+                 document.getElementById("b2").style.color="silver";
+                 document.getElementById("b3").style.color="silver";
+                 document.getElementById("b4").style.color="silver";
+                 document.getElementById("b5").style.color="silver";
+                 document.getElementById("b6").style.color="black";
+                 document.getElementById("b7").style.color="silver";
+            }
+             function myfun7(){
+                document.getElementById("displayimg").src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img7.jpeg"
+                document.getElementById("pre-requisites").innerText="Surgery Completed";
+                document.getElementById("pics1").style.color="silver";
+                 document.getElementById("pics2").style.color="silver";
+                 document.getElementById("pics3").style.color="silver";
+                 document.getElementById("pics4").style.color="silver";
+                 document.getElementById("pics5").style.color="silver";
+                 document.getElementById("pics6").style.color="silver";
+                 document.getElementById("pics7").style.color="#76a1d2";
+                 document.getElementById("b1").style.color="silver";
+                 document.getElementById("b2").style.color="silver";
+                 document.getElementById("b3").style.color="silver";
+                 document.getElementById("b4").style.color="silver";
+                 document.getElementById("b5").style.color="silver";
+                 document.getElementById("b6").style.color="silver";
+                 document.getElementById("b7").style.color="black";
+             }
+
+         </script>
+          
+          <script>
+            function autocomplete(inp, arr) {
+              /*the autocomplete function takes two arguments,
+              the text field element and an array of possible autocompleted values:*/
+              var currentFocus;
+              /*execute a function when someone writes in the text field:*/
+              inp.addEventListener("input", function(e) {
+                  var a, b, i, val = this.value;
+                  /*close any already open lists of autocompleted values*/
+                  closeAllLists();
+                  if (!val) { return false;}
+                  currentFocus = -1;
+                  /*create a DIV element that will contain the items (values):*/
+                  a = document.createElement("DIV");
+                  a.setAttribute("id", this.id + "autocomplete-list");
+                  a.setAttribute("class", "autocomplete-items");
+                  /*append the DIV element as a child of the autocomplete container:*/
+                  this.parentNode.appendChild(a);
+                  /*for each item in the array...*/
+                  for (i = 0; i < arr.length; i++) {
+                    /*check if the item starts with the same letters as the text field value:*/
+                    if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                      /*create a DIV element for each matching element:*/
+                      b = document.createElement("DIV");
+                      /*make the matching letters bold:*/
+                      b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                      b.innerHTML += arr[i].substr(val.length);
+                      /*insert a input field that will hold the current array item's value:*/
+                      b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                      /*execute a function when someone clicks on the item value (DIV element):*/
+                      b.addEventListener("click", function(e) {
+                          /*insert the value for the autocomplete text field:*/
+                          inp.value = this.getElementsByTagName("input")[0].value;
+                          /*close the list of autocompleted values,
+                          (or any other open lists of autocompleted values:*/
+                          closeAllLists();
+                      });
+                      a.appendChild(b);
+                    }
+                  }
+              });
+              /*execute a function presses a key on the keyboard:*/
+              inp.addEventListener("keydown", function(e) {
+                  var x = document.getElementById(this.id + "autocomplete-list");
+                  if (x) x = x.getElementsByTagName("div");
+                  if (e.keyCode == 40) {
+                    /*If the arrow DOWN key is pressed,
+                    increase the currentFocus variable:*/
+                    currentFocus++;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                  } else if (e.keyCode == 38) { //up
+                    /*If the arrow UP key is pressed,
+                    decrease the currentFocus variable:*/
+                    currentFocus--;
+                    /*and and make the current item more visible:*/
+                    addActive(x);
+                  } else if (e.keyCode == 13) {
+                    /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                    e.preventDefault();
+                    if (currentFocus > -1) {
+                      /*and simulate a click on the "active" item:*/
+                      if (x) x[currentFocus].click();
+                    }
+                  }
+              });
+              function addActive(x) {
+                /*a function to classify an item as "active":*/
+                if (!x) return false;
+                /*start by removing the "active" class on all items:*/
+                removeActive(x);
+                if (currentFocus >= x.length) currentFocus = 0;
+                if (currentFocus < 0) currentFocus = (x.length - 1);
+                /*add class "autocomplete-active":*/
+                x[currentFocus].classList.add("autocomplete-active");
+              }
+              function removeActive(x) {
+                /*a function to remove the "active" class from all autocomplete items:*/
+                for (var i = 0; i < x.length; i++) {
+                  x[i].classList.remove("autocomplete-active");
+                }
+              }
+              function closeAllLists(elmnt) {
+                /*close all autocomplete lists in the document,
+                except the one passed as an argument:*/
+                var x = document.getElementsByClassName("autocomplete-items");
+                for (var i = 0; i < x.length; i++) {
+                  if (elmnt != x[i] && elmnt != inp) {
+                    x[i].parentNode.removeChild(x[i]);
+                  }
+                }
+              }
+              /*execute a function when someone clicks in the document:*/
+              document.addEventListener("click", function (e) {
+                  closeAllLists(e.target);
+              });
+            }
+            
+            /*An array containing all the country names in the world:*/
+            // var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+            var doctors=['RoseMoon','Neeraj Joshi','Venkata Aggarwal','vikas','John'];
+            var Treatments=['Cardiologist','cancer','Surgeon','Dentist','Orthopologist','MD','Plastic Surgeon','Fortis','Apollo','Rockland','Primus'];
+            var doctorsandTreatments=doctors.concat(Treatments);
+            var cities=['Ahmedabad','Amritsar','Agartala','Ambala','Anantpuram','Delhi','Dehradun','Dabhel','Mumbai','Noida','Banglore','Bereilly','Bhilai','Bhiwandi','Hyderabad','Pune','Chandigarh','Gurgoan'];
+            /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+            autocomplete(document.getElementById("myInput"), cities);
+            autocomplete(document.getElementById("mysearch"),doctorsandTreatments);
+            </script>
+
+            <script>
+                document.getElementById("Loginbtn").onclick=function(){
+                    console.log("Hello world");
+                    location.href="/Login";
+                }
+            </script>
+
+       <script>
+           function getlocation(x){
+               console.log("clicked");
+               url=("https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572");
+
+               fetch(url).then((response)=>{
+                    return response.json();
+               }).then((data)=>{
+                  
+                   console.log(data);
+                   document.getElementById("myInput").value=data.city+","+data.postal;
+               })
+                
+           }
+       </script>
+       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+       <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+      
+
+     <script>
+        $('.close-btn').click(function(){
+                $(".alert").addClass("hide");
+                $(".alert").removeClass("show");
+        });
+                $(".alert").removeClass("hide");
+                $(".alert").addClass("show");
+
+                setTimeout(function(){
+                    $(".alert").addClass("hide");
+                    $(".alert").removeClass("show");
+                },10000);   
+
+     </script>
+    <script>
+        function myloader(){
+            setTimeout(function() {
+                var preloader=document.getElementById("loading");
+                preloader.style.display="none";
+            }, 5000);
+        }
+    </script>
+    </body>
+</html>

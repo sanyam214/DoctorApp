@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/user_settings.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <body>
+        <%- include('header',{Profile:ProfileName,mobile:ProfileMobile,pic:dp}) %>
+        <% if(givetoast=="true"){%>
+            <div class="alert">
+                <span class="fas fa-check-circle"></span>
+                <span class="msg">Password Changed Successfully</span>
+                <span class="close-btn" >
+                <span  class="fas fa-times"></span>
+                </span>
+            </div>
+            <%}%>
+        
+        <section id="container">
+          
+            <div id="dashboard">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li><a href="/user_profile">
+                        <div>
+                            <i class="fas fa-hospital"></i>Profile
+                        </div>
+                    </a></li>
+                    <li><a href="/Appointment">
+                        <div>
+                            <i class="fas fa-user-md"></i>Appointments
+                        </div>
+                    </a></li>
+                    <li id="edit"><a href="/schedule">
+                        <div>
+                            <i class="fas fa-user-md"></i>Edit Schedules
+                        </div>
+                    </a></li>
+                    <li><a href="/report">
+                        <div>
+                            <i class="fas fa-file-word"></i>Medical Reports
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="account">
+                <form action="/postsettings" method="POST">
+                    <div id="heading">
+                        <h2>Accounts</h2>
+                        <button type="submit">Save changes</button>
+                    </div>
+                    <div id="info">
+                        <div id="input-value">
+                            <label>Current Password</label>
+                            <input type="password" name="oldPassword" placeholder="Enter Password">
+                        </div>
+                        <div id="input-value">
+                            <label>New Password</label>
+                            <input type="password" name="newPassword" placeholder="Enter New Password">
+                        </div>
+                        <div id="input-value">
+                            <label>Confirm New Password</label>
+                            <input type="password" name="confirmPassword" placeholder="Confirm New Password">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <% if(isdoctor=="true"){%>
+            <script>
+                console.log("Hello world");
+                 document.getElementById("edit").style.display="flex";
+            </script>
+   <%}%>
+   <% if(isdoctor!="true"){%>
+      <script>
+
+           document.getElementById("edit").style.display="none";
+      </script>
+  <%}%>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+                $('.close-btn').click(function(){
+                        $(".alert").addClass("hide");
+                        $(".alert").removeClass("show");
+                });
+                        $(".alert").removeClass("hide");
+                        $(".alert").addClass("show");
+
+                        setTimeout(function(){
+                            $(".alert").addClass("hide");
+                            $(".alert").removeClass("show");
+                        },5000);   
+
+ </script>
+    </body>
+</html>

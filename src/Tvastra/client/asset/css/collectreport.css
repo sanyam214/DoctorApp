@@ -1,0 +1,317 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+.alert {
+  background: white;
+  padding: 20px 40px;
+  min-width: 300px;
+  height: 30px;
+  position: absolute;
+  right: 0px;
+  top: 14%;
+  overflow: hidden;
+  border-radius: 4px;
+  border-left: 8px solid green;
+}
+
+.alert .fa-check-circle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: green;
+  font-size: 30px;
+}
+
+.alert .close-btn {
+  color: green;
+  padding: 20px 18px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.msg {
+  padding: 0px 20px;
+  font-size: 20px;
+  color: green;
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-family: nexa-bold;
+  margin-bottom: 2rem;
+}
+
+.close-btn:hover {
+  color: lightgrey;
+}
+
+.close-btn .fa-times {
+  color: green;
+  line-height: 40px;
+  font-size: 22px;
+}
+
+.show {
+  -webkit-animation: show_slide 1s ease forwards;
+          animation: show_slide 1s ease forwards;
+}
+
+.hide {
+  display: none;
+}
+
+#container {
+  padding: 0rem 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 80%;
+      grid-template-columns: 20% 80%;
+  padding: 2rem 4rem;
+  height: 84vh;
+  background-color: #fafafa;
+  grid-gap: 0.5rem;
+}
+
+.mobilenav {
+  padding: 0rem 4em;
+  position: relative;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#dashboard {
+  padding: 2rem 0rem;
+  background-color: white;
+}
+
+#dashboard h2 {
+  color: #2a2d3e;
+  padding-left: 1rem;
+}
+
+#dashboard ul {
+  font-family: Nexa;
+  font-size: 0.8rem;
+  color: darkgray;
+  list-style: none;
+}
+
+#dashboard ul li {
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  border: 1px solid #fafafa;
+  color: darkgray;
+  -webkit-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
+  font-family: nexa-bold;
+}
+
+#dashboard ul li:hover {
+  -webkit-animation: ease-in-out;
+          animation: ease-in-out;
+  background-color: #fafafa;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#dashboard ul li i {
+  padding-right: 1rem;
+}
+
+#heading {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0rem 2rem;
+  border-bottom: 1px solid silver;
+}
+
+#heading h2 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+#heading:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 5rem;
+  left: 0;
+}
+
+#heading button {
+  width: 9rem;
+  height: 2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  letter-spacing: 0rem;
+  margin: 0px;
+  padding: 0px;
+  background-color: #0173b2;
+  color: white;
+  border-style: none;
+  margin-bottom: 1rem;
+  font-family: nexa-bold;
+}
+
+#heading button a {
+  color: white;
+}
+
+#aler {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 0;
+  z-index: 5;
+  display: none;
+}
+
+#cancel {
+  width: 30%;
+  height: auto;
+  background-color: #fafafa;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#account {
+  background-color: white;
+  padding-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#account #reports {
+  width: 100%;
+  height: 70%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 30% 30%;
+      grid-template-columns: 30% 30% 30%;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+  grid-gap: 1rem;
+}
+
+#account #reports > div {
+  margin-left: 1rem;
+}
+
+#account #reports > div > div {
+  width: 100%;
+  height: 10%;
+  background-color: silver;
+}
+
+#account #reports > div img {
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  #container {
+    padding: 0rem 1rem;
+  }
+  .mobilenav {
+    padding: 0rem 1rem;
+  }
+  .mobilenav img {
+    width: 10rem;
+  }
+  #info {
+    -ms-grid-columns: 40% 40%;
+        grid-template-columns: 40% 40%;
+  }
+  #dashboard h2 {
+    padding: 0px;
+    font-size: 1.5rem;
+    font-family: nexa-bold;
+  }
+  #cancel {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #container {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    padding: 0rem 1rem;
+    -ms-grid-rows: 50% 50%;
+        grid-template-rows: 50% 50%;
+  }
+  #dashboard {
+    overflow: scroll;
+  }
+  #dashboard h2 {
+    font-size: 2rem;
+  }
+  #info {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  #CANCEL {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=collectreport.css.map */

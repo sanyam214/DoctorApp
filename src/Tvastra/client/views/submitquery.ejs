@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>
+            Submit Query
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/submitquery.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+         
+         <div id="container">
+             <form method="POST">
+                <h1>
+                    Submit your query
+                </h1>
+                    <input type="text" name="Name" placeholder="Enter your name" style="margin-top: 1rem;;">
+                    <input type="number" name="Number" placeholder="Enter phone number">
+                    <input type="email" name="Email" placeholder="Enter email">
+                    <textarea name="text-area" placeholder="Write your query here"></textarea>
+                    <button id="btn">Submit <i class="fas fa-arrow-right"></i></button>
+             </form>
+             <h4 >All rights reserved Tvastra @2020</h4>
+         </div>
+         <script>
+            function myloader(){
+                setTimeout(function() {
+                    var preloader=document.getElementById("loading");
+                    preloader.style.display="none";
+                }, 5000);
+            }
+        </script>
+    </body>
+</html>

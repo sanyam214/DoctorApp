@@ -1,0 +1,128 @@
+.collapsible {
+	background-color: $white;
+	height: 4rem;
+	color: $blue;
+	cursor: pointer;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	margin: 1rem 0rem;
+	margin: 0px;
+	padding: 0px;
+	border-bottom: 1px dashed $silver;
+	h3 {
+		font-family: nexa-bold;
+		letter-spacing: 0.1rem;
+		color: #137bb7;
+	}
+	&:after {
+		width: 1.3rem;
+		height: 1rem;
+		content: '\2228';
+		background-color: #e5f1f7;
+		color: #4ba4d3;
+		border-radius: 50%;
+		padding-top: 0.2rem;
+		font-weight: bold;
+		float: right;
+		margin-left: 5px;
+		text-align: center;
+		font-size: 14px;
+	}
+}
+.active {
+	&:after {
+		content: "\2227";
+		background-size: 100% 100%;
+	}
+}
+.content {
+	padding: 0 18px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	background-color: $lightish-blue;
+	p {
+		letter-spacing: 0.1rem;
+		line-height: 1.5rem;
+		margin: 1rem 0rem;
+	}
+}
+.dropdown-content {
+	display: none;
+}
+.navbardropdown {
+	display: none;
+}
+@media only screen and(min-width:600px){
+    .navbardropdown {
+		overflow: hidden;
+		display: flex;
+		a {
+			float: left;
+			font-size: 16px;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+	}
+	.dropdown {
+		float: left;
+		overflow: hidden;
+		color: $black;
+		.dropbtn {
+			font-size: 16px;
+			border: none;
+			outline: none;
+			padding: 14px 16px;
+			background-color: inherit;
+			font-family: nexa-light;
+			margin: 0;
+			color: $black;
+		}
+		&:hover {
+			.dropdown-content {
+				display: block;
+			}
+		}
+	}
+	.fa-caret-down {
+		margin-left: 0.5rem;
+		color: $black;
+		font-size: 1.3rem;
+	}
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: $white;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		z-index: 1;
+		font-family: nexa-light;
+		a {
+			float: none;
+			color: $black;
+			width: 1.5rem 4rem;
+			text-decoration: none;
+			display: block;
+			text-align: left;
+			&:hover {
+				background-color: #ddd;
+			}
+		}
+	}
+}
+@media only screen and (min-width:900px){
+    .collapsible {
+		h3 {
+			font-size: 20px;
+			font-family: nexa-bold;
+			letter-spacing: 0.1rem;
+		}
+	}
+	#nav-i {
+		display: none;
+	}
+}

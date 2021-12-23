@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>
+            Verification
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/Login.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobil,pic:dpe}) %>
+
+        <div class="alert hide">
+            <span class="fas fa-exclamation-circle"></span>
+            <span class="msg">Successfully Login!!</span>
+            <span class="close-btn">
+             <span class="fas fa-times"></span>
+            </span>
+        </div>
+
+        <div id="Login">
+           <div id="form-div">
+               <div id="heading-div"><h1>Login</h1></div>
+            <form  action"/MobileNumber" method="POST">
+             <div><input type="text" name="number" placeholder="Enter Mobile Number " required ></div>
+               <a href="/login" style="color: blue; font-family: nexa-bold;">Login via Password</a>
+               <button>GET OTP <i class="fas fa-arrow-right"></i></button>
+               <h2>Not Registered/<a href="/SignUp" style="color:blue;">SignUp</a></h2>
+            </form>
+           </div>
+        </div>
+          <h2>All Rights Reserved @ Tvastra 2020</h2>
+          
+        </body>
+        </html>

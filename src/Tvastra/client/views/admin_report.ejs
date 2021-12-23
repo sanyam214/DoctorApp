@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/admin_report.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <section id="container">
+          
+            <div id="dashboard">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li><a href="/admin_dashboard/page1">
+                        <div>
+                            <i class="fas fa-hospital"></i>Dashboard
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_users">
+                        <div>
+                            <i class="fas fa-user-md"></i>Users
+                        </div>
+                    </a></li>
+                    <li id="edit"><a href="/admin_doctors">
+                        <div>
+                            <i class="fas fa-user-md"></i>Doctors
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_hospitals">
+                        <div>
+                            <i class="fas fa-file-word"></i>Hospitals
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="account">
+                
+                    <div id="heading">
+                        <h2>Accounts</h2>
+                        <button  id="alert1"><a onclick="myalert(this)">Add Report</a></button>
+                    </div>
+                   
+
+                    <% for(let i of allreport){%>
+                        <div id="parent">
+                        <div id="book" >
+                            <div id="day" onclick="showdocs('<%= i.Reporttype %>','<%= i.Patientname %>')" ><%= i.ReportDate %></div>
+                            <div id="time">
+                                <h2><%= i.Title %></h2>
+                                <h2><%= i.Reporttype  %></h2>
+                               
+                                <h2 id="confirmed"><%= i.Patientname %></h2>
+                            </div>
+                            <div id="button">
+                                <button><a href="/report?id=<%= i._id %>&givetoast=true">Delete</a></button>
+                           </div>
+                        </div>
+                        </div>
+                    <%}%>
+                    <form action="/postreport" method="POST" enctype="multipart/form-data">
+                    <div id="aler">
+                        <div id="cancel">
+                            <div id="upload_images">
+                                <div id="images">
+                                    <div id="label-input">
+                                        <label for="">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Add Photo</span>
+                                        </label>
+                                    </div>
+                                   <div id="add-picture">
+                                    <input type="file" name="Reportimg" multiple>
+                                   </div>
+                                </div>
+                            </div>
+                            <div id="report_info">
+                                <input type="hidden" name="Report" id="hiddeninput" value="">
+                                <input type="text" placeholder="Title" name="Title" required>
+                                <input id="patientsname" type="text" value="<%= Name %>" name="PatientName">
+                                <input type="date" name="Date" required>
+                            </div>
+                            <div id="report_type">
+                                <h2>Type of Report</h2>
+                                <div id="report-grid">
+                                    <div id="report" onclick="select1(this)">
+                                        <i class="fas fa-file-word"></i>
+                                        <h4 id="report_name">Report</h4>
+                                    </div>
+                                    <div id="prescription" onclick="select2(this)">
+                                        <i class="fas fa-file-word"></i>
+                                        <h4 id="prescription_name">Prescription</h4>
+                                    </div>
+                                    <div id="invoice" onclick="select3(this)">
+                                        <i class="fas fa-file-word"></i>
+                                        <h4 id="invoice_name">Invoice</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="add-event">
+                                <button id="done" type="submit">Done</button>
+                                <button id="not-done"><a href="/report">Cancel</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </section>
+      <script>
+        function myalert(z){
+            document.getElementById("aler").style.display = "flex";
+        }
+    </script>
+    <script>
+        function hide(x){
+            document.getElementById("aler").style.display= 'none';
+        }
+    </script>
+
+    <script>
+        function showdocs(reportype,patientname){
+            window.location.href="/showdocuments?doc="+reportype+"&patientname="+patientname;
+        }
+    </script>
+ 
+  <script>
+      function select1(x){
+  
+              x.style.backgroundColor="rgb(197, 225, 252)";
+              x.style.color="white";
+              document.getElementById("invoice").style.backgroundColor="white";
+              document.getElementById("prescription").style.backgroundColor="white";
+              document.getElementById("hiddeninput").value="Report";
+              console.log(document.getElementById("hiddeninput").value);
+         
+      }
+      function select2(x){
+         
+              x.style.backgroundColor="rgb(197, 225, 252)";
+              document.getElementById("report").style.backgroundColor="white";
+              document.getElementById("invoice").style.backgroundColor="white";
+              document.getElementById("hiddeninput").value="Prescription";
+              console.log(document.getElementById("hiddeninput").value);
+         
+      }
+      function select3(x){
+         
+         x.style.backgroundColor="rgb(197, 225, 252)";
+         x.style.color="white";
+         document.getElementById("report").style.backgroundColor="white";
+         document.getElementById("prescription").style.backgroundColor="white";
+         document.getElementById("hiddeninput").value="Invoice";
+         console.log(document.getElementById("hiddeninput").value);
+    
+       }
+  </script>
+ <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+                $('.close-btn').click(function(){
+                        $(".alert").addClass("hide");
+                        $(".alert").removeClass("show");
+                });
+                        $(".alert").removeClass("hide");
+                        $(".alert").addClass("show");
+
+                        setTimeout(function(){
+                            $(".alert").addClass("hide");
+                            $(".alert").removeClass("show");
+                        },5000);   
+
+ </script>
+<script>
+    function myloader(){
+        setTimeout(function() {
+            var preloader=document.getElementById("loading");
+            preloader.style.display="none";
+        }, 5000);
+    }
+</script>
+    </body>
+</html>

@@ -1,0 +1,412 @@
+@import "colors";
+@font-face{
+    font-family: nexa-bold;
+    src:url('../fonts/Nexa-Bold.otf') 
+}
+@font-face{
+    font-family: nexa-light;
+    src:url('../fonts/Nexa-Light.otf') 
+}
+#Hero-dentistry{
+    width:100%;
+    height:15rem;
+    background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/dentist_hero_image.jpg);
+    background-size: cover;
+    background-position: left;
+    margin-bottom: 1rem;
+}
+#Hero-div{
+    width: 100%;
+    height:100%;
+    background-image: linear-gradient(to left,transparent,$darkblue2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#info-div{
+    width:50%;
+    height:40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#info-div h2{
+    font-family: nexa-bold;
+    color:$white;
+    margin:0px;
+    font-size:30px;
+}
+#info-div h3{
+    font-family: nexa-light;
+    color:$white;
+    margin: 0px;
+}
+#container{
+    width:100%;
+    height:55rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#vaccination-container{
+    width:80%;
+    height:20rem;
+    background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/dentist.jpg);
+    background-size: 100% 100%;
+}
+h1{
+    font-family: nexa-bold;
+}
+#dentist-info{
+    width:80%;
+    height:25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    margin-bottom: 1rem;
+    padding:0rem 2rem;
+}
+#dentist-info h3{
+    color:$black;
+    font-family: nexa-bold;
+    margin-top:0px;
+}
+#dentist-info p{
+    text-align: left;
+    font-family: nexa-light;
+    line-height: 30px;
+    font-size:17px;
+    margin-top:0px;
+}
+#dentist-info ul{
+    width:100%;
+    height:23%;
+    list-style: circle;
+    font-family: nexa-light;
+    list-style-position: inside;
+}
+#dentist-info ul li{
+    margin-bottom:1rem;
+}
+#diseases-info{
+  width:100%;
+  height:50rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+#info-div2{
+    width:80%;
+    height:100%;
+    padding:0rem 2rem;
+}
+#info-div2 ul{
+  width: 100%;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+#info-div2 ul li{
+    width:100%;
+    height:28%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#icons{
+    width:30%;
+    height:5rem;
+    border-radius: 50%;
+    background-color:$light3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#info-div2 h3{
+  font-family: nexa-bold;
+}
+#info-div2 p{
+    margin:0px;
+    font-family: nexa-light;
+    font-size: 15px;
+    line-height: 25px;
+  }
+#icons i{
+    font-size:30px;
+    text-align: center;
+}
+#details{
+    width:100%;
+    height:19rem;
+    margin-bottom:1rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+}
+#details-info{
+  width: 80%;
+  height:100%;
+  border:2px solid $silver;
+  border-radius:10px;
+}
+#details-info h3{
+    font-family: nexa-bold;
+}
+#details-info ul{
+    width:100%;
+    height:70%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#details-info ul li{
+    width:90%;
+    height:10%;
+    border-bottom:1px solid $silver;
+    font-family: nexa-light;
+}
+#details-info ul li h4{
+    margin:0px;
+    float: left;
+  font-family: nexa-bold;
+  color:$black;
+}
+#details-info ul li h5{
+    float:right;
+  font-family: nexa-light;
+}
+#details2{
+    width:100%;
+    height:11rem;
+    margin-bottom:2rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+}
+#details-info2{
+  width: 80%;
+  height:100%;
+  border:2px solid $silver;
+  border-radius:10px;
+}
+#details-info2 h3{
+    font-family: nexa-bold;
+}
+#details-info2 ul{
+    width:100%;
+    height:55%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#details-info2 ul li{
+    width:90%;
+    height:20%;
+    border-bottom:1px solid $silver;
+    font-family: nexa-light;
+}
+#details-info2 ul li h4{
+    margin:0px;
+    float: left;
+  font-family: nexa-bold;
+  color:$black;
+}
+#details-info2 ul li h5{
+    float:right;
+  font-family: nexa-light;
+}
+#More-services{
+    width:100%;
+    height:70rem;
+    background-color: $lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#More-services h2{
+  font-family:nexa-bold;
+  font-size:30px;
+  margin:0px;
+  color:$white;
+}
+#left-right{
+    width:20%;
+    height:auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#left-right i{
+    font-size:30px;
+    color:$white;
+}
+#More-services ul{
+    width:80%;
+    height:83%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+#More-services ul li{
+   width:100%;
+   height:30%;
+   border:1px solid $silver;
+   background-color:$white;
+   border-radius:10px;
+}
+#More-services ul li img{
+    width:100%;
+    height:70%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#More-services ul li h3{
+    font-family: nexa-bold;
+    margin-top:2rem;
+}
+@media only screen and (min-width:600px){
+    #container{
+        flex-direction: row;
+        justify-content: center;
+        align-items: none;
+        height: 32rem;
+    }
+    h1{
+        width: 100%;
+        text-align: left;
+        padding-left: 1.2rem;
+    }
+    #vaccination-container{
+        width:40%;
+        height:25rem;
+    }
+    #dentist-info{
+        width:50%;
+        padding:0px;
+        margin-left:1.5rem;
+    }
+    #info-div2 {
+        width:97%;
+        padding:0px;
+        margin:0rem 1rem;
+    }
+   #info-div2 ul{
+       width:100%;
+        flex-direction: row;
+   }
+   #info-div2 ul li{
+     width:33%;
+     height:80%;
+   }
+   #info-div2 h3{
+    font-size:15px;
+  }
+  #diseases-info{
+      height:20rem;
+  }
+#details{
+    width:50%;
+    margin:0rem 1rem;
+    display: inline-block;
+    margin-bottom:2rem;
+}
+#details-info{
+    width:100%;
+}
+#details2{
+    width:40%;
+    display: inline-block;
+}
+#details-info2{
+    width:100%;
+}
+#More-services{
+    height:30rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#More-services ul {
+    width:97%;
+    height:75%;
+    margin:0rem 1rem;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+#More-services ul li {
+    width:32%;
+    height:100%;
+}
+#More-services h2{
+   margin-left:1.3rem;
+   margin-top: 1rem;;
+}
+#left-right{
+    margin-top: 1rem;
+}
+}
+@media only screen and (min-width:900px){
+    
+    h1{
+        padding-left: 2rem;
+    }
+    #Hero-div{
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+    #info-div{
+        justify-content: space-around;
+        align-items: flex-start;
+        margin-left:2.5rem;
+    }
+    #Hero-dentistry{
+      background-position: top;
+    }
+    #container{grid-area:list1;}
+    #diseases-info{grid-area:list2;}
+    #details{grid-area:list3;}
+    #details2{grid-area:list4;}
+
+    #Hero-container{
+        width:100%;
+        display: grid;
+        grid-template-areas: 
+        'list1 list3'
+        'list1 list4'
+        'list2 list4';
+        margin-top:2rem;
+        grid-template-columns: 65% 30%;
+    }
+    #details{
+        width:98%;
+        margin-top: 1rem;
+        margin-right:1rem;
+        margin-left:0px;
+    }
+    #details2{
+        width:98%;
+    }
+}

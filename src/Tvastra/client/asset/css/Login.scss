@@ -1,0 +1,235 @@
+@import "colors";
+
+@font-face {
+	font-family: nexa-bold;
+	src: url('../fonts/Nexa-Bold.otf');
+}
+@font-face {
+	font-family: nexa-light;
+	src: url('../fonts/Nexa-Light.otf');
+}
+body {
+	background-color: $background-color;
+}
+.btn-link {
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+	text-decoration: none;
+	font-family: nexa-light;
+	font-size: 15px;
+	letter-spacing: 2px;
+	width: 50%;
+	height: 100%;
+	text-align: right;
+}
+.alert {
+	background: $white;
+	padding: 20px 40px;
+	min-width: 300px;
+	height: 30px;
+	position: absolute;
+	right: 0px;
+	top: 14%;
+	overflow: hidden;
+	border-radius: 4px;
+	border-left: 8px solid $red;
+	.fa-times-circle {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $red;
+		font-size: 30px;
+	}
+	.close-btn {
+		color: $red;
+		padding: 20px 18px;
+		position: absolute;
+		right: 0px;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+}
+.alert2 {
+	background:$white;
+	padding: 20px 40px;
+	min-width: 300px;
+	height: 30px;
+	position: absolute;
+	right: 0px;
+	top: 14%;
+	overflow: hidden;
+	border-radius: 4px;
+	border-left: 8px solid $red;
+	.fa-times-circle {
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+		color: $red;
+		font-size: 30px;
+	}
+	.close-btn {
+		padding: 20px 18px;
+		position: absolute;
+		right: 0px;
+		top: 50%;
+		transform: translateY(-50%);
+		cursor: pointer;
+	}
+}
+.msg {
+	padding: 0px 20px;
+	font-size: 20px;
+	letter-spacing: 1px;
+	line-height: 30px;
+	color: $red;
+	font-family: nexa-bold;
+	margin-bottom: 2rem;
+}
+.close-btn {
+	&:hover {
+		color: $light-grey;
+	}
+	.fa-times {
+		color: $red;
+		line-height: 40px;
+		font-size: 22px;
+	}
+}
+.show {
+	animation: show_slide 1s ease forwards;
+}
+.hide {
+	display: none;
+}
+#Login {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+#login-alt {
+	height: 30px;
+	display: flex;
+	justify-content: space-between;
+	border: none;
+	a {
+		width: 50%;
+		margin-top: 5px;
+		font-size: 15px;
+		color:$lightblue1;
+	}
+	button{
+		color:$lightblue1;
+	}
+}
+#form-div {
+	width: 90%;
+	height: 70%;
+	background-color:$white ;
+	h2{
+		a{
+			color:$blue;
+		}
+	}
+}
+h1 {
+	font-family: nexa-bold;
+	color: $lightblue1;
+	text-align: center;
+}
+#heading-div {
+	width: 100%;
+	height: 12%;
+	border-bottom: 2px solid $light-grey;
+	h1{
+		margin-top:1rem;
+	}
+}
+form {
+	width: 100%;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	input {
+		width: 90%;
+		height: 15%;
+		border: 1px solid $light-grey;
+		font-family: nexa-light;
+		padding: 0rem 1rem;
+		outline: none;
+		i {
+			font-size: 2rem;
+		}
+	}
+	div {
+		width: 90%;
+		height: 15%;
+		border: 1px solid $light-grey;
+		font-family: nexa-light;
+		color: $light-grey;
+		margin-top: 1rem;
+		input {
+			width: 100%;
+			height: 100%;
+			font-family: nexa-light;
+			padding: 0rem 1rem;
+			margin: 0px;
+			border: none;
+		}
+	}
+	button {
+		border-style: none;
+		width: 90%;
+		height: 20%;
+		color: $white;
+		font-family: nexa-light;
+		letter-spacing: 5px;
+		margin: 0px;
+		cursor: pointer;
+		i {
+			float: right;
+			color: $white;
+		}
+	}
+}
+h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size: 15px;
+	text-align: center;
+	letter-spacing: 0.1rem;
+	a{
+		color:$lightblue1;
+	}
+}
+
+@media only screen and (min-width:600px) {
+	#form-div {
+		width: 60%;
+		height: 65%;
+	}
+}
+@media only screen and (min-width:900px) {
+	#form-div {
+		width: 40%;
+		height: 25rem;
+	}
+	.mobilenav {
+		padding: 0rem 4rem;
+		ul {
+			margin-left: 4rem;
+		}
+	}
+}

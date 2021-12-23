@@ -1,0 +1,290 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+body {
+  background-color: #97bdda;
+}
+
+.btn-link {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  font-family: nexa-light;
+  font-size: 15px;
+  letter-spacing: 2px;
+  width: 50%;
+  height: 100%;
+  text-align: right;
+}
+
+.alert {
+  background: white;
+  padding: 20px 40px;
+  min-width: 300px;
+  height: 30px;
+  position: absolute;
+  right: 0px;
+  top: 14%;
+  overflow: hidden;
+  border-radius: 4px;
+  border-left: 8px solid red;
+}
+
+.alert .fa-times-circle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: red;
+  font-size: 30px;
+}
+
+.alert .close-btn {
+  color: red;
+  padding: 20px 18px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.alert2 {
+  background: white;
+  padding: 20px 40px;
+  min-width: 300px;
+  height: 30px;
+  position: absolute;
+  right: 0px;
+  top: 14%;
+  overflow: hidden;
+  border-radius: 4px;
+  border-left: 8px solid red;
+}
+
+.alert2 .fa-times-circle {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: red;
+  font-size: 30px;
+}
+
+.alert2 .close-btn {
+  padding: 20px 18px;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.msg {
+  padding: 0px 20px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 30px;
+  color: red;
+  font-family: nexa-bold;
+  margin-bottom: 2rem;
+}
+
+.close-btn:hover {
+  color: lightgrey;
+}
+
+.close-btn .fa-times {
+  color: red;
+  line-height: 40px;
+  font-size: 22px;
+}
+
+.show {
+  -webkit-animation: show_slide 1s ease forwards;
+          animation: show_slide 1s ease forwards;
+}
+
+.hide {
+  display: none;
+}
+
+#Login {
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#login-alt {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: none;
+}
+
+#login-alt a {
+  width: 50%;
+  margin-top: 5px;
+  font-size: 15px;
+  color: #7eb8d8;
+}
+
+#login-alt button {
+  color: #7eb8d8;
+}
+
+#form-div {
+  width: 90%;
+  height: 70%;
+  background-color: white;
+}
+
+#form-div h2 a {
+  color: #0173b2;
+}
+
+h1 {
+  font-family: nexa-bold;
+  color: #7eb8d8;
+  text-align: center;
+}
+
+#heading-div {
+  width: 100%;
+  height: 12%;
+  border-bottom: 2px solid lightgrey;
+}
+
+#heading-div h1 {
+  margin-top: 1rem;
+}
+
+form {
+  width: 100%;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form input {
+  width: 90%;
+  height: 15%;
+  border: 1px solid lightgrey;
+  font-family: nexa-light;
+  padding: 0rem 1rem;
+  outline: none;
+}
+
+form input i {
+  font-size: 2rem;
+}
+
+form div {
+  width: 90%;
+  height: 15%;
+  border: 1px solid lightgrey;
+  font-family: nexa-light;
+  color: lightgrey;
+  margin-top: 1rem;
+}
+
+form div input {
+  width: 100%;
+  height: 100%;
+  font-family: nexa-light;
+  padding: 0rem 1rem;
+  margin: 0px;
+  border: none;
+}
+
+form button {
+  border-style: none;
+  width: 90%;
+  height: 20%;
+  color: white;
+  font-family: nexa-light;
+  letter-spacing: 5px;
+  margin: 0px;
+  cursor: pointer;
+}
+
+form button i {
+  float: right;
+  color: white;
+}
+
+h2 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
+h2 a {
+  color: #7eb8d8;
+}
+
+@media only screen and (min-width: 600px) {
+  #form-div {
+    width: 60%;
+    height: 65%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #form-div {
+    width: 40%;
+    height: 25rem;
+  }
+  .mobilenav {
+    padding: 0rem 4rem;
+  }
+  .mobilenav ul {
+    margin-left: 4rem;
+  }
+}
+/*# sourceMappingURL=Login.css.map */

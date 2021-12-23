@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>
+            FAQ
+        </title>
+        <link rel="stylesheet" href="../css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/Theme.css">
+        <link rel="stylesheet" href="../css/FAQ.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </head>
+    <body>
+      <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <div id="Hero-dentistry">
+                
+            <div id="info-div">
+         <h2>FAQ</h2>
+         <h3>Home/FAQ</h3>
+       
+        </div>
+        
+    </div>
+
+    <div id="container">
+        <div id="doctor-profile">
+           <div id="info-container">
+           <button class="collapsible"><h3>How do I make Payments?.</h3></button>
+               <div class="content">
+                <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                  repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                 </div>
+
+                  <button class="collapsible"><h3>There is not enough money in my wallet.What do I do?.</h3></button>
+                  <div class="content">
+                     <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                       repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                      </div>
+                   <button class="collapsible"><h3>Can I tranfer balance of portea wallet balance to another user?. </h3></button>
+                   <div class="content">
+                     <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                       repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                      </div>
+
+                      <button class="collapsible"><h3>Is Portea money same as Portea wallet?.</h3></button>
+                      <div class="content">
+                        <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                          repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                         </div>
+
+                         <button class="collapsible"><h3>Refund</h3></button>
+                         <div class="content">
+                           <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                             repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                            </div>
+
+                            <button class="collapsible"><h3>What is a family ID?.</h3></button>
+                            <div class="content">
+                              <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                                repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                               </div>
+
+                               <button class="collapsible"><h3>Who can be added as a family?.</h3></button>
+                               <div class="content">
+                                 <p>Lorem ipsum dolor sit amet,consectetur adipiscing alit.Labore illo,ratione asperiores voluptates a vel eos labouriosam,distincio sed dolorem,saepe
+                                   repellendus incidunt.Veritatis modi harum unde officis,place at blanditis.</p>
+                                  </div>
+           </div>
+        </div>
+    </div>
+     
+    <section class="NeedHelp">
+      <h2>Need Help?</h2>
+      <p >Just Let us Know .We will be happy to assist you.</p>
+      <button><a href="/submitquery">Submit your Query</a></button>
+  </section>
+
+
+               <%- include('footer') %>
+       <script>
+         var coll = document.getElementsByClassName("collapsible");
+         var i;
+         
+         for (i = 0; i < coll.length; i++) {
+           coll[i].addEventListener("click", function() {
+             this.classList.toggle("active");
+             var content = this.nextElementSibling;
+             if (content.style.maxHeight){
+               content.style.maxHeight = null;
+             } else {
+               content.style.maxHeight = content.scrollHeight + "px";
+             } 
+           });
+         }
+         </script>
+           <script>
+            function myloader(){
+                setTimeout(function() {
+                    var preloader=document.getElementById("loading");
+                    preloader.style.display="none";
+                }, 5000);
+            }
+        </script>
+
+    </body>
+
+    </html>

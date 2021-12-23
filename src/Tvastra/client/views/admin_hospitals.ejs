@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>
+            Verification
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/admin_hospitals.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <section class="hero">
+            <div class="container">
+                <div class="dashboard">
+                   <h2 class="Dashboardh2">
+                       Dashboard
+                   </h2>
+                   <ul>
+                    <li><a href="admin_dashboard/page1">
+                        <div>
+                            <i class="fas fa-hospital"></i>Dashboard
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_users">
+                        <div>
+                            <i class="fas fa-user-md"></i>Users
+                        </div>
+                    </a></li>
+                    <li id="edit"><a href="/admin_doctors">
+                        <div>
+                            <i class="fas fa-user-md"></i>Doctors
+                        </div>
+                    </a></li>
+                    <li><a href="#">
+                        <div>
+                            <i class="fas fa-file-word"></i>Hospitals
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+                </div>
+                <ul class="doctors_info">
+                    <% for(let i of allhospital){%>
+                        <li>
+                            <div class="icons" onclick="list(this)">
+                                <i class="fas fa-cogs" ></i>
+                            
+                                <div class="drop">
+                                    <div><a href="/verify_hospital?hospital_selected=<%= i.HospitalName %>">Edit hospital</a></div>
+                                </div>
+                                <script>
+                                    function list(x){
+                                      x.children[1].style.display="initial"
+                                    }
+                                </script>
+                            
+                            </div>
+                            <img src="../../uploads/hospitals/avatars/<%= i.avatar %>" alt="">
+                            <h4><%= i.HospitalName %></h4>
+                            <div><i class="fas fa-certificate"></i><div><%= i.Speciality %></div></div>
+                            <div><i class="fas fa-map-marker-alt"></i><div><%= i.Location %></div></div>
+                            <div><i class="fas fa-stethoscope"></i><div><%= i.Treatment[0] %></div></div>
+                            <div><i class="fas fa-procedures"></i><div><%= i.Noofbeds %></div></div>
+                       </li>
+                    <%}%>
+                </ul>
+        </section>
+    </body>
+
+</html>

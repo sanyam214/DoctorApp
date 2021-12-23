@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>
+            Tvastra.com
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/collectreport.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    </head>
+    <body>
+      <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+     
+      <section id="container">
+          
+        <div id="dashboard">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="/user_profile">
+                    <div>
+                        <i class="fas fa-hospital"></i>Profile
+                    </div>
+                </a></li>
+                <li><a href="/Appointment">
+                    <div>
+                        <i class="fas fa-user-md"></i>Appointments
+                    </div>
+                </a></li>
+                <li id="edit"><a href="/schedule">
+                    <div>
+                        <i class="fas fa-user-md"></i>Edit Schedules
+                    </div>
+                </a></li>
+                <li><a href="/report">
+                    <div>
+                        <i class="fas fa-file-word"></i>Medical Reports
+                    </div>
+                </a></li>
+                <li><a href="/user_settings">
+                    <div>
+                        <i class="fas fa-hospital"></i>Settings
+                    </div>
+                </a></li>
+            </ul>
+        </div>
+        <div id="account">
+            <div id="heading">
+                <h2>Reports</h2>
+                <button  id="alert1"><a onclick="myalert(this)">Add Report</a></button>
+            </div>
+            <div id="reports">
+                <% for(let i=0 ; i<alldocs.length; i++ ){%>
+                    <div>
+                        <div><i class="fas fa-trash-alt" style="margin-left:90;"  onclick="deletedoc('<%= alldocs[i] %>')"></i></div>
+                        <img src="../../uploads/Reports/reportdocs/<%= alldocs[i] %>" alt="">
+                        <div><h2 style="font-size: 0.5rem;"><%= alldocs[i] %></h2></div>
+                    </div>
+                <%}%>
+            </div>
+        </div>
+    </section>
+    <script>
+    function deletedoc(itemdeleted)
+    {
+         console.log("plz delete");
+         
+         window.location.href=window.location.href+"&delete="+itemdeleted;
+    }
+    </script>
+   
+    </body>  

@@ -1,0 +1,138 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+body {
+  background-color: #9abdd7;
+}
+
+#container {
+  height: 60rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form {
+  background-color: white;
+  height: 50rem;
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form h1 {
+  height: 10%;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #1779b4;
+  letter-spacing: 0.1rem;
+  font-family: nexa-bold;
+  border-bottom: 1px solid silver;
+}
+
+form input {
+  height: 5%;
+  width: 90%;
+  border: 1px solid silver;
+}
+
+form button {
+  height: 8%;
+  width: 90%;
+  border-style: none;
+  font-family: nexa-bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+form button i {
+  float: right;
+}
+
+textarea {
+  height: 40%;
+  width: 90%;
+  border: 1px solid silver;
+}
+
+h4 {
+  font-family: nexa-bold;
+  color: black;
+  letter-spacing: 0.1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  #container {
+    height: 90%;
+  }
+  form {
+    width: 60%;
+    height: 70%;
+  }
+  form input {
+    height: 10%;
+  }
+  form button {
+    height: 10%;
+  }
+  textarea {
+    height: 20%;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #container {
+    height: 85%;
+  }
+  form {
+    width: 60%;
+    height: 85%;
+  }
+  form input {
+    height: 10%;
+  }
+  form button {
+    height: 10%;
+  }
+  textarea {
+    height: 20%;
+  }
+  .mobilenav {
+    padding: 0rem 3rem;
+  }
+}
+/*# sourceMappingURL=submitquery.css.map */

@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title>
+            Sign Up Page
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/Signup.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        
+    </head>
+    <body>
+    <nav class="mobilenav">
+      <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="Logo Tvastra">
+      
+      <ul id="header-ul">
+          <li><a href="/Doctorlist">Doctors</a></li>
+          <div class="navbardropdown">
+              <div class="dropdown">
+                <button class="dropbtn">Treatments<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                  <a href="/Dentistry">Dentistry</a>
+                  <a href="#">Cardiology</a>
+                  <a href="#">Infertility</a>
+                  <a href="#">Ortheopedics</a>
+                  <a href="#">Cancer</a>
+                </div>
+              </div> 
+            </div>
+          <li><a href="/Hospitallist">Hospitals </a></li>
+          <li><a href="/FAQ">FAQ's</a> </li>
+      </ul>
+          
+         <button><a href="/Logout">Get A Quote</a></button>
+      
+      <i class="fas fa-bars" id="nav-i"></i>
+  </nav>
+        <div class="alert hide">
+            <span class="fas fa-exclamation-circle"></span>
+            <span class="msg">Successfully Login!!</span>
+            <span class="close-btn">
+             <span class="fas fa-times"></span>
+            </span>
+        </div>
+
+         <div class="LoginForm">
+              <div id="container">
+                <form action="/Signup" method="POST">
+                    <div class="Formheader">
+                        <h2>SignUp</h2>
+                    </div>
+                    <div class="inputsection">
+                        <input type="text" name="Name" id="name" placeholder="Enter the Name" required>
+                        <input type="text" name="Email" id="input1" placeholder="Enter the Email" required oninput="checkpass1(this)">
+                        <input type="password" name="Password" id="pass" placeholder="Enter Password" required oninput="checkpass(this)">
+                        <select name="Gender" id="Gender" required>
+                            <option value="Select Your Gender">Select Your Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Others</option>
+                        </select>
+                        <input type="date" name="Date" placeholder="mm/dd/yy" required>
+                        <input type="number" name="Mobile" id="mobile" placeholder="Enter Mobile Number" required oninput="checkmobile(this)">
+                        <div id="cityandstate">
+                            <input type="text" name="City" placeholder="Enter City" required>
+                            <input type="text" name="State" placeholder="Enter State"  required>    
+                        </div>
+                       <select name="Country" id="Country" required>
+                            <option value="Select Your country">Select Your Country</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="Japan">Japan</option>
+                            <option value="China">China</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Australia">Australia</option>
+                        </select>
+                        <div id="check-doctor"><input type="checkbox" id="doctor" name="Areudoctor" value="false" onchange="change(this)">
+                            <label for="doctor"> Are you Doctor?</label></div>
+                        <button type="submit" class="btn4" disabled>SIGN UP <i class="fas fa-arrow-right"></i></button>
+                        
+                    </div>
+                    <div id="formfooter">
+                        <h4 style="display: inline-block;">
+                            Already Registered?
+                        </h4>
+                        <a href="/Login" style="color: blue;">Login</a>
+                    </div>
+                </form>
+              </div>     
+            </div>
+          <script>
+            function change(x)
+            {
+              console.log(x.checked);
+              var counter=0;
+                if(x.checked)
+                {
+                  x.value="true";
+                }
+                
+            }
+          </script>   
+         <script>
+            $('.close-btn').click(function(){
+                    $(".alert").addClass("hide");
+                    $(".alert").removeClass("show");
+            });
+            $('button').click(function(){
+                    $(".alert").removeClass("hide");
+                    $(".alert").addClass("show");
+                    setTimeout(function(){
+                        $(".alert").addClass("hide");
+                        $(".alert").removeClass("show");
+                    },5000);
+            });
+         </script>
+         <script>
+            function checkpass(x){
+              var passwd1 = /[A-Z]/;
+              var passwd2 = /[a-z]/;
+              var passwd3 = /[1,9]/;
+              var passwd4 = /@/;
+              if(!(x.value.match(passwd1) && x.value.match(passwd2) && x.value.match(passwd3) && x.value.match(passwd4) )){
+                document.getElementsByClassName("btn4")[0].disabled = true;
+                document.getElementById("pass").style.border="1px solid red";
+                document.getElementsByClassName("btn4")[0].style.cursor = "not-allowed";
+              }
+              if(x.value.match(passwd1) && x.value.match(passwd2) && x.value.match(passwd3) && x.value.match(passwd4)){
+                
+                document.getElementById("pass").style.border="1px solid black";
+                document.getElementsByClassName("btn4")[0].disabled = false;
+                document.getElementsByClassName("btn4")[0].style.cursor = "pointer";
+                console.log(document.getElementsByClassName("btn4")[0].cursor)
+              }
+            }
+          </script>
+          <script>
+            function checkpass1(x){
+              var passwd1 = /[A-Z]/;
+              var passwd2 = /[a-z]/;
+              var passwd3 = /[@]/;
+              var passwd4 = /[.]/;
+              if(!(x.value.match(passwd1) && x.value.match(passwd2) && x.value.match(passwd3) && x.value.match(passwd4) )){
+                console.log("not matches");
+                document.getElementById("input1").style.border="1px solid red";
+                document.getElementsByClassName("btn4")[0].disabled = true;
+                document.getElementsByClassName("btn4")[0].style.cursor = "not-allowed";
+              }
+              if(x.value.match(passwd1) && x.value.match(passwd2) && x.value.match(passwd3) && x.value.match(passwd4)){
+                console.log("matches");
+                document.getElementsByClassName("btn4")[0].disabled = false;
+                document.getElementById("input1").style.border="1px solid black";
+                document.getElementsByClassName("btn4")[0].style.cursor = "pointer";
+              }
+            }
+          </script>
+          <script>
+              function checkmobile(x){
+                  if(parseInt((x.value).length)<10 || parseInt((x.value).length)>10 ){
+                            document.getElementById("mobile").style.border="1px solid red";
+                            document.getElementsByClassName("btn4")[0].disabled = true;
+                            document.getElementsByClassName("btn4")[0].style.cursor = "not-allowed";
+                  }
+                  else{
+                            document.getElementsByClassName("btn4")[0].disabled = false;
+                            document.getElementById("mobile").style.border="1px solid black";
+                            document.getElementsByClassName("btn4")[0].style.cursor = "pointer";
+                  }
+              }
+          </script>
+            <script>
+              function myloader(){
+                  setTimeout(function() {
+                      var preloader=document.getElementById("loading");
+                      preloader.style.display="none";
+                  }, 5000);
+              }
+          </script>
+    </body>
+</html>

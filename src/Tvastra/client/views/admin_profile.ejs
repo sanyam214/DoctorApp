@@ -1,0 +1,281 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/admin_profile.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@3.1.0/dist/tagify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+    <body>
+         
+        <%- include('header',{Profilephoto:dp,Profile:ProfileName,mobile:ProfileMobile,pic:dp}) %>
+
+        
+           
+
+        <section id="container">
+          
+            <div id="dashboard">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li><a href="/admin_dashboard/page1">
+                        <div>
+                            <i class="fas fa-hospital"></i>Dashboard
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_users">
+                        <div>
+                            <i class="fas fa-user-md"></i>Users
+                        </div>
+                    </a></li>
+                    <li id="edit"><a href="/admin_doctors">
+                        <div>
+                            <i class="fas fa-user-md"></i>Doctors
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_hospitals">
+                        <div>
+                            <i class="fas fa-file-word"></i>Hospitals
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+            </div>
+            <div id="account">
+                <form action="/user_profile" method="POST">
+                    <div id="heading">
+                        <h2>Accounts</h2>
+                    <button type="submit">Save changes</button>
+                    </div>
+                    <div id="info">
+                        <div id="add-photo">
+                            <label>Profile Photo</label>
+                            <div id="profile-image">
+                                <div id="imagePreview">
+                                    <% if(isdoctor=="true"){%>
+                                        <img id="fileimg" src="../../uploads/doctors/avatars/<%= pavatar %>" alt="Picture" width="70" height="80" />
+                                    <%}%>
+                                    <% if(isdoctor!="true"){%>
+                                        <img id="fileimg" src="../../uploads/profilepic/avatars/<%= pavatar %>" alt="Picture" width="70" height="80" />
+                                    <%}%>  
+                                </div>
+                                <div id="Add-photo">
+                                    <p>Pick a photo from your system</p>
+                                    <!-- <input type="file" name="avatar" placeholder="file-upload"> -->
+                                    <label for="file" class="label4"><input type="file" id="inpFile" name="avatar" accept="image/*" onchange="showpreview(event);"></label>
+                                    <!-- <button type="submit">Add Photo</button> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div id="Name">
+                            <label>Name</label>
+                            <input type="text" placeholder="Name" name="Name" value="<%= pName %>">
+                        </div>
+                    </div>
+                    <div id="info">
+                        <div id="input-value">
+                            <label>Phone Number <button type="button" onclick="enable(this)">Edit</button></label>
+                            <input type="number" class="enables" name="Mobile" value="<%= pMobile %>" disabled>
+                        </div>
+                        <div id="input-value">
+                            <label>E-mail</label>
+                            <input type="email" name="Email" value="<%= pEmail %>">
+                        </div>
+                        <div id="input-value">
+                            <label>Gender</label>
+                            <input type="text" name="Gender" value="<%= pGender %>">
+                        </div>
+                        <div id="input-value">
+                            <label>Date of Birth</label>
+                            <input type="date" name="Date">
+                        </div>
+                        <div id="input-value">
+                            <label>TimeZone</label>
+                            <input type="time" name="TimeZone">
+                        </div>
+                        <div id="input-value"></div>
+                    </div>
+                    <div id="info">
+                        <div id="input-value">
+                            <label>House no/Street name/Area</label>
+                            <input type="text" name='House'>
+                        </div>
+                        <div id="input-value">
+                            <label>Colony/Street/Location</label>
+                            <input type="text" name="Colony">
+                        </div>
+                        <div id="input-value">
+                            <label>City</label>
+                            <input type="text" name="City" value="<%= pCity %>">
+                        </div>
+                        <div id="input-value">
+                            <label>State</label>
+                            <input type="text" name="State" value="<%= pState %>">
+                        </div>
+                        <div id="input-value">
+                            <label>Country</label>
+                            <input type="text" name="Country" value="<%= pCountry %>">
+                        </div>
+                        <div id="input-value"></div>
+                    </div>
+                    <div id="information">
+                       <div id="input-value">
+                        <label>Speciality</label>
+                            <input type="text" name="basic" value="<%= Speciality %>"></input>
+                       </div>
+                       <div id="input-value">
+                        <label>Education</label>
+                            <input type="text" name="basic1" value="<%= Education %>"></input>
+                        
+                       </div>
+                       <div id="input-value">
+                        <label>Treatments</label>
+                            <input type="text" name="basic2" value="<%= Treatments %>" ></input>
+                        
+                       </div>
+                       <div id="input-value">
+                        <label>Hospital Lists</label>
+                        <input type="text" name="basic4" value="<%= HospitalList %>" ></input>
+                        
+                       </div>
+                       <div id="input-value">
+                        <label>Awards</label>
+                         <input type="text" name="basic5" value="<%= Awards %>" ></input>
+                        
+                       </div>
+                        <div id="input-value">
+                            <label>Years of Experience</label>
+                            <input type="number" value="<%= Experience %>">
+                        </div>
+                        <div id="input-value">
+                            <label>AVG. Fee</label>
+                            <input type="number" value="<%= AvgFees %>">
+                        </div>
+                        <div id="input-value">
+                            <label>Location</label>
+                            <input type="text" name="Location" value="<%= Location %>">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <script>
+            var input = document.querySelector('input[name=basic]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+              function enable(x){
+                $('.enables').removeAttr("disabled");
+              }
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic1]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic2]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic3]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic4]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+          <script>
+            var input = document.querySelector('input[name=basic5]');
+            var tagify = new Tagify(input);
+            $("#click").on("click", function() {
+              var n = "ADD_IT_" + Math.random();
+              var tags = [];
+              tags.push(n);
+              tagify.addTags(tags);
+            })
+          </script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+       
+
+       <script>
+           function showpreview(event){
+               if(event.target.files.length>0){
+                   var src= URL.createObjectURL(event.target.files[0]);
+                   var preview =document.getElementById("fileimg");
+                   preview.src = src;
+                   document.getElementById("inpFile").value=src;
+               }
+           }
+           
+       </script>
+         <% if(isdoctor=="true"){%>
+            <script>
+                console.log("Hello world");
+                document.getElementById("information").style.display="grid";
+            </script>
+         <%}%>
+            <% if(isdoctor!="true"){%>
+                <script>
+                    document.getElementById("information").style.display="none";
+                </script>
+            <%}%>
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+                $('.close-btn').click(function(){
+                        $(".alert").addClass("hide");
+                        $(".alert").removeClass("show");
+                });
+                        $(".alert").removeClass("hide");
+                        $(".alert").addClass("show");
+
+                        setTimeout(function(){
+                            $(".alert").addClass("hide");
+                            $(".alert").removeClass("show");
+                        },5000);   
+
+ </script>
+    </body>
+</html>

@@ -1,0 +1,205 @@
+<html>
+    <head>
+        <title>
+            Verification
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../asset/css/Theme.css">
+        <link rel="stylesheet" href="../asset/css/admin_dashboard.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+        <section class="hero">
+            <div class="container">
+                <div class="dashboard">
+                   <h2 class="Dashboardh2">
+                       Dashboard
+                   </h2>
+                   <ul>
+                    <li><a href="#">
+                        <div>
+                            <i class="fas fa-hospital"></i>Dashboard
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_users">
+                        <div>
+                            <i class="fas fa-user-md"></i>Users
+                        </div>
+                    </a></li>
+                    <li id="edit"><a href="/admin_doctors">
+                        <div>
+                            <i class="fas fa-user-md"></i>Doctors
+                        </div>
+                    </a></li>
+                    <li><a href="/admin_hospitals">
+                        <div>
+                            <i class="fas fa-file-word"></i>Hospitals
+                        </div>
+                    </a></li>
+                    <li><a href="/user_settings">
+                        <div>
+                            <i class="fas fa-hospital"></i>Settings
+                        </div>
+                    </a></li>
+                </ul>
+                </div>
+                <div class="Survey">
+                   <div class="total-count">
+                       <div>
+                           <div class="icon"><i class="fas fa-user-nurse"></i></div>
+                           <div class="info"><h3>Users</h3><h3><%= nusers %></h3></div>
+                       </div>
+                       <div>
+                        <div class="icon"><i class="fas fa-briefcase-medical"></i></div>
+                        <div class="info"><h3>Doctors</h3><h3><%= ndoctors %></h3></div>
+                       </div>
+                       <div>
+                        <div class="icon"><i class="fas fa-hospital"></i></div>
+                        <div class="info"><h3>Hospitals</h3><h3>9</h3></div>
+                       </div>
+                       <div>
+                        <div class="icon"><i class="fas fa-calendar-check"></i></div>
+                        <div class="info"><h3>Appointments</h3><h3><%= nappointments %></h3></div>
+                       </div>
+                   </div>
+                    <h3>Hospital Survey</h3>
+                    <div class="graph"></div>
+                    <h3>Patient Age</h3>
+                   <div class="pie-chart"></div>
+                   <h3>Patients Enrolled</h3>
+                   <table>
+                       <tr>
+                           <th>Name</th>
+                           <th>Phone number</th>
+                           <th>Email</th>
+                           <th>Actions</th>
+                       </tr>
+                      <% if(pageno=="page1"){%>
+                        <% for(let i=0;i<4; i++){%>
+                            <% if(allusers[i].Areudoctor!="true"){%>
+                                <tr>
+                                    <td><%= allusers[i].Name %></td>
+                                    <td><%= allusers[i].Mobno %></td>
+                                    <td><%= allusers[i].Email %></td>
+                                    <td><a href="/Appointment?admin=true&user_search=<%= allusers[i].Name %>">Appointment Details</a></td>
+                                </tr>
+                                <%
+                            }%>
+                           
+                            <%}%>
+                           
+                      <%}%> 
+                      <% if(pageno=="page2"){%>
+                        <% for(let i=4; i<=6; i++){%>
+                            <% if(allusers[i].Areudoctor!="true"){%>
+                                <tr>
+                                    <td><%= allusers[i].Name %></td>
+                                    <td><%= allusers[i].Mobno %></td>
+                                    <td><%= allusers[i].Email %></td>
+                                    <td><a href="/Appointment?admin=true&user_search=<%= allusers[i].Name %>">Appointment Details</a></td>
+                                </tr>
+                                <%
+                            }%>
+                           
+                            <%}%>
+                            <% for(let i=12; i<=13; i++){%>
+                                <% if(allusers[i].Areudoctor!="true"){%>
+                                    <tr>
+                                        <td><%= allusers[i].Name %></td>
+                                        <td><%= allusers[i].Mobno %></td>
+                                        <td><%= allusers[i].Email %></td>
+                                        <td><a href="/Appointment?admin=true&user_search=<%= i.Name %>">Appointment Details</a></td>
+                                    </tr>
+                                    <%
+                                }%>
+                               
+                                <%}%>
+                      <%}%> 
+                      <% if(pageno=="page3"){%>
+                        <% for(let i=7;i<=9; i++){%>
+                            <% if(allusers[i].Areudoctor!="true"){%>
+                                <tr>
+                                    <td><%= allusers[i].Name %></td>
+                                    <td><%= allusers[i].Mobno %></td>
+                                    <td><%= allusers[i].Email %></td>
+                                    <td><a href="/Appointment?admin=true&user_search=<%= allusers[i].Name %>">Appointment Details</a></td>
+                                </tr>
+                                <%
+                            }%>
+                           
+                            <%}%>
+                      <%}%>
+                      <% if(pageno=="page4"){%>
+                        <% for(let i=9; i<=11; i++){%>
+                            <% if(allusers[i].Areudoctor!="true"){%>
+                                <tr>
+                                    <td><%= i.Name %></td>
+                                    <td><%= i.Mobno %></td>
+                                    <td><%= i.Email %></td>
+                                    <td><a href="/Appointment?admin=true&user_search=<%= i.Name %>">Appointment Details</a></td>
+                                </tr>
+                                <%
+                            }%>
+                           
+                            <%}%>
+                      <%}%> 
+                      <% if(pageno=="page5"){%>
+                        <% for(let i=12; i<=13; i++){%>
+                            <% if(allusers[i].Areudoctor!="true"){%>
+                                <tr>
+                                    <td><%= allusers[i].Name %></td>
+                                    <td><%= allusers[i].Mobno %></td>
+                                    <td><%= allusers[i].Email %></td>
+                                    <td><a href="/Appointment?admin=true&user_search=<%= i.Name %>">Appointment Details</a></td>
+                                </tr>
+                                <%
+                            }%>
+                           
+                            <%}%>
+                      <%}%>  
+                      <% if(pageno=="page6"){%>
+                        <% for(let i of allusers){%>
+                            <% if(allusers[i].Areudoctor!="true"){%>
+                                <tr>
+                                    <td><%= i.Name %></td>
+                                    <td><%= i.Mobno %></td>
+                                    <td><%= i.Email %></td>
+                                    <td><a href="/Appointment?admin=true&user_search=<%= i.Name %>">Appointment Details</a></td>
+                                </tr>
+                                <%
+                            }%>
+                           
+                            <%}%>
+                      <%}%> 
+                   </table>
+                   <div id="pagination">
+                    <div id="page1"><a href="/admin_dashboard/page1" id="page1-a">1</a></div>
+                    <div id="page2"><a href="/admin_dashboard/page2" id="page2-a" onclick="pagination(this)">2</a></div>
+                   </div>
+                  
+                   </div>
+                  
+            </div>
+        </section>
+    </body>
+    <% if(pageno=="page1"){%>
+        <script>
+            document.getElementById("page1").style.backgroundColor="blue";
+            document.getElementById("page1-a").style.color="white";
+            document.getElementById("page2").style.backgroundColor="white";
+            document.getElementById("page2-a").style.color="black";
+        </script>
+    <%}%>
+    <% if(pageno=="page2"){%>
+        <script>
+            document.getElementById("page1").style.backgroundColor="white";
+            document.getElementById("page1-a").style.color="black";
+            document.getElementById("page2").style.backgroundColor="blue";
+            document.getElementById("page2-a").style.color="white";
+        </script>
+    <%}%>
+ 
+</html>

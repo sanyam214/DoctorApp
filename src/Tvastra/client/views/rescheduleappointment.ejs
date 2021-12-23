@@ -1,0 +1,800 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/rescheduleappointment.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <body>
+       
+        <%- include('header',{Profile:ProfileName,mobile:ProfileMobile,pic:dp}) %>
+        <div id="container">
+          <div id="container2">
+            <h1>Reschedule Appointment</h1>
+            <div id="information-patient">
+              <div>
+                <h4>Practitioner</h4>
+                <h5><%= Patientname %></h5>
+              </div>
+              <div>
+                <h4>Date</h4>
+                <h5><%= Date %></h5>
+              </div>
+              <div>
+                <h4>Time</h4>
+                <h5><%= time %></h5>
+              </div>
+            </div>
+          <div id="slots">
+            <div id="go_back">
+                <i onclick="getprevdate()" class="fas fa-chevron-left"></i>
+            </div>
+            <div id="days">
+                <div id="value" onclick="getdiv(this,'<%= Doctor %>')"  value="false"><h3 id="corusel1">Today</h3><h3 id="h1-h1">No slots available</h3></div>
+                <div id="valuea" onclick="getdiva(this,'<%= Doctor %>')"  value="false"><h3 id="corusel2">Tomorrow</h3><h3 id="h2-h2">8 slots available</h3></div>
+                <div id="valueb" onclick="getdivb(this,'<%= Doctor %>')"  value="false"><h3 id="corusel3">After</h3><h3 id="h2-h2">No slots available</h3></div>
+            </div>
+            <div id="go_back1">
+                <i onclick="getnextdate(this,)" class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+        <div id="shifts">
+            <div id="timing-slots">
+                <div id="timing">
+                    <p>
+                        <i class="fas fa-sun"></i>
+                        Morning
+                    </p>
+                    <p>
+                        <i class="fas fa-sun"></i>
+                        AftNoon
+                    </p>
+                    <p>
+                        <i class="fas fa-sun"></i>
+                        Evening
+                    </p>
+                </div>
+                <div id="timing2">
+                   <div class="timing_morning" style="border-bottom: 1px solid black;">
+                   </div>
+                   <div class="timing_afternoon" style="border-bottom: 1px solid black;">
+                    
+                   </div>
+                   <div class="timing_evening" style="border-bottom: 1px solid black;">
+                   </div>
+                </div>
+            </div>
+        </div>
+      </div>
+        </div>
+         
+        <script>
+          function inevent(){
+          
+          if(document.getElementById("book-apt").value == "false"){
+           document.getElementById("slots").style.display = "grid";
+           document.getElementById("book-apt").value = "true";
+          }
+          else{
+           document.getElementById("slots").style.display = "none";
+           document.getElementById("book-apt").value = "false";
+          }
+          }
+      </script>
+      <script>
+       function inevent2(){
+       
+       if(document.getElementById("book-apt2").value == "false"){
+        document.getElementById("slots1").style.display = "grid";
+        document.getElementById("book-apt2").value = "true";
+       }
+       else{
+        document.getElementById("slots1").style.display = "none";
+        document.getElementById("book-apt2").value = "false";
+       }
+       }
+   </script>
+   <script>
+       function inevent3(){
+       
+       if(document.getElementById("book-apt3").value == "false"){
+        document.getElementById("slots2").style.display = "grid";
+        document.getElementById("book-apt3").value = "true";
+       }
+       else{
+        document.getElementById("slots2").style.display = "none";
+        document.getElementById("book-apt3").value = "false";
+       }
+       }
+   </script>
+   <script>
+       function inevent4(){
+       
+       if(document.getElementById("book-apt4").value == "false"){
+        document.getElementById("slots3").style.display = "grid";
+        document.getElementById("book-apt4").value = "true";
+       }
+       else{
+        document.getElementById("slots3").style.display = "none";
+        document.getElementById("book-apt4").value = "false";
+       }
+       }
+   </script>
+   <script>
+       function inevent5(){
+       
+       if(document.getElementById("book-apt5").value == "false"){
+        document.getElementById("slots4").style.display = "grid";
+        document.getElementById("book-apt5").value = "true";
+       }
+       else{
+        document.getElementById("slots4").style.display = "none";
+        document.getElementById("book-apt5").value = "false";
+       }
+       }
+   </script>
+   <script>
+       function inevent6(){
+       
+       if(document.getElementById("book-apt6").value == "false"){
+        document.getElementById("slots5").style.display = "grid";
+        document.getElementById("book-apt6").value = "true";
+       }
+       else{
+        document.getElementById("slots5").style.display = "none";
+        document.getElementById("book-apt6").value = "false";
+       }
+       }
+   </script>
+   <script>
+       var globaldata="Hello";
+       function myfoo(){
+            console.log("clicked clicked");
+               url="http://localhost:4000/doctorlist/api";
+
+               return fetch(url).then((response)=>{
+                    return response.json();
+               }).then((data)=>{
+                  
+                   console.log("Doctorlist api is:",data);
+                    globaldata=data;
+                    
+                    console.log(globaldata);
+                   return data;                                       
+               })
+        }       
+       function getdiv(x,doctor){
+           if(document.getElementById("value").value == "false"){
+               
+               var day=x.innerText;
+              day=day[0]+day[1]+day[2];
+              data=myfoo();
+            data.then(function(data)
+                    {
+                        var portion=document.getElementById("timing2");
+                                    // var portion= y.parentNode.parentNode                   
+                                console.log(portion.children[2].children[1]);
+                                portion.children[0].innerHTML=""; 
+                                portion.children[1].innerHTML="";
+                                portion.children[2].innerHTML="";
+                                
+                        for(let j=0; j<globaldata.length; j++)
+                        {
+                            
+                            if( globaldata[j].Doctorname==doctor && globaldata[j].Day==day)
+                            {
+                                
+                                 console.log("Abe toh,",j);
+                                 console.log(globaldata[j].Allslots[0].subslots[0]);
+
+                                for(let i=0; i<globaldata[j].Allslots[0].subslots.length; i++)
+                                {
+                                      if(globaldata[j].Allslots[0].subslots[i].disable==""){
+                                        btn=document.createElement("button");
+                                        
+                                        var timeslot1=globaldata[j].Allslots[0].subslots[i].subslot;
+                                        var t=globaldata[j].Allslots[0].subslots[i].subslot.split("-");
+                                         var verify=t[0].split(":");
+                                           if(parseInt(verify[0])<12){
+                                            btn.innerText=t[0]+"AM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                              
+                                                btn.style.border="2px solid green";
+                                                btn.onclick=()=>{
+                                                    console.log(btn.innerText);
+                                                    var date=document.getElementById("value").children[0].innerText;
+                                                    console.log(date);
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+
+                                                window.location.href="/rescheduleappointment?newtime="+timeslot1+"&newdate="+date;
+                                                };
+                                                console.log(this.id);
+                                                //  document.getElementById("timing_morning").append(btn);
+                                                portion.children[0].append(btn);
+                                           }
+                                            else if(parseInt(verify[0])>=12 && parseInt(verify[0])<18){
+                                                btn.innerText=t[0]+"PM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                                btn.style.border="2px solid green";
+                                                
+                                                btn.onclick=()=>{
+                                                    var date=document.getElementById("value").children[0].innerText;
+                                                    console.log(date);
+                                                    console.log(btn.innerText);
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                                                window.location.href="/rescheduleappointment?newtime="+globaldata[j].Allslots[0].subslots[i].subslot+"&newdate="+date+"&newday="+day;
+                                               };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[1].append(btn);
+                                            } 
+                                           else{
+                                            btn.innerText=t[0]+"PM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                               
+                                                btn.style.border="2px solid green";
+                                                btn.onclick=()=>{
+                                                    console.log(btn.innerText);
+                                                    var date=document.getElementById("value").children[0].innerText;
+                                                    console.log(date);
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                                                window.location.href="/rescheduleappointment?newtime="+globaldata[j].Allslots[0].subslots[i].subslot+"&newdate="+date+"&newday="+day;
+                                                 };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[2].append(btn);
+                                           }
+                                         
+                                      }
+                                       
+                                }
+                                     
+
+                            }
+                            // else 
+                            // {
+                            //     portion.children[1].innerHTML=" ";
+                            //     btn1=document.createElement("button");
+                            //     btn1.style.backgroundColor="blue";
+                            //     btn1.id="abcd";
+                            //     btn1.innerText="Go to next available slots";
+                            //     portion.children[1].append(btn1);
+                            // }
+                           
+                          
+                        }
+                                      
+                
+                                     
+                    })
+        document.getElementById("shifts").style.display = "grid";
+        document.getElementById("shifts").style.animationName = "slidein";
+        document.getElementById("shifts").style.animationDuration = "0.5s";
+        document.getElementById("value").value = "true";
+
+        document.getElementById("value").style.borderBottomColor = "blue"; 
+       }
+       else{
+        document.getElementById("shifts").style.display = "none";
+        document.getElementById("value").value = "false";
+        document.getElementById("value").style.borderBottomColor = "#cccc"; 
+       }
+       }
+       function getdiva(x,doctor){
+
+           if(document.getElementById("valuea").value == "false"){
+            
+               var day=x.innerText;
+              day=day[0]+day[1]+day[2];
+              data=myfoo();
+            data.then(function(data)
+                    {
+                        var portion=document.getElementById("timing2");
+                                    // var portion= y.parentNode.parentNode                   
+                                console.log(portion.children[2].children[1]);
+                                portion.children[0].innerHTML=""; 
+                                portion.children[1].innerHTML="";
+                                portion.children[2].innerHTML="";
+                                
+                        for(let j=0; j<globaldata.length; j++)
+                        {
+                            
+                            if( globaldata[j].Doctorname==doctor && globaldata[j].Day==day)
+                            {
+                                
+                                 console.log("Abe toh,",j);
+                                 console.log(globaldata[j].Allslots[0].subslots[0]);
+
+                                for(let i=0; i<globaldata[j].Allslots[0].subslots.length; i++)
+                                {
+                                      if(globaldata[j].Allslots[0].subslots[i].disable==""){
+                                        btn=document.createElement("button");
+                                        
+                                        var timeslot1=globaldata[j].Allslots[0].subslots[i].subslot;
+                                        var t=globaldata[j].Allslots[0].subslots[i].subslot.split("-");
+                                         var verify=t[0].split(":");
+                                           if(parseInt(verify[0])<12){
+                                            btn.innerText=t[0]+"AM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                              
+                                                btn.style.border="2px solid green";
+                                                btn.onclick=()=>{
+                                                    
+                                                    var date=document.getElementById("valuea").children[0].innerText;
+                                                    
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                                                    window.location.href="/rescheduleappointment?newtime="+globaldata[j].Allslots[0].subslots[i].subslot+"&newdate="+date+"&newday="+day;
+                                                   };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[0].append(btn);
+                                           }
+                                            else if(parseInt(verify[0])>=12 && parseInt(verify[0])<18){
+                                                btn.innerText=t[0]+"PM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                                btn.style.border="2px solid green";
+                                                
+                                                btn.onclick=()=>{
+                                                    var date=document.getElementById("valuea").children[0].innerText;
+                                                    
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                                                    window.location.href="/rescheduleappointment?newtime="+globaldata[j].Allslots[0].subslots[i].subslot+"&newdate="+date+"&newday="+day;
+                                               };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[1].append(btn);
+                                            } 
+                                           else{
+                                            btn.innerText=t[0]+"PM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                               
+                                                btn.style.border="2px solid green";
+                                                btn.onclick=()=>{
+                                                    var date=document.getElementById("valuea").children[0].innerText;
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                                                    window.location.href="/rescheduleappointment?newtime="+globaldata[j].Allslots[0].subslots[i].subslot+"&newdate="+date+"&newday="+day;
+                                                };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[2].append(btn);
+                                           }
+                                         
+                                      }
+                                       
+                                }
+                                     
+
+                            }
+                            // else 
+                            // {
+                            //     portion.children[1].innerHTML=" ";
+                            //     btn1=document.createElement("button");
+                            //     btn1.style.backgroundColor="blue";
+                            //     btn1.id="abcd";
+                            //     btn1.innerText="Go to next available slots";
+                            //     portion.children[1].append(btn1);
+                            // }
+                           
+                          
+                        }
+                                      
+                
+                                     
+                    })
+        document.getElementById("shifts").style.display = "grid";
+        document.getElementById("valuea").value = "true";
+        document.getElementById("valuea").style.borderBottomColor = "blue"; 
+        // document.getElementById("mor").style.display = "inline-block";
+        // document.getElementById("mor1").style.display = "inline-block";
+        // document.getElementById("mor2").style.display = "inline-block";
+        // document.getElementById("mor3").style.display = "inline-block";
+        // document.getElementById("mor4").style.display = "inline-block";
+        // document.getElementById("mor5").style.display = "inline-block";
+        // document.getElementById("mor6").style.display = "inline-block";
+        // document.getElementById("mor7").style.display = "inline-block";
+       }
+       else{
+        document.getElementById("shifts").style.display = "none";
+        document.getElementById("valuea").value = "false";
+        document.getElementById("valuea").style.borderBottomColor = "#cccc"; 
+        document.getElementById("mor").style.display = "none";
+        document.getElementById("mor1").style.display = "none";
+        document.getElementById("mor2").style.display = "none";
+        document.getElementById("mor3").style.display = "none";
+        document.getElementById("mor4").style.display = "none";
+        document.getElementById("mor5").style.display = "none";
+        document.getElementById("mor6").style.display = "none";
+        document.getElementById("mor7").style.display = "none";
+       }
+       }
+       function getdivb(x,doctor){
+           if(document.getElementById("valueb").value == "false"){
+            
+               var day=x.innerText;
+              day=day[0]+day[1]+day[2];
+              data=myfoo();
+            data.then(function(data)
+                    {
+                        var portion=document.getElementById("timing2");
+                                    // var portion= y.parentNode.parentNode                   
+                                console.log(portion.children[2].children[1]);
+                                portion.children[0].innerHTML=""; 
+                                portion.children[1].innerHTML="";
+                                portion.children[2].innerHTML="";
+                                
+                        for(let j=0; j<globaldata.length; j++)
+                        {
+                            
+                            if( globaldata[j].Doctorname==doctor && globaldata[j].Day==day)
+                            {
+                                
+                                 console.log("Abe toh,",j);
+                                 console.log(globaldata[j].Allslots[0].subslots[0]);
+
+                                for(let i=0; i<globaldata[j].Allslots[0].subslots.length; i++)
+                                {
+                                      if(globaldata[j].Allslots[0].subslots[i].disable==""){
+                                        btn=document.createElement("button");
+                                        
+                                        var timeslot1=globaldata[j].Allslots[0].subslots[i].subslot;
+                                        var t=globaldata[j].Allslots[0].subslots[i].subslot.split("-");
+                                         var verify=t[0].split(":");
+                                           if(parseInt(verify[0])<12){
+                                            btn.innerText=t[0]+"AM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                              
+                                                btn.style.border="2px solid green";
+                                                btn.onclick=()=>{
+                                                   
+                                                    var date=document.getElementById("valueb").children[0].innerText;
+                                                    
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                                                    window.location.href="/rescheduleappointment?newtime="+globaldata[j].Allslots[0].subslots[i].subslot+"&newdate="+date+"&newday="+day;
+                                                  };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[0].append(btn);
+                                           }
+                                            else if(parseInt(verify[0])>=12 && parseInt(verify[0])<18){
+                                                btn.innerText=t[0]+"PM";
+                                                 console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                                btn.style.border="2px solid green";
+                                                
+                                                btn.onclick=()=>{
+                                                    var date=document.getElementById("valueb").children[0].innerText;
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                                                    // window.location.href="/rescheduleappointment?newtime="+btn.innerText+"&newdate="+date;
+                                                 };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[1].append(btn);
+                                            } 
+                                           else{
+                                            btn.innerText=t[0]+"PM";
+                                             console.log("Button value is:",btn.innerText);
+                                                btn.style.width="100";
+                                                btn.style.backgroundColor="white";
+                                                btn.style.color="green";
+                                               
+                                                btn.style.border="2px solid green";
+                                                btn.onclick=()=>{
+                                                    var date=document.getElementById("valueb").children[0].innerText;
+                                                    var thecdate=new Date();
+                                                    var curryear=thecdate.getUTCFullYear();
+                            
+                                                    window.location.href="/rescheduleappointment?newtime="+globaldata[j].Allslots[0].subslots[i].subslot+"&newdate="+date+"&newday="+day;
+                                                };
+                                                console.log(this.id);
+                                                // document.getElementById("timing_morning").append(btn);
+                                                portion.children[2].append(btn);
+                                           }
+                                         
+                                      }
+                                       
+                                }
+                                     
+
+                            }
+                            // else 
+                            // {
+                            //     portion.children[1].innerHTML=" ";
+                            //     btn1=document.createElement("button");
+                            //     btn1.style.backgroundColor="blue";
+                            //     btn1.id="abcd";
+                            //     btn1.innerText="Go to next available slots";
+                            //     portion.children[1].append(btn1);
+                            // }
+                           
+                          
+                        }
+                                      
+                
+                                     
+                    })
+        document.getElementById("shifts").style.display = "grid";
+        document.getElementById("valueb").value = "true";
+        document.getElementById("valueb").style.borderBottomColor = "blue"; 
+       }
+       else{
+        document.getElementById("shifts").style.display = "none";
+        document.getElementById("valueb").value = "false";
+        document.getElementById("valueb").style.borderBottomColor = "#cccc"; 
+       }
+       }
+   </script>
+    <script>
+       function getdiv1(){
+           if(document.getElementById("value1").value == "false"){
+        document.getElementById("shifts1").style.display = "grid";
+        document.getElementById("value1").value = "true";
+        document.getElementById("value1").style.borderBottomColor = "blue"; 
+        document.getElementById("mor8").style.display = "inline-block";
+        document.getElementById("mor9").style.display = "inline-block";
+        document.getElementById("mor10").style.display = "inline-block";
+        document.getElementById("mor11").style.display = "inline-block";
+        document.getElementById("mor12").style.display = "inline-block";
+        document.getElementById("mor13").style.display = "inline-block";
+       }
+       else{
+        document.getElementById("shifts1").style.display = "none";
+        document.getElementById("value1").value = "false";
+        document.getElementById("value1").style.borderBottomColor = "#cccc"; 
+        document.getElementById("mor8").style.display = "none";
+        document.getElementById("mor9").style.display = "none";
+        document.getElementById("mor10").style.display = "none";
+        document.getElementById("mor11").style.display = "none";
+        document.getElementById("mor12").style.display = "none";
+        document.getElementById("mor13").style.display = "none";
+       }
+       }
+   </script>
+    <script>
+       function getdiv2(){
+           if(document.getElementById("value2").value == "false"){
+        document.getElementById("shifts2").style.display = "grid";
+        document.getElementById("value2").value = "true";
+        document.getElementById("value").style.borderBottomColor = "blue"; 
+       }
+       else{
+        document.getElementById("shifts2").style.display = "none";
+        document.getElementById("value2").value = "false";
+        document.getElementById("value").style.borderBottomColor = "#cccc"; 
+       }
+       }
+   </script>
+    <script>
+       function getdiv3(){
+           if(document.getElementById("value3").value == "false"){
+        document.getElementById("shifts3").style.display = "grid";
+        document.getElementById("value3").value = "true";
+        document.getElementById("value").style.borderBottomColor = "blue"; 
+       }
+       else{
+        document.getElementById("shifts3").style.display = "none";
+        document.getElementById("value3").value = "false";
+        document.getElementById("value").style.borderBottomColor = "#cccc"; 
+       }
+       }
+   </script>
+    <script>
+       function getdiv4(){
+           if(document.getElementById("value4").value == "false"){
+        document.getElementById("shifts4").style.display = "grid";
+        document.getElementById("value4").value = "true";
+        document.getElementById("value").style.borderBottomColor = "blue"; 
+       }
+       else{
+        document.getElementById("shifts4").style.display = "none";
+        document.getElementById("value4").value = "false";
+        document.getElementById("value").style.borderBottomColor = "#cccc"; 
+       }
+       }
+   </script>
+    <script>
+       function getdiv5(){
+           if(document.getElementById("value5").value == "false"){
+        document.getElementById("shifts5").style.display = "grid";
+        document.getElementById("value5").value = "true";
+        document.getElementById("value").style.borderBottomColor = "blue"; 
+       }
+       else{
+        document.getElementById("shifts5").style.display = "none";
+        document.getElementById("value5").value = "false";
+        document.getElementById("value").style.borderBottomColor = "#cccc"; 
+       }
+       }
+   </script>
+   <script>
+       function bookapp(x){
+           var time= x.innerText;
+           console.log(time);
+           console.log("Hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+           window.location.href = "/rescheduleappointment?Patient=<%= Patientname %>&newtime="+time;
+       }
+   </script>
+   <script>
+    function getprevdate(x){
+      var theDate = Date.now();
+      let arr=[];
+      let current;
+      arr.push(getTheDate(theDate));
+        for(let i=1; i<7; i++)
+        {
+           theDate += 86400000;
+           arr.push(getTheDate(theDate));
+        }
+      console.log(arr);
+      if(document.getElementById("corusel1").innerText=="Today"){
+                document.getElementById("corusel1").innerText=arr[4];
+                document.getElementById("corusel2").innerText=arr[5];
+                document.getElementById("corusel3").innerText=arr[6];
+
+      } 
+      else{
+          for(let i=0; i<=6; i++)
+          {
+              if(arr[i]==document.getElementById("corusel1").innerText){
+                   current=i;
+                   break;
+              }
+          }
+          let y;
+          y=current-3;
+          if(y>=0){
+              document.getElementById("corusel1").innerText=arr[y];
+          }
+          else{
+              let ans=y+1;
+              ans=6+ans;
+              document.getElementById("corusel1").innerText=arr[ans];
+          }
+          if((y+1)>=0){
+                  document.getElementById("corusel2").innerText=arr[y+1];
+
+          }
+          else{
+              let ans=y+1;
+              ans=6+ans+1;
+              document.getElementById("corusel2").innerText=arr[ans];
+          }
+          if((y+2)>=0){
+              document.getElementById("corusel3").innerText=arr[y+2];
+          }
+          else{
+              let ans=y+1;
+              ans=6+ans+2;
+              document.getElementById("corusel3").innerText=arr[ans];
+          }
+      }
+     
+    }
+
+    function getnextdate(){
+      var theDate = Date.now();
+      let arr=[];
+      let current=0;
+      document.getElementById("corusel1").style.animationDelay = "4s";
+      document.getElementById("corusel2").style.animation = "animation 3s";
+      document.getElementById("corusel3").style.animation = "animation 3s";
+      arr.push(getTheDate(theDate));
+        for(let i=1; i<7; i++)
+        {
+           theDate += 86400000;
+           arr.push(getTheDate(theDate));
+        }
+      console.log(arr);
+      if(document.getElementById("corusel1").innerText=="Today"){
+          current=current+3;
+                document.getElementById("corusel1").innerText=arr[current];
+                document.getElementById("corusel2").innerText=arr[current+1];
+                document.getElementById("corusel3").innerText=arr[current+2];
+
+      } 
+      else{
+          var cur;
+             for(let i=0; i<=6; i++){
+                  if(arr[i]==document.getElementById("corusel1").innerText){
+                       cur=i;
+                       break;
+                  }   
+             }
+                 var y=cur+3;
+                  if(y<=6){
+                      document.getElementById("corusel1").innerText=arr[y];
+                      document.getElementById("value").style.animation = "animation 2s";
+                      document.getElementById("valuea").style.animation = "animation 2s";
+                      document.getElementById("valueb").style.animation = "animation 2s";
+                  }
+                  else{
+                      var rem=(y%6)-1;
+                      document.getElementById("corusel1").innerText=arr[rem];
+                      document.getElementById("value").style.animation = "animation 2s";
+                      document.getElementById("valuea").style.animation = "animation 2s";
+                      document.getElementById("valueb").style.animation = "animation 2s";
+                  }
+                  if((y+1)<=6){
+                      document.getElementById("corusel2").innerText=arr[y+1];
+                      document.getElementById("value").style.animation = "animation 2s";
+                      document.getElementById("valuea").style.animation = "animation 2s";
+                      document.getElementById("valueb").style.animation = "animation 2s";
+                  }
+                  else{
+                      var rem=((y+1) %6)-1;
+                      document.getElementById("corusel2").innerText=arr[rem];
+                      document.getElementById("value").style.animation = "animation 2s";
+                      document.getElementById("valuea").style.animation = "animation 2s";
+                      document.getElementById("valueb").style.animation = "animation 2s";
+                  }
+                  if((y+2)<=6){
+                      document.getElementById("corusel3").innerText=arr[y+2];
+                      document.getElementById("value").style.animation = "animation 2s";
+                      document.getElementById("valuea").style.animation = "animation 2s";
+                      document.getElementById("valueb").style.animation = "animation 2s";
+                  }
+                  else{
+                      var rem=((y+2) %6)-1;
+                      document.getElementById("corusel3").innerText=arr[rem];
+                      document.getElementById("value").style.animation = "animation 5s";
+                      document.getElementById("valuea").style.animation = "animation 5s";
+                      document.getElementById("valueb").style.animation = "animation 5s";
+                  }
+      }
+    }
+
+
+
+    function getTheDate(theDate) {
+      var days = ["Sun", "Mon", "Tue",
+      "Wed", "Thu", "Fri", "Sat"
+      ];
+
+      var months = ["Jan", "Feb", "Mar",
+      "Apr", "May", "Jun", "Jul", "Aug",
+      "Sep", "Oct", "Nov", "Dec"
+      ];
+
+      var theCDate = new Date(theDate);
+
+      return (days[theCDate.getDay()] + ', ' + theCDate.getDate() + ' ' + months[theCDate.getMonth()] + ', ' + theCDate.getFullYear());
+      }
+</script>
+
+        </body>
+        </html>

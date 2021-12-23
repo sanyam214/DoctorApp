@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>
+            Appointment Page
+        </title>
+    </head>
+    <link rel="stylesheet" href="./css/reset.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/Theme.css">
+    <link rel="stylesheet" href="./css/bookappointment.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <body>
+        <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+
+       
+            <% if(Fill=="true"){%>
+                <div class="alert">
+                    <span class="fas fa-check-circle"></span>
+                    <span class="msg">Fill your Details</span>
+                    <span class="close-btn" >
+                    <span  class="fas fa-times"></span>
+                    </span>
+                </div>
+                <%}%>
+            
+            <section id="container">
+                <form action="/bookappointment" method="POST">
+                    <div id="info">
+                        <h2>In clinic Appointment</h2>
+                        <div id="date">
+                            <p>
+                                <i class="fas fa-calendar-plus"></i>
+                                On
+                                <span><%= Day %></span>
+                            </p>
+                        </div>
+                        <div id="time">
+                            <p>
+                                <i class="fas fa-clock"></i>
+                                At
+                                <span><%= apptimes %></span>
+                            </p>
+                        </div>
+                        <a href="/Doctorlist">Change date & time</a>
+                        <div id="doctor-details">
+                            <div id="photo"></div>
+                            <div id="name">
+                                <h3><%= Doctor %></h3>
+                                <p>MBBS,MD,MS</p>
+                                <p>10+ Experience</p>
+                                <p>Works in PGI</p>
+                            </div>
+                        </div>
+                        <div id="image">
+                            <div id="photo1"></div>
+                            <div id="name1">
+                                <h3><%= Hospital %></h3>
+                                <p>NA</p>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                   
+                    <div id="details">
+                        <h3>Patient Details</h3>
+                        <div id="select">
+                            <h5>This appointment is for:</h5>
+                            <div id="input">
+                                <input type="radio" name="sessionName" style="height:0.7rem;width:10%;" onclick="getdatachangebysiter()" value="<%= PatientName %>" name="radio" checked>
+                                <label for="radio"><%= PatientName %></label>
+                            </div>
+                            <div id="input">
+                                <input type="radio" name="sessionName" style="height:0.7rem;width:10%;" onclick="getdatachange()" value="someone" name="radio">
+                                <label for="radio" >Someone Else</label>
+                            </div>
+                        </div>
+                        <div id="select1">
+                            <h5>Please provide the following information:</h5>
+                            <h4>Patient's Full Name:</h4>
+                            <input type="text" id="Patientname" name="Patientname" value=<%= PatientName %> " required>
+                            <h4>Mobile:</h4>
+                            <input type="number" id="Mobile" name="Mobile" value="<%= Mobile %>" required style="background-color: #eeeeee;">
+                            <h4>Patient's Mobile:</h4>
+                            <input type="number" id="Patientmobile" name="Patientmobile" value="<%= PatientNumber %>" required>
+                            <h4>Patient's Email:</h4>
+                            <input type="email" id="Patientemail" name="Patientemail" value="<%= PatientEmail %>" required>
+                        </div>
+                        <button id="book" type="submit">Book appointment
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                
+                
+                
+                
+                </form>
+            </section>
+                  <script>
+                      function getdatachange()
+                      {
+                          document.getElementById('Patientemail').value="";
+                          document.getElementById("Patientmobile").value="";
+                          document.getElementById('Mobile').value="";
+                          document.getElementById('Patientname').value="";
+                      }
+                      function getdatachangebysiter()
+                      {
+                          document.getElementById('Patientemail').value="<%= PatientEmail %>";
+                          document.getElementById("Patientmobile").value="<%= PatientNumber %>";
+                          document.getElementById('Mobile').value="<%= Mobile %>";
+                          document.getElementById('Patientname').value="<%= PatientName %>";
+                      }
+                  </script>
+                  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                  <script>
+                                  $('.close-btn').click(function(){
+                                          $(".alert").addClass("hide");
+                                          $(".alert").removeClass("show");
+                                  });
+                                          $(".alert").removeClass("hide");
+                                          $(".alert").addClass("show");
+                  
+                                          setTimeout(function(){
+                                              $(".alert").addClass("hide");
+                                              $(".alert").removeClass("show");
+                                          },5000);   
+                  
+                   </script>
+            </body>
+            </html>

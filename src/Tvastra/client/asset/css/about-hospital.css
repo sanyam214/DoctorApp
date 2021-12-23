@@ -1,0 +1,350 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+#Hero-dentistry {
+  width: 100%;
+  height: 15rem;
+  background-color: #9dc0e4;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#info-div {
+  width: 100%;
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#info-div h2 {
+  font-family: nexa-bold;
+  color: white;
+  margin: 0px;
+  font-size: 30px;
+}
+
+#info-div h3 {
+  font-family: nexa-light;
+  color: white;
+  margin: 0px;
+}
+
+#container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+#doctor-profile {
+  width: 80%;
+  border: 1px solid lightgrey;
+  padding: 1rem;
+}
+
+#doctor-profile h3 {
+  margin: 0px;
+  color: #0173b2;
+  font-family: nexa-bold;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+#doctor-image {
+  width: 100%;
+  height: 25rem;
+}
+
+#doctor-image img {
+  width: 100%;
+  height: 80%;
+}
+
+#doctor-image button {
+  width: 100%;
+  height: 12%;
+  color: white;
+  font-family: nexa-bold;
+  background-color: #2a2d3e;
+  border-style: none;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+#info {
+  width: 100%;
+  border-bottom: 1px dashed silver;
+}
+
+#info h1 {
+  color: #0173b2;
+  margin: 0px;
+  font-family: nexa-bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+#info h1::before {
+  content: '\2015';
+}
+
+#info p {
+  text-align: left;
+  font-family: nexa-light;
+  line-height: 1.5rem;
+  font-size: 15px;
+  color: black;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+#hospital-info {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 1rem;
+}
+
+#hospital-info h3 {
+  margin: 0px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-family: nexa-light;
+  font-size: 15px;
+}
+
+#hospital-info i {
+  margin: 0px;
+}
+
+#icons {
+  color: #0173b2;
+  display: inline-block;
+}
+
+#up {
+  color: #e5f1f7;
+  float: right;
+}
+
+#para {
+  width: 100%;
+  height: 35%;
+  background-color: #e5f1f7;
+  padding: 1rem 0rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  text-align: left;
+  font-family: nexa-light;
+  line-height: 1.5rem;
+  font-size: 15px;
+  color: black;
+  margin: 0px;
+  text-align: left;
+  font-family: nexa-light;
+  line-height: 1.5rem;
+  font-size: 15px;
+  color: black;
+  margin: 0px;
+}
+
+@media only screen and (min-width: 600px) {
+  #Hero-dentistry {
+    background-position: left;
+  }
+  #doctor-image {
+    width: 35%;
+    height: 100%;
+    display: block;
+  }
+  #doctor-image img {
+    height: 20rem;
+  }
+  #doctor-image button {
+    height: 3rem;
+  }
+  #info-container {
+    width: 60%;
+  }
+  #doctor-profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #doctor-profile p {
+    text-align: left;
+  }
+  #info p {
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #Hero-dentistry {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  #info-div {
+    width: 70%;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding-left: 5.3rem;
+  }
+  #para {
+    height: 5rem;
+  }
+  #container {
+    margin-bottom: 1rem;
+  }
+  #doctor-image img {
+    height: 15rem;
+  }
+  .content p {
+    letter-spacing: 0.1rem;
+    line-height: 1.5rem;
+    margin: 1rem 0rem;
+  }
+  #info p {
+    font-family: nexa-light;
+    letter-spacing: 0.1rem;
+    margin-bottom: 2rem;
+  }
+  .mobilenav {
+    width: -webkit-fill-available;
+    padding: 0rem 4rem;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  #info-div {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding-left: 7.5rem;
+    padding-left: 8rem;
+  }
+  #info {
+    height: 14rem;
+  }
+  #info p {
+    font-family: nexa-light;
+    letter-spacing: 0.1rem;
+    margin-bottom: 2rem;
+  }
+  #hospital-info {
+    margin-bottom: 0.5rem;
+  }
+  #para {
+    height: 5rem;
+  }
+  #container {
+    margin-bottom: 1rem;
+  }
+  #doctor-image img {
+    height: 15rem;
+  }
+  .NeedHelp button {
+    margin-top: -6rem;
+  }
+  .NeedHelp p {
+    margin-top: -3rem;
+  }
+  .NeedHelp h2 {
+    margin-top: 1rem;
+  }
+  footer {
+    padding: 1rem 8rem;
+  }
+  #footer-ul-icons {
+    font-size: 13px;
+  }
+  .mobilenav {
+    padding: 0rem 8rem;
+  }
+  .mobilenav ul {
+    margin-left: 4rem;
+  }
+}
+/*# sourceMappingURL=about-hospital.css.map */

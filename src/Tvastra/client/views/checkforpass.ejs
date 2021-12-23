@@ -1,0 +1,196 @@
+
+<html>
+    <head>
+        <title>
+            Verification
+        </title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/Theme.css">
+        <link rel="stylesheet" href="./css/Login.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        
+         <style>
+            input[type=number] {
+                height: 45px;
+                width: 45px;
+                font-size: 20px;
+                text-align: center;
+                border:none;
+                border-bottom: 2px solid rgb(92, 176, 204);
+                outline: none;
+                margin-left:30px;
+                /* size: 20px; */
+            }
+            form{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            input[type=number]::-webkit-inner-spin-button,
+            input[type=number]::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            #resend{
+              border:none;
+              text-align: center;
+              color:blue;
+            }
+            #hidden{
+              display: none;
+            }
+            .alert{
+              height:35px;
+              border-left:8px solid purple;
+            }
+            .alert .fa-exclamation-circle{
+              position: absolute;
+              left: 20px;
+              top: 50%;
+              transform: translateY(-50%);
+              /* background-color:red; */
+              font-size: 30px;
+              color:purple;
+            }
+            .msg{
+              color:purple;
+            }
+            #msg-1{
+              color:rgba(128, 0, 128, 0.473);
+              font-size:15px;
+            }
+            #nexa{
+              font-family: nexa-light;
+            }
+            .alert .close-btn{
+              color:purple;
+            }
+          </style>
+   
+   
+        </head>
+    <body>
+      <%- include('header',{Profile:Name,mobile:Mobile,pic:dp}) %>
+       
+            <div class="alert  hide">
+                <span class="fas fa-exclamation-circle"></span>
+                <span class="msg">info <div id="msg-1">The info is valid till 30sec.</div></span>
+                <span class="close-btn" >
+                <span  class="fas fa-times"></span>
+                </span>
+            </div>
+        
+        
+
+        <div id="Login">
+           <div id="form-div">
+               <div id="heading-div"><h1>Login via OTP</h1></div>
+               <form action="/checkforpass" method="POST">
+                <div id="hidden"><input type="hidden" name="username"value="<%= username %>">
+                <input type="hidden" name="request" value="%= reqid %">
+                </div>
+                <p id="nexa" style="font-size: 15px;">We have sent one time password (OTP) to your registered Mobile Number</p>
+                <input id="codeBox1" type="number" maxlength="1" onkeyup="onKeyUpEvent(1, event)" name="code1" />
+                <input id="codeBox2" type="number" maxlength="1" onkeyup="onKeyUpEvent(2, event)" name="code2" />
+                <input id="codeBox3" type="number" maxlength="1" onkeyup="onKeyUpEvent(3, event)" name="code3" />
+                <input id="codeBox4" type="number" maxlength="1" onkeyup="onKeyUpEvent(4, event)" name="code4" />
+                <div id="resend">Resend in <span id="timer"></span></div>
+     
+                <button type="submit">Verify OTP <i class="fas fa-arrow-right"></i></button>
+                <h2>Not Registered/<a href="/SignUp">SignUp</a></h2>
+            </form>
+           </div>
+        </div>
+          <h2>All Rights Reserved @ Tvastra 2020</h2>
+
+          <script>
+            function getCodeBoxElement(index) {
+              return document.getElementById('codeBox' + index);
+            }
+            function onKeyUpEvent(index, event) {
+              const eventCode = event.which || event.keyCode;
+              if (getCodeBoxElement(index).value.length === 1) {
+                if (index !== 4) {
+                  getCodeBoxElement(index+ 1).focus();
+                } else {
+                  getCodeBoxElement(index).blur();
+                  // Submit code
+                  console.log('submit code ');
+                }
+              }
+              if (eventCode === 8 && index !== 1) {
+                getCodeBoxElement(index - 1).focus();
+              }
+            }
+            function onFocusEvent(index) {
+              for (item = 1; item < index; item++) {
+                const currentElement = getCodeBoxElement(item);
+                if (!currentElement.value) {
+                    currentElement.focus();
+                    break;
+                }
+              }
+            }
+          </script>
+
+<script type="text/javascript">
+  let timerOn = true;
+
+function timer(remaining) {
+var m = Math.floor(remaining / 60);
+var s = remaining % 60;
+
+m = m < 10 ? '0' + m : m;
+s = s < 10 ? '0' + s : s;
+document.getElementById('timer').innerHTML = m + ':' + s;
+remaining -= 1;
+
+if(remaining >= 0 && timerOn) {
+setTimeout(function() {
+    timer(remaining);
+}, 1000);
+return;
+}
+
+if(!timerOn) {
+// Do validate stuff here
+return;
+}
+
+// Do timeout stuff here
+alert('Timeout for otp');
+}
+
+timer(30);
+ </script>
+
+<script>
+  $('.close-btn').click(function(){
+          $(".alert").addClass("hide");
+          $(".alert").removeClass("show");
+  });
+  // $('.btn4').click(function(){
+          $(".alert").removeClass("hide");
+          $(".alert").addClass("show");
+          setTimeout(function(){
+              $(".alert").addClass("hide");
+              $(".alert").removeClass("show");
+          },20000);   
+  // });
+
+</script>
+      <script>
+        function myloader(){
+            setTimeout(function() {
+                var preloader=document.getElementById("loading");
+                preloader.style.display="none";
+            }, 5000);
+        }
+      </script>
+
+        </body>
+        </html>

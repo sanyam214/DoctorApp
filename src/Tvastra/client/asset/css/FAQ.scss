@@ -1,0 +1,165 @@
+@import "colors";
+@font-face {
+	font-family: nexa-bold;
+	src: url('../fonts/Nexa-Bold.otf');
+}
+@font-face {
+	font-family: nexa-light;
+	src: url('../fonts/Nexa-Light.otf');
+}
+#Hero-dentistry {
+	width: 100%;
+	height: 15rem;
+	background-image: url(https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/contactUs.png);
+	background-size: cover;
+	background-position: center;
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+#info-div {
+	width: 70%;
+	height: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	h2 {
+		font-family: nexa-bold;
+		color: $white;
+		margin: 0px;
+		font-size: 30px;
+		letter-spacing: 0.1rem;
+	}
+	h3 {
+		font-family: nexa-light;
+		margin: 0px;
+		font-size: 15px;
+		color: #c3cee5;
+		letter-spacing: 0.1rem;
+	}
+}
+#container {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 1rem;
+}
+#doctor-profile {
+	width: 80%;
+	border: 1px solid $light-grey;
+	padding: 1rem;
+	ul {
+		width: 100%;
+		li {
+			width: 100%;
+			margin-top: 0.5rem;
+			border-bottom: 2px dotted $light-grey;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+	}
+	h3 {
+		margin: 0px;
+		color: $blue;
+		font-family: nexa-bold;
+		display: inline-block;
+		width: 80%;
+	}
+}
+#up {
+	color: $lightblue;
+	float: right;
+}
+#para {
+	width: 100%;
+	background-color: $lightblue;
+	padding: 1rem 0rem;
+	margin-bottom: 1rem;
+}
+p {
+	text-align: left;
+	font-family: nexa-light;
+	line-height: 1.5rem;
+	font-size: 15px;
+	color: black;
+	margin: 0px;
+}
+@media only screen and (min-width:600px) {
+	#Hero-dentistry {
+		background-position: left;
+	}
+	#doctor-profile {
+		width: 100%;
+		display: flex;
+		flex-direction: row-reverse;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		align-items: center;
+		padding: 1rem 4rem;
+		border: $white;
+		p {
+			text-align: left;
+		}
+		ul {
+			li {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+}
+@media only screen and (min-width:900px) {
+	#Hero-dentistry {
+		justify-content: space-evenly;
+		align-items: flex-start;
+	}
+	#info-div {
+		justify-content: space-evenly;
+		align-items: flex-start;
+		padding-left: 4rem;
+	}
+	#doctor-profile {
+		ul {
+			li {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+	.content {
+		p {
+			letter-spacing: 0.1rem;
+			line-height: 1.5rem;
+			margin: 1rem 0rem;
+		}
+	}
+	.NeedHelp {
+		button {
+			margin-top: -6rem;
+		}
+		p {
+			margin-top: -3rem;
+		}
+		h2 {
+			margin-top: 1rem;
+		}
+	}
+	.mobilenav {
+		padding: 0rem 3rem;
+	}
+}
+@media only screen and (min-width:1300px) {
+	#doctor-profile {
+		ul {
+			li {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+	.collapsible {
+		h3 {
+			font-size: 20px;
+		}
+	}
+}

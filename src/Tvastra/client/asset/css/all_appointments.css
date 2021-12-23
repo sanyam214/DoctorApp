@@ -1,0 +1,124 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+.mobilenav {
+  padding: 0rem 6rem;
+  height: 6rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.mobilenav ul {
+  display: none;
+}
+
+.mobilenav .t-plus, .mobilenav .quote {
+  display: none;
+}
+
+.mobilenav img {
+  height: 3rem;
+  width: 13%;
+}
+
+#confirm {
+  color: white;
+}
+
+#confirmed {
+  color: white;
+}
+
+.hero {
+  padding: 0rem 6rem;
+  margin-top: 2rem;
+}
+
+.hero .container {
+  width: 100%;
+  height: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 80%;
+      grid-template-columns: 20% 80%;
+  background-color: white;
+}
+
+.hero .container > div .Dashboardh2 {
+  font-size: 1.7rem;
+}
+
+.hero .container .dashboard {
+  padding-top: 1rem;
+}
+
+.hero .container .dashboard ul {
+  padding-top: 1rem;
+  font-family: Nexa;
+  font-size: 0.8rem;
+  color: darkgray;
+  list-style: none;
+}
+
+.hero .container .dashboard ul li {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  border: 1px solid #fafafa;
+  color: darkgray;
+  -webkit-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
+  font-family: nexa-bold;
+}
+
+.hero .container .dashboard ul li:hover {
+  -webkit-animation: ease-in-out;
+          animation: ease-in-out;
+  background-color: #fafafa;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.hero .container .dashboard ul li i {
+  padding-right: 1rem;
+  color: #0173b2;
+}
+
+.hero .container .dashboard ul li a {
+  font-size: 0.8rem;
+  font-family: nexa-light;
+}
+
+.hero .container table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 96%;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+}
+
+.hero .container tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.hero .container td, .hero .container th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+.hero .container td a, .hero .container th a {
+  color: #0173b2;
+}
+
+.hero .container th {
+  background-color: #2a2d3e;
+  color: white;
+}
+/*# sourceMappingURL=all_appointments.css.map */

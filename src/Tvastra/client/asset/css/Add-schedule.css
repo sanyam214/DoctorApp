@@ -1,0 +1,328 @@
+@font-face {
+  font-family: nexa-bold;
+  src: url("../fonts/Nexa-Bold.otf");
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url("../fonts/Nexa-Light.otf");
+}
+
+#container {
+  padding: 0rem 3rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 80%;
+      grid-template-columns: 20% 80%;
+  padding: 2rem 4rem;
+  height: 84vh;
+  background-color: #fafafa;
+  grid-gap: 0.5rem;
+}
+
+#aler {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 0;
+  z-index: 5;
+  display: none;
+}
+
+#cancel {
+  width: 40%;
+  height: auto;
+  background-color: white;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+}
+
+#cancel input {
+  width: 80%;
+  height: 3rem;
+  margin-top: 1rem;
+}
+
+#cancel button {
+  padding: 0 2rem;
+  width: 80%;
+  border-radius: 0;
+  background-color: #0173b2;
+  color: white;
+  height: 3rem;
+  font-family: nexa-light;
+  font-weight: 600;
+  border-style: none;
+  font-size: 1.3rem;
+}
+
+#icon {
+  height: 1rem;
+  border: none;
+  text-align: right;
+  margin-top: 0.5rem;
+}
+
+#icon i {
+  text-align: right;
+  color: black;
+  margin-right: 10%;
+  cursor: pointer;
+}
+
+.mobilenav {
+  padding: 0rem 4rem;
+  position: relative;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#dashboard {
+  padding: 2rem 0rem;
+  background-color: white;
+}
+
+#dashboard h2 {
+  color: #2a2d3e;
+  padding-left: 1rem;
+}
+
+#dashboard ul {
+  font-family: Nexa;
+  font-size: 0.8rem;
+  color: darkgray;
+  list-style: none;
+}
+
+#dashboard ul li {
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  border: 1px solid #fafafa;
+  color: darkgray;
+  -webkit-transition: all ease-in 0.2s;
+  transition: all ease-in 0.2s;
+  font-family: nexa-bold;
+}
+
+#dashboard ul li:hover {
+  -webkit-animation: ease-in-out;
+          animation: ease-in-out;
+  background-color: #fafafa;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#dashboard ul li i {
+  padding-right: 1rem;
+}
+
+a {
+  color: darkgray;
+}
+
+a:hover {
+  color: #0173b2;
+}
+
+.fa-hospital:before {
+  content: "\f0f8";
+}
+
+#account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 91vh;
+  background-color: white;
+}
+
+#user-schedule {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 100%;
+  background-color: white;
+}
+
+#user-schedule form {
+  padding: 2rem;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.11);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.11);
+  overflow-x: hidden;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10% 12% 74%;
+      grid-template-columns: 10% 12% 74%;
+  grid-column-gap: 2%;
+  grid-row-gap: 1rem;
+  background-color: #eeeded;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5rem;
+}
+
+#day {
+  background-color: white;
+}
+
+#day h2 {
+  padding: 0rem 1rem;
+}
+
+#timer label {
+  padding-bottom: 0.5rem;
+  margin: 0px;
+}
+
+#timer p {
+  margin: 0px;
+  padding: 0px;
+}
+
+#buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-self: end;
+  text-align: center;
+}
+
+#buttons button {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  margin: 0px;
+  padding: 0px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: #0173b2;
+  font-size: 1rem;
+  font-family: nexa-bold;
+  padding: 0rem 1rem;
+  letter-spacing: 0rem;
+  margin-right: 0.5rem;
+}
+
+#buttons button:hover {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#buttons button a {
+  color: white;
+}
+
+#buttons input {
+  text-align: center;
+  margin-top: 2%;
+  font-size: 2rem;
+}
+
+#details {
+  width: 100%;
+  background-color: white;
+  color: black;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 15% 15% 15% 15% 15% 15%;
+      grid-template-columns: 15% 15% 15% 15% 15% 15%;
+  padding: 1rem 0rem;
+  grid-gap: 1rem;
+}
+
+#details-slot {
+  border: 1px solid silver;
+  border-color: #0173b2;
+  text-align: center;
+}
+
+#details-slot p {
+  margin: 0px;
+  display: inline;
+  font-family: nexa-bold;
+  color: rgba(16, 171, 209, 0.822);
+  font-size: 1rem;
+}
+
+@media only screen and (max-width: 900px) {
+  #container {
+    padding: 0rem 1rem;
+  }
+  .mobilenav {
+    padding: 0rem 1rem;
+  }
+  .mobilenav img {
+    width: 10rem;
+  }
+  #info {
+    -ms-grid-columns: 40% 40%;
+        grid-template-columns: 40% 40%;
+  }
+  #dashboard h2 {
+    padding: 0px;
+    font-size: 1.5rem;
+    font-family: nexa-bold;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #container {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    padding: 0rem 1rem;
+    -ms-grid-rows: 35% 55%;
+        grid-template-rows: 35% 55%;
+  }
+  #dashboard {
+    overflow: scroll;
+  }
+  #dashboard h2 {
+    font-size: 3rem;
+  }
+  #info {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+  }
+  #account h2 {
+    padding: 0rem;
+    font-size: 2rem;
+  }
+  #account button {
+    margin-bottom: 0px;
+  }
+  #user-schedule form {
+    -ms-grid-columns: 100%;
+        grid-template-columns: 100%;
+    height: 10rem;
+  }
+}
+/*# sourceMappingURL=Add-schedule.css.map */

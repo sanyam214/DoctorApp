@@ -1,0 +1,100 @@
+@import "colors";
+@font-face {
+	font-family: nexa-bold;
+	src: url("../fonts/Nexa-Bold.otf");
+}
+@font-face {
+	font-family: nexa-light;
+	src: url("../fonts/Nexa-Light.otf");
+}
+.mobilenav{
+    padding:0rem 6rem;
+    height:6rem;
+    box-shadow: 0 4px 8px 0 $shadow;
+    ul{
+        display: none;
+    }
+    .t-plus,.quote{
+        display: none;
+    }
+    img{
+        height:3rem;
+        width:13%;
+    }
+}
+#confirm{
+    color:$white;
+}
+#confirmed{
+    color:$white;
+}
+.hero{
+    padding:0rem 6rem;
+    margin-top:2rem;
+    .container{
+        width:100%;
+        height:auto;
+        display: grid;
+        grid-template-columns: 20% 80%;
+        background-color: $white;
+        >div{
+            .Dashboardh2{
+                font-size:1.7rem;
+            }
+        }
+        .dashboard{
+            padding-top:1rem;
+            ul {
+                padding-top: 1rem;
+                font-family: Nexa;
+                font-size: 0.8rem;
+                color: $dark-gray;
+                list-style: none;
+                li {
+                    padding-bottom: 1rem;
+                    padding-top: 1rem;
+                    border: 1px solid $light;
+                    color: $dark-gray;
+                    transition: all ease-in 0.2s;
+                    font-family: nexa-bold;
+                    &:hover {
+                        animation: ease-in-out;
+                        background-color: $light;
+                        box-shadow: 0 4px 8px 0 $shadow;
+                    }
+                    i {
+                        padding-right: 1rem;
+                        color:$blue;
+                    }
+                    a {
+                        font-size: 0.8rem;
+                        font-family: nexa-light;
+                    }
+                }
+            }
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 96%;
+            margin-bottom:2rem;
+            margin-left:1rem;
+          }
+        tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+            a{
+                color: $blue;
+            }
+          }
+        th{
+            background-color: $blish-black;
+            color: white;
+        }
+        
+    }
+}
