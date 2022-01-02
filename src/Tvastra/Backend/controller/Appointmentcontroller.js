@@ -7,7 +7,7 @@ const doctordb = require("../Model/Doctorschems");
 const report = require("../Model/Medicalreport");
 var Doctorschema= require("../Model/Doctorschems");
 const getsettings = (req,res)=>{
-    console.log("Hello world shivam singla");
+    console.log("Hello world sanyam singla");
     if(req.session.email){
         if(req.query.givetoast=="true"){
             res.render("user_settings",{dp:req.session.Profileimg,givetoast:"true",ProfileName:req.session.Name,ProfileMobile:req.session.Mobile,isdoctor:req.session.isdoctor});
@@ -260,7 +260,7 @@ function collectinfo(req,res,name,toaster){
 const getprofile = (req,res)=>{
     if(req.session.email)
     {
-        console.log("Hello world shivam singla");
+        console.log("Hello world sanyam singla");
         console.log(req.session.email);
         console.log(req.session.Name);
         if(req.session.isdoctor=="true"){
@@ -475,7 +475,7 @@ const getschedule = (req,res)=>{
     var slots=[];
     var view="false";
     var selectedday="";
-    console.log("Hello world shivam singla");
+    console.log("Hello world sanyam singla");
     var hospital;
     Doctorschema.findOne({DoctorName:req.session.Name},(err,result)=>{
               if(err){
